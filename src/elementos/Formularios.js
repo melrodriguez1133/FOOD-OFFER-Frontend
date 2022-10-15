@@ -19,7 +19,7 @@ const Formulario = styled.form`
 
 const Label = styled.label `
     display: block;
-    font-weigh: 700;
+    font-weight: 700;
     padding : 10px;
     min-height: 40px;
     cursor: pointer;
@@ -39,4 +39,10 @@ const Input = styled.input`
     padding: 0 40px 0 10px;
     transition: .3s ease all;
     border: 3px solid transparent;
-`
+
+    &:focus{
+        border: 3px solid ${colores.borde};
+        outline: none;
+        box-shadoW: 3px 0px 30px rgba(163,163,163, 0.4);
+    }
+`;
