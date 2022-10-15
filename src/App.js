@@ -18,7 +18,7 @@ function App() {
 
 
        <h1 >criss</h1>
-      <Button color="#FFA600">Hello World</Button>
+      <Button color="primary">Hello World</Button>
       
       <Button variant="contained">Contained</Button>
       <Button variant="outlined">Outlined</Button>
