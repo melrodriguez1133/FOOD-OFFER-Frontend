@@ -18,16 +18,15 @@ import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import Button from '@mui/material/Button';
-import Map from './Map';
-import Credentials from './Credentials';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 function App() {
   const [nombre,setNombre]=useState("Nombre de la empresa");
 
-  /*const [fechaSeleccionada, cambiarFechaSeleccionada] = useState(new Date());
-  console.log(fechaSeleccionada)*/
+  const [fechaSeleccionada, cambiarFechaSeleccionada] = useState(new Date());
+  console.log(fechaSeleccionada)
 
     const [tipo, setTipo] = React.useState('');
     const handleChange = (event) => {
@@ -39,24 +38,17 @@ function App() {
         setValue(newValue);
       };
 
-      const mapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&key=${Credentials.mapsKey}';
-
   return (
     
     <main>
           <Formulario action=''>
-          
-
             <div>
               <Label htmlFor=''>Registro de Empresa</Label>
-              <TextField
-              hiddenLabel
-              id="filled-hidden-label-Nomre de la Empresa"
-              defaultValue="Nomre de la Empresa"
-              variant="filled"
-              size="large"
-            />
-            <br></br>
+              <GrupoInput>
+                <Input type="text" placeholder='Empresa'/>
+                <FontAwesomeIcon icon={faCheckCircle}/>
+              </GrupoInput>
+              
               <br></br>
               <Box sx={{ minWidth: 120 }}>
           <FormControl variant="outlined">
@@ -97,16 +89,12 @@ function App() {
             <FormControlLabel control={<Checkbox defaultChecked />} label="Domingo" />
           </FormGroup>
         
+            <TimePicker value={fechaSeleccionada} onChange={cambiarFechaSeleccionada} />
+
             <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Stack spacing={3}>
             <TimePicker
-              Label="Hora de Apertura"
-              value={value}
-              onChange={handleChange1}
-              renderInput={(params) => <TextField {...params} />}
-            />
-            <TimePicker
-              label="Hora de Cierre"
+              label="Hora"
               value={value}
               onChange={handleChange1}
               renderInput={(params) => <TextField {...params} />}
@@ -114,56 +102,35 @@ function App() {
             </Stack>
             </LocalizationProvider>
             </div>
-            
+
             <div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <TextField
-              Label="Contactos"
-              id="outlined-size-Contactos"
-              defaultValue="Contactos"
-              variant="filled"
-              size="large"
-            />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <TextField
-              Label="Correo de la Empresa"
-              id="outlined-size-Correo de la Empresa"
-              defaultValue="Correo de la Empresa"
-              variant="filled"
-              size="large"
-            />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <TextField
-              Label="Sucursales"
-              id="outlined-size-Sucursales"
-              defaultValue="Sucursales"
-              variant="filled"
-              size="large"
-            />
-          <div>
-             <Map
-              googleMapURL= {mapURL}
-              containerElement= {<div style={{height:'400px'}} />}
-              mapElement= {<div style={{height: '100%'}} />}
-              loadingElement= {<p>Cargando</p> }
-            />
-          </div>
+            <Box
+              component="form"
+              sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField id="outlined-basic" label="Outlined" variant="Contactos" />
+              <br></br> 
+              <TextField id="outlined-basic" label="Outlined" variant="Correo de Empresa" />
+              <br></br> 
+              <TextField id="outlined-basic" label="Outlined" variant="Direccion de Sucursales" />
+            </Box>   
+
+              <br></br>
+              <Label htmlFor=''>Tipo de Negocio</Label>
+              <Input type="text" placeholder='Tipo'/>
+
             </div>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+            
             
       </Formulario>
        </main>  
   );
  }
+
+
 
 export default App;
