@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ImageUploading, { ImageListType } from "react-images-uploading";
-import { BoxDragAndDrop } from './BoxDragAndDrop';
+import { BoxDragAndDrop } from './src/Componentes/BoxDragAndDrop';
 import { ImageSelected } from './ImageSelected';
 
 export const DragAndDrop = () => {
@@ -26,7 +26,7 @@ export const DragAndDrop = () => {
             <>
               {
                 imageList[0]
-                  ?  <ImageSelected  />
+                  ?  <ImageSelected img={imageList[0].dataURL!}  {...{ onImageRemove, onUpload, onImageUpdate, loading }} />
                   : <BoxDragAndDrop {...{ onImageUpload, dragProps, isDragging }} />
               }
             </>

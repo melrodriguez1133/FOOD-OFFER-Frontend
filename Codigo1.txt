@@ -19,9 +19,20 @@ import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Button from '@mui/material/Button';
+import Map from './Map';
+import Credentials from './Credentials';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+//import {reader, profileImg} from './Componentes/Image';
+//import imageHandler from "@material-ui/pickers";
+//import state from '@material-ui/core'; 
 
 function App() {
   const [nombre,setNombre]=useState("Nombre de la empresa");
+
+  /*const [fechaSeleccionada, cambiarFechaSeleccionada] = useState(new Date());
+  console.log(fechaSeleccionada)*/
 
     const [tipo, setTipo] = React.useState('');
     const handleChange = (event) => {
@@ -33,18 +44,51 @@ function App() {
         setValue(newValue);
       };
 
+      const mapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&key=${Credentials.mapsKey}';
+
+      state={profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}
+      imageHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () =>{
+          if(reader.readyState === 2){
+            this.setState({profileImg: reader.result})
+          }
+        }
+        reader.readAsDataURL(e.target.files[0])
+      };
+      reader() ;{
+        const { profileImg} = this.state
+
   return (
     
     <main>
           <Formulario action=''>
+
+          <div className="page">
+				<div className="container">
+					<h1 className="heading">Add your Image</h1>
+					<div className="img-holder">
+						<img src={profileImg} alt="" id="img" className="img" />
+					</div>
+					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+					<div className="label">
+          <label className="image-upload" htmlFor="input">
+						<i className="material-icons">add_photo_alternate</i>
+						Choose your Photo
+					</label>
+          </div>
+				</div>
+			</div>
+
             <div>
               <Label htmlFor=''>Registro de Empresa</Label>
-              
-            <TextField
-          id="outlined-multiline-static"
-          label="Nombre de la Empresa"
-          variant="outlined"
-          />
+              <TextField
+              hiddenLabel
+              id="filled-hidden-label-Nomre de la Empresa"
+              defaultValue="Nomre de la Empresa"
+              variant="filled"
+              size="large"
+            />
             <br></br>
               <br></br>
               <Box sx={{ minWidth: 120 }}>
@@ -108,40 +152,55 @@ function App() {
             <br></br>
             <br></br>
             <br></br>
-          
             <TextField
-            id="outlined-multiline-static"
-            label="Contactos"
-            variant="outlined"
+              Label="Contactos"
+              id="outlined-size-Contactos"
+              defaultValue="Contactos"
+              variant="filled"
+              size="large"
             />
-            
             <br></br>
             <br></br>
-            
+            <br></br>
+            <br></br>
             <TextField
-          id="outlined-multiline-static"
-          label="Correo de la Empresa"
-          variant="outlined"
-          />
-            
+              Label="Correo de la Empresa"
+              id="outlined-size-Correo de la Empresa"
+              defaultValue="Correo de la Empresa"
+              variant="filled"
+              size="large"
+            />
             <br></br>
             <br></br>
-            
+            <br></br>
+            <br></br>
             <TextField
-          id="outlined-multiline-static"
-          label="Sucursales"
-          variant="outlined"
-          />
+              Label="Sucursales"
+              id="outlined-size-Sucursales"
+              defaultValue="Sucursales"
+              variant="filled"
+              size="large"
+            />
+          <div>
+
+
+            
+             <Map
+              googleMapURL= {mapURL}
+              containerElement= {<div style={{height:'400px'}} />}
+              mapElement= {<div style={{height: '100%'}} />}
+              loadingElement= {<p>Cargando</p> }
+            />
+          </div>
             </div>
             <Button variant="primary" type="submit">
-              Registrar
+              Submit
             </Button>
-            <Button variant="primary" type="submit">
-              Cancelar
-            </Button>
+            
       </Formulario>
        </main>  
   );
  }
+}
 
 export default App;
