@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+.container{
+        min-width: 100%;
+        align-items: baseline;
+        justify-content: space-evenly;
+}
+
+.container .containerdown .imagenEmpresa{
+    min-height: 500px;
+    min-width: 500px;
+    border-left: 700px solid #F0EDE8;
+    background-color: #ff00aa;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.container .containerdown .botones .botonesGrupo{
+    padding-left: 950px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #F0EDE8;
+}
+
+button{
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: poppins-bold;
+    font-size: 18px;
+    font-style: Poppins;
+    color: #F0EDE8;
+    background-color: #E57603;
+    border-radius: 5px;
+    border: 5px solid #E57603;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    
+}
+
+.container .containerDatos .nombreEmpresa{
+    position: relative;
+    height: 200px;
+    margin: 20px 600px 20px 20px;
+    margin-top: -670px;
+    font-family: Poppins;
+    font-size: 50px;
+    color :  #2A5865 ;
+    border: 5px solid #1de503;
+}
