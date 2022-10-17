@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Box, TextField, Grid, Card, CardContent, FormControl,  Select, MenuItem, InputLabel } from '@mui/material';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { 
+  Box,
+  TextField,
+  Checkbox, 
+  Grid, 
+  Card, 
+  CardContent, 
+  FormControl, 
+  Select, 
+  MenuItem, 
+  InputLabel,
+  FormControlLabel,
+  FormGroup
+} from '@mui/material';
 import { LoadingButton } from '@mui/lab'
+
+
 
 const dataEspecialist = [
   {
@@ -18,31 +34,34 @@ const dataEspecialist = [
   }
 ]
 
+
 function App() {
 
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     nameEmpresa: '',
+    tipoEmpresa: 0,
     descripcion:'',
     horaIni:'',
     horaFin:'',
-    lastname: '',
-    rol: 0
-
+    direccion:'',
+    nroCelular:'',
+    nroTelefono:'',
+    email: ''
   });
 
-  const { nameEmpresa, descripcion,horaIni,horaFin,lastname, rol } = formData;
+  const { nameEmpresa,tipoEmpresa,descripcion,horaIni,horaFin,direccion,nroCelular,nroTelefono,email} = formData;
 
   const handleOnchange = (e) => {
     console.log([e.target.name], e.target.value)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  const handleSubmit = (nameEmpresa, descripcion,horaIni,horaFin,lastname, rol) => {
-    console.log(nameEmpresa,descripcion, horaIni,horaFin,lastname, rol);
+  const handleSubmit = (nameEmpresa,tipoEmpresa, descripcion,horaIni,horaFin,direccion,nroCelular,nroTelefono,email) => {
+    console.log(nameEmpresa,tipoEmpresa,descripcion, horaIni,horaFin,descripcion,nroCelular,nroTelefono,email);
     setLoading(true)
-    alert(`datos formularios:::, ${nameEmpresa}, ${descripcion},${horaIni},${horaFin},${lastname}, ${rol}`)
+    alert(`datos formularios:, ${nameEmpresa},${tipoEmpresa},${descripcion},${horaIni},${horaFin},${direccion},${nroCelular},${nroTelefono},${email}`)
     setTimeout(() => {
       setLoading(false)
     }, 3000);
@@ -80,7 +99,7 @@ function App() {
                     <Select
                     required
                       name="tipoEmpresa"
-                      value={rol}
+                      value={tipoEmpresa}
                       fullWidth
                       label="tipoEmpresa"
                       onChange={handleOnchange}>
@@ -91,6 +110,8 @@ function App() {
                     </Select>
                   </FormControl>
                 </Grid>
+
+
 
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <FormControl sx={{ width: '100%' }}>
@@ -108,10 +129,26 @@ function App() {
                    /> 
                   </FormControl>
                 </Grid>
+
+              
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                <label className="label">Horarios de Trabajo </label>
+                 <FormGroup>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Lunes" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Martes" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Miercoles" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Jueves" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Viernes" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Sabado" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Domingo" />
+                </FormGroup>
+                </Grid>
+
                 <h4>Hora de atencion</h4>
+
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <FormControl sx={{ width: '100%' }}>
-                <TextField
+                <TimePicker
                    required
                     id="time"
                    label="Hora Apertura"
@@ -129,7 +166,7 @@ function App() {
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <FormControl sx={{ width: '100%' }}>
                 <TextField
-                   required
+                    required
                     id="time"
                    label="Hora Cierre"
                    type="time"
@@ -144,27 +181,66 @@ function App() {
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-
                   <TextField
-                  required
                     error={false}
-                    label="Last Name"
-                    type="email"
-                    name="lastname"
-                    value={lastname}
+                    label="Direccion"
+                    type="texto"
+                    name="direccion"
+                    value={direccion}
                     onChange={handleOnchange}
                     margin="dense"
                     fullWidth
                     variant="outlined"
                   />
-
                 </Grid>
                 
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <TextField
+                    error={false}
+                    label="Numero de celular"
+                    type="number"
+                    name="nroCelular"
+                    value={nroCelular}
+                    onChange={handleOnchange}
+                    margin="dense"
+                    fullWidth
+                    variant="outlined"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <TextField
+                    error={false}
+                    label="Numero de Telefono"
+                    type="number"
+                    name="nroTelefono"
+                    value={nroTelefono}
+                    onChange={handleOnchange}
+                    margin="dense"
+                    fullWidth
+                    variant="outlined"
+                  />
+                </Grid>
+                
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <TextField
+                    error={false}
+                    label="Correo Electronico"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleOnchange}
+                    margin="dense"
+                    fullWidth
+                    variant="outlined"
+                  />
+                </Grid>
+
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <Box sx={{ '& > button': { m: 1 } }}>
                     <LoadingButton
                       size="medium"
-                      onClick={() => handleSubmit(nameEmpresa,descripcion,horaIni, lastname, rol)}
+                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa,descripcion,horaIni,horaFin,direccion,nroCelular,nroTelefono,email)}
                       loading={loading}
                       variant="outlined"
                       disabled={!loading ? false : true}
