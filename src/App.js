@@ -146,16 +146,16 @@ function App() {
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 
                   <TextField
+                  required
                     error={false}
                     label="Last Name"
-                    type="text"
+                    type="email"
                     name="lastname"
                     value={lastname}
                     onChange={handleOnchange}
                     margin="dense"
                     fullWidth
                     variant="outlined"
-                    helperText="Campo obligatorio"
                   />
 
                 </Grid>
