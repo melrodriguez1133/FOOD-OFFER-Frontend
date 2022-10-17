@@ -19,6 +19,9 @@ import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Button from '@mui/material/Button';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 function App() {
   const [nombre,setNombre]=useState("Nombre de la empresa");
@@ -32,6 +35,8 @@ function App() {
       const handleChange1 = (newValue) => {
         setValue(newValue);
       };
+
+
 
   return (
     
@@ -77,12 +82,18 @@ function App() {
         <br></br>
         <label className="label">Horarios de Trabajo </label>
           <FormGroup>
+            <div>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Lunes" />
             <FormControlLabel control={<Checkbox defaultChecked />} label="Martes" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Miercoles" />
+            </div>
+            <div>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Miercoles" />  
             <FormControlLabel control={<Checkbox defaultChecked />} label="Jueves" />
+            </div>
+            <div>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Viernes" />
             <FormControlLabel control={<Checkbox defaultChecked />} label="Sabado" />
+            </div>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Domingo" />
           </FormGroup>
         
@@ -92,18 +103,22 @@ function App() {
               Label="Hora de Apertura"
               value={value}
               onChange={handleChange1}
-              renderInput={(params) => <TextField {...params} />}
+              renderInput= {<TextField id="outlined-multiline-static" label="Número de Celular" variant="outlined" />}
             />
             <TimePicker
               label="Hora de Cierre"
               value={value}
               onChange={handleChange1}
-              renderInput={(params) => <TextField {...params} />}
+              renderInput= {<TextField
+          id="outlined-multiline-static"
+          label="Correo de Empresa"
+          variant="outlined"
+          />}
             />
             </Stack>
             </LocalizationProvider>
             </div>
-            
+        
             <div>
             <br></br>
             <br></br>
@@ -111,27 +126,35 @@ function App() {
           
             <TextField
             id="outlined-multiline-static"
-            label="Contactos"
+            label="Número de Celular"
             variant="outlined"
             />
-            
             <br></br>
             <br></br>
             
             <TextField
           id="outlined-multiline-static"
-          label="Correo de la Empresa"
+          label="Número de Celular"
           variant="outlined"
           />
-            
             <br></br>
             <br></br>
             
             <TextField
           id="outlined-multiline-static"
-          label="Sucursales"
+          label="Ingrese su dirección"
           variant="outlined"
           />
+            <br></br>
+            <br></br>
+            
+            <TextField
+          id="outlined-multiline-static"
+          label="Correo de Empresa"
+          variant="outlined"
+          />
+            
+            
             </div>
             <Button variant="primary" type="submit">
               Registrar
