@@ -24,6 +24,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { LoadingButton } from '@mui/lab';
 import { Grid, Card, CardContent  } from '@mui/material';
+//import { Email } from 'material-ui-icons';
 
 const dataEspecialist = [
   {
@@ -71,25 +72,29 @@ function App() {
       const [loading, setLoading] = useState(false);
       const [formData, setFormData] = useState({
         nameEmpresa: '',
+        tipoEmpresa: 0,
         descripcion:'',
         horaIni:'',
         horaFin:'',
         lastname: '',
-        rol: 0
+        numCel:'',
+        nrotelef:'',
+        direccion:'',
+        email:''
     
       });
     
-      const { nameEmpresa, descripcion,horaIni,horaFin,lastname, rol } = formData;
+      const { nameEmpresa, tipoEmpresa,descripcion,horaIni,horaFin, numCel,nrotelef, direccion, email} = formData;
     
       const handleOnchange = (e) => {
         console.log([e.target.name], e.target.value)
         setFormData({ ...formData, [e.target.name]: e.target.value });
       }
     
-      const handleSubmit = (nameEmpresa, descripcion,horaIni,horaFin,lastname, rol) => {
-        console.log(nameEmpresa,descripcion, horaIni,horaFin,lastname, rol);
+      const handleSubmit = (nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email) => {
+        console.log(nameEmpresa, tipoEmpresa, descripcion, horaIni,horaFin,  numCel, nrotelef, direccion, email);
         setLoading(true)
-        alert(`datos formularios:::, ${nameEmpresa}, ${descripcion},${horaIni},${horaFin},${lastname}, ${rol}`)
+        alert(`datos formularios:::, ${nameEmpresa}, ${tipoEmpresa}, ${descripcion},${horaIni},${horaFin}, ${numCel}, ${nrotelef}, ${direccion}, ${email}`)
         setTimeout(() => {
           setLoading(false)
         }, 3000);
@@ -129,7 +134,7 @@ function App() {
               <Select
                     required
                       name="tipoEmpresa"
-                      value={rol}
+                      value={tipoEmpresa}
                       fullWidth
                       label="tipoEmpresa"
                       onChange={handleOnchange}>
@@ -216,34 +221,63 @@ function App() {
             <br></br>
           
             <TextField
-            id="outlined-multiline-static"
+            required
+            error={false}
             label="Número de Celular"
+            type="text"
+            name="numCel"
+            value={numCel}
+            onChange={handleOnchange}
+            margin="dense"
+            fullWidth
             variant="outlined"
             />
             <br></br>
             <br></br>
             
             <TextField
-          id="outlined-multiline-static"
-          label="Número de Celular"
+          required
+          error={false}
+          label="Número de Telefono"
+          type="text"
+          name="nrotelef"
+          value={nrotelef}
+          onChange={handleOnchange}
+          margin="dense"
+          fullWidth
           variant="outlined"
           />
             <br></br>
             <br></br>
             
             <TextField
-          id="outlined-multiline-static"
-          label="Ingrese su dirección"
-          variant="outlined"
+            required
+            error={false}
+            label="Ingrese su dirección"
+            type="text"
+            name="direccion"
+            value={direccion}
+            onChange={handleOnchange}
+            margin="dense"
+            fullWidth
+            variant="outlined"
+
           />
             <br></br>
             <br></br>
-            
-            <TextField
-          id="outlined-multiline-static"
-          label="Correo de Empresa"
-          variant="outlined"
-          />
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <TextField
+                    error={false}
+                    label="Correo Electronico"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleOnchange}
+                    margin="dense"
+                    fullWidth
+                    variant="outlined"
+                  />
+                </Grid>
             
             
             </div>
@@ -251,19 +285,16 @@ function App() {
                   <Box sx={{ '& > button': { m: 1 } }}>
                     <LoadingButton
                       size="medium"
-                      onClick={() => handleSubmit(nameEmpresa,descripcion,horaIni, lastname, rol)}
+                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa,descripcion,horaIni, horaFin,numCel, nrotelef, direccion)}
                       loading={loading}
                       variant="outlined"
                       disabled={!loading ? false : true}
                     >
-                      Enviar
+                      Registrar
                     </LoadingButton>
 
                   </Box>
                 </Grid>
-                <Button variant="primary" type="submit">
-              Registrar
-            </Button>
             <Button variant="primary" type="submit">
               Cancelar
             </Button>
