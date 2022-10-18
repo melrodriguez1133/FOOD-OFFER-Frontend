@@ -24,7 +24,6 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { LoadingButton } from '@mui/lab';
 import { Grid, Card, CardContent  } from '@mui/material';
-//import { Email } from 'material-ui-icons';
 
 const dataEspecialist = [
   {
@@ -76,7 +75,7 @@ function App() {
         descripcion:'',
         horaIni:'',
         horaFin:'',
-        lastname: '',
+
         numCel:'',
         nrotelef:'',
         direccion:'',
@@ -85,6 +84,7 @@ function App() {
       });
     
       const { nameEmpresa, tipoEmpresa,descripcion,horaIni,horaFin, numCel,nrotelef, direccion, email} = formData;
+      
     
       const handleOnchange = (e) => {
         console.log([e.target.name], e.target.value)
@@ -95,6 +95,10 @@ function App() {
         console.log(nameEmpresa, tipoEmpresa, descripcion, horaIni,horaFin,  numCel, nrotelef, direccion, email);
         setLoading(true)
         alert(`datos formularios:::, ${nameEmpresa}, ${tipoEmpresa}, ${descripcion},${horaIni},${horaFin}, ${numCel}, ${nrotelef}, ${direccion}, ${email}`)
+      const handleSubmit = (nameEmpresa, descripcion,horaIni,horaFin,lastname, rol) => {
+        console.log(nameEmpresa,descripcion, horaIni,horaFin,lastname, rol);
+        setLoading(true)
+        alert(`datos formularios:::, ${nameEmpresa}, ${descripcion},${horaIni},${horaFin},${lastname}, ${rol}`)
         setTimeout(() => {
           setLoading(false)
         }, 3000);
@@ -134,6 +138,7 @@ function App() {
               <Select
                     required
                       name="tipoEmpresa"
+
                       value={tipoEmpresa}
                       fullWidth
                       label="tipoEmpresa"
@@ -291,10 +296,14 @@ function App() {
                       disabled={!loading ? false : true}
                     >
                       Registrar
+                      Enviar
                     </LoadingButton>
 
                   </Box>
                 </Grid>
+                <Button variant="primary" type="submit">
+              Registrar
+            </Button>
             <Button variant="primary" type="submit">
               Cancelar
             </Button>
@@ -302,5 +311,5 @@ function App() {
        </main>  
   );
  }
-
+}
 export default App;
