@@ -15,7 +15,7 @@ function App() {
 
    return (
     <div className='app'>
-      <VisualizadorEBar />
+        <VisualizadorEBar />
         <VisualizadorEmpresa />
     </div>
     

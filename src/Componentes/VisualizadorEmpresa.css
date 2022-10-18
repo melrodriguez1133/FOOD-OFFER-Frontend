@@ -32,21 +32,120 @@ button{
     font-size: 18px;
     font-style: Poppins;
     color: #F0EDE8;
-    background-color: #E57603;
+    background-color: #2A5865;
     border-radius: 5px;
-    border: 5px solid #E57603;
+    border: 5px solid #2A5865;
     margin-left: 15px;
     margin-bottom: 20px;
     
 }
 
 .container .containerDatos .nombreEmpresa{
+    align-items: flex-end;
     position: relative;
-    height: 200px;
-    margin: 20px 600px 20px 20px;
-    margin-top: -670px;
+    height: 70px;
+    margin: 30px 600px 20px 20px;
+    margin-top: -720px;
     font-family: Poppins;
-    font-size: 50px;
-    color :  #2A5865 ;
-    border: 5px solid #1de503;
+    font-size: 55px;
+    letter-spacing: 10px;
+    line-height: 1;
+    border-left: 10px solid #F0EDE8;
+    color : #E57603 ;
+    margin-bottom: 105px;
+}
+
+.container .containerDatos .tipoEmpresa{
+    position: relative;
+    height: 25px;
+    margin: 30px 500px 20px 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    letter-spacing: 20px;
+    line-height: 1;
+    color : #ffffff ;
+    border-top: 5px solid  #91BCC2 ;
+    border-left: 10px solid  #91BCC2 ;
+    background-color:  #91BCC2 ;
+    margin-bottom: -25px;
+}
+
+.container .containerDatos .descripcion{
+    position: relative;
+    height: 100px;
+    margin: 30px 630px 20px 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 1;
+    color : #2A5865;
+    border-top: 5px solid #F0EDE8;
+    border-left: 10px solid #F0EDE8;
+    background-color: #F0EDE8;
+    margin-bottom: -25px;
+}
+
+.container .containerDatos .horarios{
+    position: relative;
+    height: 60px;
+    margin: 30px 500px 20px 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 1;
+    color : #ffffff ;
+    border-top: 22px solid #2A5865;
+    border-left: 30px solid #2A5865;
+    background-color: #2A5865;
+    margin-bottom: -25px;
+}
+
+.container .containerDatos .contactos{
+    position: relative;
+    height: 60px;
+    margin: 30px 800px 20px 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 1;
+    color : #ffffff ;
+    border-top: 22px solid #2A5865;
+    border-left: 30px solid #2A5865;
+    background-color: #2A5865;
+    margin-bottom: -25px;
+}
+
+.container .containerDatos .correoEmpresa{
+    position: relative;
+    height: 60px;
+    margin: 30px 500px 100px 530px;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 1;
+    color : #ffffff ;
+    border-top: 22px solid  #91BCC2 ;
+    border-left: 30px solid  #91BCC2 ;
+    background-color:  #91BCC2;
+    /*margin-bottom: -200px;*/
+    margin-top: -59px;
+}
+
+.container .containerDatos .ubicacionTitulo{
+    position: relative;
+    height: 30px;
+    margin: 30px 500px 20px 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 1;
+    color : #ffffff ;
+    border-top: 7px solid #2A5865;
+    border-left: 30px solid #2A5865;
+    background-color: #2A5865;
+    margin-top: -95px;
+}
+
+.container .containerDatos .ubicacionMapa{
+    position: relative;
+    height: 130px;
+    margin: 30px 630px 20px 20px;
+    background-color: #2A5865;
+    margin-top: -15px;
+    /*border-radius: 5px;*/
 }

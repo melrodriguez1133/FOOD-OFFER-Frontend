@@ -10,7 +10,6 @@ class VisualizadorEmpresa extends Component {
     render(){
         return (
             <div className ="container">
-                <div>Food Offer</div>
                 <div className="containerdown">
                     <div className="imagenEmpresa">
                     <img className="imagen" src="restaurant.JPG"/>
@@ -24,15 +23,13 @@ class VisualizadorEmpresa extends Component {
                     </div>
                 </div>
                 <div className="containerDatos">
-                    <div className="nombreEmpresa">
-                        Nombre de la empresa
-                    </div>
-                    <div className="tipoEmpresa"></div>
-                    <div className="descripcion"></div>
-                    <div className="horarios"></div>
-                    <div className="contactos"></div>
-                    <div className="correoEmpresa"></div>
-                    <div className="ubicacionTitulo"></div>
+                    <div className="nombreEmpresa">Nombre de la Empresa largo largo</div>
+                    <div className="tipoEmpresa">Tipo de Negocio</div>
+                    <div className="descripcion">Descripción...........</div>
+                    <div className="horarios">Horarios......</div>
+                    <div className="contactos">Contactos: xxxxxxxx - xxxxxxxx</div>
+                    <div className="correoEmpresa">Correo: xxxxxxxxx@xxxxx.xxx</div>
+                    <div className="ubicacionTitulo">Ubicación Empresa</div>
                     <div className="ubicacionMapa"></div>
                 </div>
             </div>

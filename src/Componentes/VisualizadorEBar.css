@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+.up .nombreApp{
+    /*animation: mymove 1s infinite;*/
+    align-items: stretch;
+    font-family: Poppins;
+    font-size: 20px;
+    letter-spacing: 10px;
+    height: 65px;
+    color :  #F0EDE8;
+    background: #2A5865;
+    border-left: 20px solid #2A5865;
+    border-top: 10px solid #2A5865;
+    border-bottom: 20px solid #F0EDE8;
+
+    /*border: 5px solid #F0EDE8;*/
+}
