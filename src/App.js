@@ -1,29 +1,19 @@
 import React, {useState} from 'react';
 import './App.css';
-import {TimePicker} from '@material-ui/pickers';
+//import {TimePicker} from '@material-ui/pickers';
 import {Formulario, Label, GrupoInput, Input} from './elementos/Formularios';
-import {FontAwesomeIcon} from'@fortawesome/react-fontawesome';
-import {faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 import FormControl from '@material-ui/core/FormControl';
 import { InputLabel } from '@mui/material';
 import Select from '@mui/material/Select';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import * as react from 'react';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
-import dayjs from 'dayjs';
-import Stack from '@mui/material/Stack';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Button from '@mui/material/Button';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { LoadingButton } from '@mui/lab';
-import { Grid, Card, CardContent  } from '@mui/material';
+import { Grid  } from '@mui/material';
 
 const dataEspecialist = [
   {
@@ -40,49 +30,29 @@ const dataEspecialist = [
   }
 ]
 
+
 function App() {
-  const [nombre,setNombre]=useState("Nombre de la empresa");
+  
 
-    const [tipo, setTipo] = React.useState('');
-    const handleChange = (event) => {
-      setTipo(event.target.value);
-    };
-
-      const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+    /*  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
       const handleChange1 = (newValue) => {
         setValue(newValue);
-      };
-
-      const dataEspecialist = [
-        {
-          id: 1,
-          descriptions: 'Cafeteria',
-        },
-        {
-          id: 2,
-          descriptions: 'Supermercado',
-        },
-        {
-          id: 3,
-          descriptions: 'Restaurante',
-        }
-      ]
+      };*/
 
       const [loading, setLoading] = useState(false);
       const [formData, setFormData] = useState({
         nameEmpresa: '',
         tipoEmpresa: 0,
         descripcion:'',
+
         horaIni:'',
         horaFin:'',
-
         numCel:'',
         nrotelef:'',
         direccion:'',
         email:''
     
       });
-    
       const { nameEmpresa, tipoEmpresa,descripcion,horaIni,horaFin, numCel,nrotelef, direccion, email} = formData;
       
     
@@ -91,15 +61,13 @@ function App() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       }
     
+        
       const handleSubmit = (nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email) => {
-        console.log(nameEmpresa, tipoEmpresa, descripcion, horaIni,horaFin,  numCel, nrotelef, direccion, email);
+        console.log(nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email);
         setLoading(true)
-        alert(`datos formularios:::, ${nameEmpresa}, ${tipoEmpresa}, ${descripcion},${horaIni},${horaFin}, ${numCel}, ${nrotelef}, ${direccion}, ${email}`)
-      const handleSubmit = (nameEmpresa, descripcion,horaIni,horaFin,lastname, rol) => {
-        console.log(nameEmpresa,descripcion, horaIni,horaFin,lastname, rol);
-        setLoading(true)
-        alert(`datos formularios:::, ${nameEmpresa}, ${descripcion},${horaIni},${horaFin},${lastname}, ${rol}`)
-        setTimeout(() => {
+        alert(`Datos del Formulario:, Nombre de Empresa: ${nameEmpresa}, Tipo de Empresa: ${tipoEmpresa}, Descripción de la Empresa: ${descripcion}, 
+        Hora de Apertura: ${horaIni}, Hora de Cierre: ${horaFin}, Número de Celular: ${numCel}, Número de telefono: ${nrotelef}, Dirección de la Empresa: ${direccion}, Correo Electrónico: ${email}`)
+        setTimeout(() =>{
           setLoading(false)
         }, 3000);
       }
@@ -191,19 +159,18 @@ function App() {
             <TextField
             required
               id="time"
-              label="Hora de Cierre"
+              label="Hora de Apertura"
               type="time"
-              name="horaFin"
-              value={horaFin}
-              onChange={handleChange1}
+              name="horaIni"
+              value={horaIni}
+              onChange={handleOnchange}
               margin="dense"
                   variant="outlined"
                   fullWidth
-            />
+            /> 
             
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            
             <TextField
             required
               id="time"
@@ -211,13 +178,13 @@ function App() {
               type="time"
               name="horaFin"
               value={horaFin}
-              onChange={handleChange1}
+              onChange={handleOnchange}
               margin="dense"
                   variant="outlined"
                   fullWidth
             />
-            
             </Grid>
+            
             </div>
                 
             <div>
@@ -272,8 +239,9 @@ function App() {
             <br></br>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <TextField
+                  required
                     error={false}
-                    label="Correo Electronico"
+                    label="Correo Electrónico"
                     type="email"
                     name="email"
                     value={email}
@@ -290,20 +258,16 @@ function App() {
                   <Box sx={{ '& > button': { m: 1 } }}>
                     <LoadingButton
                       size="medium"
-                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa,descripcion,horaIni, horaFin,numCel, nrotelef, direccion)}
+                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email)}
                       loading={loading}
                       variant="outlined"
                       disabled={!loading ? false : true}
                     >
                       Registrar
-                      Enviar
                     </LoadingButton>
 
                   </Box>
                 </Grid>
-                <Button variant="primary" type="submit">
-              Registrar
-            </Button>
             <Button variant="primary" type="submit">
               Cancelar
             </Button>
@@ -311,5 +275,5 @@ function App() {
        </main>  
   );
  }
-}
+
 export default App;
