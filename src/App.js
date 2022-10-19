@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-//import {TimePicker} from '@material-ui/pickers';
-import {Formulario, Label, GrupoInput, Input} from './elementos/Formularios';
-import FormControl from '@material-ui/core/FormControl';
+import {Formulario, Label} from './elementos/Formularios';
 import { InputLabel } from '@mui/material';
 import Select from '@mui/material/Select';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
@@ -30,31 +29,21 @@ const dataEspecialist = [
   }
 ]
 
-
 function App() {
-  
-
-    /*  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
-      const handleChange1 = (newValue) => {
-        setValue(newValue);
-      };*/
-
       const [loading, setLoading] = useState(false);
       const [formData, setFormData] = useState({
         nameEmpresa: '',
         tipoEmpresa: 0,
         descripcion:'',
-
         horaIni:'',
         horaFin:'',
         numCel:'',
         nrotelef:'',
         direccion:'',
         email:''
-    
       });
+
       const { nameEmpresa, tipoEmpresa,descripcion,horaIni,horaFin, numCel,nrotelef, direccion, email} = formData;
-      
     
       const handleOnchange = (e) => {
         console.log([e.target.name], e.target.value)
@@ -62,16 +51,38 @@ function App() {
       }
     
         
-      const handleSubmit = (nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email) => {
-        console.log(nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email);
+      const handleSubmit = (nameEmpresa, tipoEmpresa, descripcion,Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, horaIni, horaFin, numCel, nrotelef, direccion, email) => {
+        console.log(nameEmpresa, tipoEmpresa, descripcion,Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, horaIni, horaFin, numCel, nrotelef, direccion, email);
         setLoading(true)
-        alert(`Datos del Formulario:, Nombre de Empresa: ${nameEmpresa}, Tipo de Empresa: ${tipoEmpresa}, Descripción de la Empresa: ${descripcion}, 
+        alert(`Datos del Formulario:, Nombre de Empresa: ${nameEmpresa}, Tipo de Empresa: ${tipoEmpresa}, Descripción de la Empresa: ${descripcion}, Dias de Trabajo: ${Lunes} ${Martes} ${Miercoles} ${Jueves} ${Viernes} ${Sabado} ${Domingo},
         Hora de Apertura: ${horaIni}, Hora de Cierre: ${horaFin}, Número de Celular: ${numCel}, Número de telefono: ${nrotelef}, Dirección de la Empresa: ${direccion}, Correo Electrónico: ${email}`)
         setTimeout(() =>{
           setLoading(false)
         }, 3000);
       }
 
+      //export default function CheckboxesGroup() {
+        const [state, setState] = React.useState({
+          Lunes: "Lunes",
+          Martes: "Martes",
+          Miercoles: "Miercoles",
+          Jueves: "Jueves",
+          Viernes: "Viernes",
+          Sabado: "Sabado",
+          Domingo: "Domingo",
+          
+        });
+      
+        const handleChange = (event) => {
+          setState({
+            ...state,
+            [event.target.name]: event.target.checked,
+          });
+        };
+      
+        const { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo } = state;
+        const error = [Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo].filter((v) => v).length !== 2;
+        
   return (
     
     <main>
@@ -80,7 +91,6 @@ function App() {
               <Label htmlFor=''>Registro de Empresa</Label>
               
             <TextField
-
                     required
                     error={false}
                     label="Nombre de la empresa"
@@ -91,17 +101,12 @@ function App() {
                     margin="dense"
                     fullWidth
                     variant="outlined"
-                  
-
-         /* id="outlined-multiline-static"
-          label="Nombre de la Empresa"
-          variant="outlined"*/
           />
             <br></br>
               <br></br>
               
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                  <FormControl sx={{ width: '100%' }}>
+                  
                   <InputLabel id="demo-simple-select-label">Tipo de empresa</InputLabel>
               <Select
                     required
@@ -116,7 +121,7 @@ function App() {
                         <MenuItem key={d.id} value={d.id}>{d.descriptions}</MenuItem>
                       ))}
                       </Select>
-          </FormControl>
+          
           </Grid>
           
           <br></br>
@@ -140,19 +145,67 @@ function App() {
         <br></br>
         <label className="label">Horarios de Trabajo </label>
           <FormGroup>
-            <div>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Lunes" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Martes" />
-            </div>
-            <div>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Miercoles" />  
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Jueves" />
-            </div>
-            <div>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Viernes" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Sabado" />
-            </div>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Domingo" />
+          <Box sx={{ display: 'flex' }}>
+      <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+       
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox checked={Lunes} onChange={handleChange} name="Lunes" />
+            }
+            label="Lunes"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Martes} onChange={handleChange} name="Martes" />
+            }
+            label="Martes"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Miercoles} onChange={handleChange} name="Miercoles" />
+            }
+            label="Miercoles"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Jueves} onChange={handleChange} name="Jueves" />
+            }
+            label="Jueves"
+          />
+        </FormGroup>
+        
+      </FormControl>
+      <FormControl
+        required
+        error={error}
+        component="fieldset"
+        sx={{ m: 3 }}
+        variant="standard"
+      >
+        <FormGroup>
+          
+          <FormControlLabel
+            control={
+              <Checkbox checked={Viernes} onChange={handleChange} name="Viernes" />
+            }
+            label="Viernes"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Sabado} onChange={handleChange} name="Sabado" />
+            }
+            label="Sabado"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Domingo} onChange={handleChange} name="Domingo" />
+            }
+            label="Domingo"
+          />
+        </FormGroup>
+      </FormControl>
+    </Box>
           </FormGroup>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           
@@ -258,7 +311,7 @@ function App() {
                   <Box sx={{ '& > button': { m: 1 } }}>
                     <LoadingButton
                       size="medium"
-                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa, descripcion, horaIni, horaFin, numCel, nrotelef, direccion, email)}
+                      onClick={() => handleSubmit(nameEmpresa, tipoEmpresa, descripcion,Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo, horaIni, horaFin, numCel, nrotelef, direccion, email)}
                       loading={loading}
                       variant="outlined"
                       disabled={!loading ? false : true}
@@ -268,9 +321,13 @@ function App() {
 
                   </Box>
                 </Grid>
-            <Button variant="primary" type="submit">
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                <Box sx={{ '& > button': { m: 1 } }}>
+            <Button variant="outlined" type="submit">
               Cancelar
             </Button>
+            </Box>
+            </Grid>
       </Formulario>
        </main>  
   );
