@@ -45,17 +45,15 @@ img{
 
 #moveform{
   margin:3%;
-  margin-top:5%;
+  margin-top:6%;
   margin-left:43%;
   width: 54%;
-  height:85%;
+  height:80%;
   float:right;
   z-index:40;
   position:absolute;
-  background-color: black;
-  
 }
-
+ 
 
 
 

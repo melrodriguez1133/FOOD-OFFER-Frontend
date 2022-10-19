@@ -1,6 +1,7 @@
 import React from 'react';
 import imagfoodre from './imagfoodre.png';
 import './App.css';
+import { TextField } from '@material-ui/core';
 function App() {
   return (
   <header>
@@ -12,9 +13,19 @@ function App() {
       </div>
       <div id="moveform">
           <lightning-card  id="tamform">
-            <h1>melani</h1>
             <form>
-
+                  <TextField
+                  error={false}
+                  label="Descripcion"
+                  multiline
+                  rows={5}
+                  type="text"
+                  name="descripcion"
+                  margin="dense"
+                  fullWidth
+                  variant="outlined"> 
+                   buscar
+                  </TextField>
 
             </form>
            </lightning-card>
