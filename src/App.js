@@ -1,4 +1,17 @@
-import React, {useState} from 'react';
+import RegistrarEmpresa from './Components/RegistrarEmpresa';
+import React, { Component } from "react";
+import './Components/RegistrarEmpresa.css';
+class registrarEmpresa extends Component {
+    render(){
+        return (
+            <RegistrarEmpresa/>
+        );
+    }
+}
+
+export default registrarEmpresa;
+
+/*import React, {useState} from 'react';
 import imagfoodre from './imagfoodre.jpeg';
 import './App.css';
 //import { TextField } from '@material-ui/core';
@@ -260,4 +273,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
