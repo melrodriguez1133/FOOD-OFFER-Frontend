@@ -1,7 +1,29 @@
-body{
- background-color:   #F0EDE8    ;
+
+body {
+	font-size:80%;
+  background-color:   #F0EDE8 ;
 }
+
+
+/* porcentaje base, solo en el body */
+p {
+	font-size:0.9em;
+}
+h1 {
+	font-size:2em;
+}
+h2 {
+	font-size:1.4em;
+}
+#pie {
+	font-size:1.2em;
+}
+.epigrafes {
+	font-size:1.1em;
+}
+
 img{
-    width: 50%;
-    height: 40%;
-  }
+  width: 35%;
+  height: 40%;
+}
+

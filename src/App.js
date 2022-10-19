@@ -1,5 +1,5 @@
 import React from 'react';
-import ImagRegEm from './ImagRegEm.png';
+import imagfoodre from './imagfoodre.png';
 import './App.css';
 
 function App() {
@@ -7,9 +7,8 @@ function App() {
   <header>
     <body>
       <div id="imagComida">
-      <img src={ImagRegEm} class="imag" alt="logo" />
+      <img src={imagfoodre} class="imag" alt="logo" />
       </div>
-
     </body>
   </header>
   );
