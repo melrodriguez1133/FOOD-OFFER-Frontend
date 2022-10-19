@@ -1,11 +1,30 @@
 
 body {
+  width:100%;
+  height: auto;
 	font-size:80%;
   background-color:   #F0EDE8 ;
 }
 
 img{
-  width: 35%;
-  height: 40%;
+  width: 40%;
+  height: 100%;
+  z-index:4;
+  position:absolute;
+}
+
+#moveform{
+  margin:3%;
+  width: 54%;
+  height:100%;
+  float:right;
+  z-index:50;
+  position:relative;
+  
+}
+
+h1{
+  text-align: center;
+  color: black;
 }
 
