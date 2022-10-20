@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './customcss/style.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import ShowRegistrarEmpresas from './componentes/ShowRegistrarEmpresas';
+import CreateRegistrarEmpresa from './componentes/CreateRegistrarEmpresa';
+import EditRegistrarEmpresa from './componentes/EditRegistrarEmpresa';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={ <ShowRegistrarEmpresas/>}/>
+          <Route path='/create' element={ <CreateRegistrarEmpresa/>}/>
+          <Route path='/edit/:id' element={ <EditRegistrarEmpresa/>}/>
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }
-
+//<button className='btn btn-primary'>Crear</button>
 export default App;
