@@ -29,15 +29,15 @@ const ShowRegistrarEmpresas = () => {
         <table className='table table-striped'>
             <thead className='bg-primary text-white'>
                 <tr>
-                    <th>nombreEmpresa</th>
-                    <th>tipoNegocioE</th>
-                    <th>descripcion</th>
-                    <th>horariosAtencion</th>
-                    <th>diasAtencion</th>
-                    <th>numeroCelular</th>
-                    <th>numeroTelefono</th>
-                    <th>direccion</th>
-                    <th>correoEmpresa</th>
+                    <th>Nombre de Empresa</th>
+                    <th>Tipo de Negocio</th>
+                    <th>Descripción</th>
+                    <th>Horarios de atención</th>
+                    <th>Dias de atención</th>
+                    <th>Número de celular</th>
+                    <th>Número de telefono</th>
+                    <th>Dirección</th>
+                    <th>Correo de la empresa</th>
                 </tr>
             </thead>
             <tbody>
