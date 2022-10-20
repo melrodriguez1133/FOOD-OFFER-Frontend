@@ -10,8 +10,8 @@ const CreateProduct = () => {
     const [descripcion, setdescripcion] = useState('')
     const [horariosAtencion, sethorariosAtencion] = useState('')
     const [diasAtencion, setdiasAtencion] = useState('')
-    const [numeroCelular, setnumeroCelular] = useState(0)
-    const [numeroTelefono, setnumeroTelefono] = useState(0)
+    const [numeroCelular, setnumeroCelular] = useState()
+    const [numeroTelefono, setnumeroTelefono] = useState()
     const [direccion, setdireccion] = useState('')
     const [correoEmpresa, setcorreoEmpresa] = useState('')
     const navigate = useNavigate()
@@ -34,7 +34,7 @@ const CreateProduct = () => {
     
   return (
     <div>
-        <h3>Create Product</h3>
+        <h3>Registrar Empresa</h3>
         <form onSubmit={store}>
         <div className='mb-3'>
                 <label className='form-label'>Nombre de Empresa</label>
@@ -55,7 +55,7 @@ const CreateProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>descripcion</label>
+                <label className='form-label'>Descripción</label>
                 <input 
                     value={descripcion}
                     onChange={ (e)=> setdescripcion(e.target.value)}
@@ -91,7 +91,7 @@ const CreateProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Número de Telefono</label>
+                <label className='form-label'>Número de Teléfono</label>
                 <input 
                     value={numeroTelefono}
                     onChange={ (e)=> setnumeroTelefono(e.target.value)}
@@ -100,7 +100,7 @@ const CreateProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>direccion</label>
+                <label className='form-label'>Dirección</label>
                 <input 
                     value={direccion}
                     onChange={ (e)=> setdireccion(e.target.value)}
@@ -113,11 +113,11 @@ const CreateProduct = () => {
                 <input 
                     value={correoEmpresa}
                     onChange={ (e)=> setcorreoEmpresa(e.target.value)}
-                    type='text'
+                    type='email'
                     className='form-control'
                 />
             </div>
-            <button type='submit' className='btn btn-primary'>Store</button>
+            <button type='submit' className='btn btn-primary'>Registrar</button>
         </form>
     </div>
   )

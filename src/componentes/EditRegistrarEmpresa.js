@@ -2,7 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const endpoint = 'http://localhost:8000/api'
+const endpoint = 'http://localhost:8000/api/registrarEmpresas/'
 
 const EditProduct = () => {
     const [nombreEmpresa, setnombreEmpresa] = useState('')
@@ -10,8 +10,8 @@ const EditProduct = () => {
     const [descripcion, setdescripcion] = useState('')
     const [horariosAtencion, sethorariosAtencion] = useState('')
     const [diasAtencion, setdiasAtencion] = useState('')
-    const [numeroCelular, setnumeroCelular] = useState(0)
-    const [numeroTelefono, setnumeroTelefono] = useState(0)
+    const [numeroCelular, setnumeroCelular] = useState()
+    const [numeroTelefono, setnumeroTelefono] = useState()
     const [direccion, setdireccion] = useState('')
     const [correoEmpresa, setcorreoEmpresa] = useState('')
     const navigate = useNavigate()
@@ -73,7 +73,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>descripcion</label>
+                <label className='form-label'>Descripción</label>
                 <input 
                     value={descripcion}
                     onChange={ (e)=> setdescripcion(e.target.value)}
@@ -109,7 +109,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Número de Telefono</label>
+                <label className='form-label'>Número de Teléfono</label>
                 <input 
                     value={numeroTelefono}
                     onChange={ (e)=> setnumeroTelefono(e.target.value)}
@@ -118,7 +118,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>direccion</label>
+                <label className='form-label'>Dirección</label>
                 <input 
                     value={direccion}
                     onChange={ (e)=> setdireccion(e.target.value)}
@@ -131,11 +131,11 @@ const EditProduct = () => {
                 <input 
                     value={correoEmpresa}
                     onChange={ (e)=> setcorreoEmpresa(e.target.value)}
-                    type='text'
+                    type='email'
                     className='form-control'
                 />
             </div>
-            <button type='submit' className='btn btn-primary'>Update</button>
+            <button type='submit' className='btn btn-primary'>Actualizar</button>
         </form>
     </div>
     )

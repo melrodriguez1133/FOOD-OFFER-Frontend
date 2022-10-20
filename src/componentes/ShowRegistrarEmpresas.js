@@ -2,16 +2,16 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from "react-router-dom"
 
-const endpoint = 'http://localhost:5200/api'
+const endpoint = 'http://localhost:8000/api'
 
 const ShowRegistrarEmpresas = () => {
-    const [products, setnombreEmpresa] = useState( [] )
+    const [RegistrarEmpresas, setnombreEmpresa] = useState( [] )
     useEffect (()=>{
-        getAllProducts()
+        getAllRegistrarEmpresas()
     }, [])
     //const [count, setCount] = useState(0)
 
-    const getAllProducts = async()=>{
+    const getAllRegistrarEmpresas = async()=>{
         const response = await axios.get(`${endpoint}/registrarEmpresas`)
         setnombreEmpresa(response.data)
         //console.log(response.data)
@@ -19,7 +19,7 @@ const ShowRegistrarEmpresas = () => {
 
     const deleteRegistrarEmpresas = async (id) =>{
         await axios.delete(`${endpoint}/registrarEmpresas/${id}`)
-        getAllProducts()
+        getAllRegistrarEmpresas()
     }
   return (
     <div>
@@ -41,20 +41,20 @@ const ShowRegistrarEmpresas = () => {
                 </tr>
             </thead>
             <tbody>
-                {products.map((products) => (
-                    <tr key={products.id}>
-                        <td>{products.nombreEmpresa}</td>
-                        <td>{products.tipoNegocioE}</td>
-                        <td>{products.descripcion}</td>
-                        <td>{products.horariosAtencion}</td>
-                        <td>{products.diasAtencion}</td>
-                        <td>{products.numeroCelular}</td>
-                        <td>{products.numeroTelefono}</td>
-                        <td>{products.direccion}</td>
-                        <td>{products.correoEmpresa}</td>
+                {RegistrarEmpresas.map((RegistrarEmpresas) => (
+                    <tr key={RegistrarEmpresas.id}>
+                        <td>{RegistrarEmpresas.nombreEmpresa}</td>
+                        <td>{RegistrarEmpresas.tipoNegocioE}</td>
+                        <td>{RegistrarEmpresas.descripcion}</td>
+                        <td>{RegistrarEmpresas.horariosAtencion}</td>
+                        <td>{RegistrarEmpresas.diasAtencion}</td>
+                        <td>{RegistrarEmpresas.numeroCelular}</td>
+                        <td>{RegistrarEmpresas.numeroTelefono}</td>
+                        <td>{RegistrarEmpresas.direccion}</td>
+                        <td>{RegistrarEmpresas.correoEmpresa}</td>
                         <td>
-                            <Link to={`/edit/${products.id}`} className='btn btn-warning'>Editar</Link>
-                            <button onClick={ ()=>deleteRegistrarEmpresas(products.id) } className='btn btn-danger'>Borrar</button>
+                            <Link to={`/edit/${RegistrarEmpresas.id}`} className='btn btn-warning'>Editar</Link>
+                            <button onClick={ ()=>deleteRegistrarEmpresas(RegistrarEmpresas.id) } className='btn btn-danger'>Borrar</button>
                         </td>
                     </tr>
                 ))}
