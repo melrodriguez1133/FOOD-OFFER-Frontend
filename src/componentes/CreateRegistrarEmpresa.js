@@ -132,6 +132,7 @@ const CreateProduct = () => {
                         type='email'
                         className='form-control'
                     />
+
                 </div>
                 <button 
                 className='btn btn-warning'
@@ -142,6 +143,7 @@ const CreateProduct = () => {
                 </Link>
                 </button>    
                 <button type='submit' className='btn btn-primary'>Registrar</button>  
+
             </form>
         </div>
     </body>
