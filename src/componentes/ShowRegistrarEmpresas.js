@@ -23,9 +23,6 @@ const ShowRegistrarEmpresas = () => {
     }
   return (
     <div>
-        <div className='d-grid gap-2'>
-            <Link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Crear</Link>
-        </div>
         <table className='table table-striped'>
             <thead className='bg-primary text-white'>
                 <tr>
@@ -41,6 +38,7 @@ const ShowRegistrarEmpresas = () => {
                 </tr>
             </thead>
             <tbody>
+                <div>
                 {RegistrarEmpresas.map((RegistrarEmpresas) => (
                     <tr key={RegistrarEmpresas.id}>
                         <td>{RegistrarEmpresas.nombreEmpresa}</td>
@@ -58,6 +56,7 @@ const ShowRegistrarEmpresas = () => {
                         </td>
                     </tr>
                 ))}
+                </div>
             </tbody>
         </table>
     </div>
