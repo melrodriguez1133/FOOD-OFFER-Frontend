@@ -16,7 +16,6 @@ function App() {
           <Route path='/edit/:id' element={ <EditRegistrarEmpresa/>}/>
         </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }
