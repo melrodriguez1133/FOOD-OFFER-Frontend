@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import {Link} from "react-router-dom"
 
 const endpoint = 'http://localhost:8000/api/registrarEmpresas/'
 
@@ -136,6 +137,7 @@ const EditProduct = () => {
                 />
             </div>
             <button type='submit' className='btn btn-primary'>Actualizar</button>
+            <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
         </form>
     </div>
     )
