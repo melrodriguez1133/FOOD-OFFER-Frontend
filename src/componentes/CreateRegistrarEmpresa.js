@@ -43,8 +43,10 @@ const CreateProduct = () => {
             <h3>Registrar Empresa</h3>
             <form onSubmit={store}>
             <div className='mb-3'>
-                    <label className='form-label'>Nombre de Empresa</label>
+                
+                    <label className='form-label'>Nombre de Empresa *</label>
                     <input 
+                        required
                         value={nombreEmpresa}
                         onChange={ (e)=> setnombreEmpresa(e.target.value)}
                         type='text'
@@ -52,8 +54,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Tipo de Empresa</label>
+                    <label className='form-label'>Tipo de Empresa *</label>
                     <input 
+                    required
                         value={tipoNegocioE}
                         onChange={ (e)=> settipoNegocioE(e.target.value)}
                         type='text'
@@ -61,8 +64,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Descripción</label>
+                    <label className='form-label'>Descripción *</label>
                     <input 
+                    required
                         value={descripcion}
                         onChange={ (e)=> setdescripcion(e.target.value)}
                         type='text'
@@ -70,8 +74,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Horarios de Atención</label>
+                    <label className='form-label'>Horarios de Atención *</label>
                     <input 
+                    required
                         value={horariosAtencion}
                         onChange={ (e)=> sethorariosAtencion(e.target.value)}
                         type='text'
@@ -79,8 +84,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Dias de Atención</label>
+                    <label className='form-label'>Dias de Atención *</label>
                     <input 
+                    required
                         value={diasAtencion}
                         onChange={ (e)=> setdiasAtencion(e.target.value)}
                         type='text'
@@ -88,8 +94,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Número de Celular</label>
+                    <label className='form-label'>Número de Celular *</label>
                     <input 
+                    required
                         value={numeroCelular}
                         onChange={ (e)=> setnumeroCelular(e.target.value)}
                         type='number'
@@ -97,8 +104,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Número de Teléfono</label>
+                    <label className='form-label'>Número de Teléfono *</label>
                     <input 
+                    required
                         value={numeroTelefono}
                         onChange={ (e)=> setnumeroTelefono(e.target.value)}
                         type='number'
@@ -106,8 +114,9 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Dirección</label>
+                    <label className='form-label'>Dirección *</label>
                     <input 
+                    required
                         value={direccion}
                         onChange={ (e)=> setdireccion(e.target.value)}
                         type='text'
@@ -115,16 +124,24 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Correo de Empresa</label>
+                    <label className='form-label'>Correo de Empresa *</label>
                     <input 
+                    required
                         value={correoEmpresa}
                         onChange={ (e)=> setcorreoEmpresa(e.target.value)}
                         type='email'
                         className='form-control'
                     />
                 </div>
-                <button type='submit' className='btn btn-primary'>Registrar</button>                
-                <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
+                <button 
+                className='btn btn-warning'
+                type='reset'
+                >            
+                <Link to={`/`} >
+                    Cancelar
+                </Link>
+                </button>    
+                <button type='submit' className='btn btn-primary'>Registrar</button>  
             </form>
         </div>
     </body>
