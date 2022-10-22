@@ -37,7 +37,7 @@ const CreateProduct = () => {
   return (
     <body className='body'>
         <div className='imagenEmpresa'>
-                <img className='imagen' src="Restaurante.JPEG"/>
+                <img className='imagen' src="Restaurante.jpeg"/>
         </div>  
         <div className='bodyDatos'>  
             <h3>Registrar Empresa</h3>

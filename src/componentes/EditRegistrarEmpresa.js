@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
+import './EditRegistrarEmpresa.css';
 
 const endpoint = 'http://localhost:8000/api/registrarEmpresas/'
 
@@ -52,7 +53,11 @@ const EditProduct = () => {
     }, [] )
 
     return (
-        <div>
+        <body className='body'>
+        <div className='imagenEmpresa'>
+                <img className='imagen' src=".\Restaurante.jpeg"/>
+        </div>
+        <div className="bodyDatos">
         <h3>Editar Empresa</h3>
         <form onSubmit={update}>
             <div className='mb-3'>
@@ -140,6 +145,7 @@ const EditProduct = () => {
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
         </form>
     </div>
+    </body>
     )
 }
 
