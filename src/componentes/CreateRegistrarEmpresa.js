@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import './CreateRegistrarEmpresa.css';
+import {Link} from "react-router-dom"
 
 const endpoint = 'http://localhost:8000/api/registrarEmpresas'
 
@@ -122,7 +123,8 @@ const CreateProduct = () => {
                         className='form-control'
                     />
                 </div>
-                <button type='submit' className='btn btn-primary'>Registrar</button>
+                <button type='submit' className='btn btn-primary'>Registrar</button>                
+                <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
             </form>
         </div>
     </body>
