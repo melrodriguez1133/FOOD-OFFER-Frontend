@@ -141,8 +141,8 @@ const EditProduct = () => {
                     className='form-control'
                 />
             </div>
-            <button type='submit' className='btn btn-primary'>Actualizar</button>
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
+            <button type='submit' className='btn btn-primary'>Guardar</button>
         </form>
     </div>
     </body>
