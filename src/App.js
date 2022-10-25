@@ -19,5 +19,4 @@ function App() {
     </div>
   );
 }
-//<button className='btn btn-primary'>Crear</button>
 export default App;

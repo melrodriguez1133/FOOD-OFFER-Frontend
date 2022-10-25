@@ -55,7 +55,7 @@ const EditProduct = () => {
     return (
         <body className='body'>
         <div className='imagenEmpresa'>
-                <img className='imagen' src=".\Restaurante.jpeg"/>
+                <img className='imagen' src="\Restaurante.jpeg"/>
         </div>
         <div className="bodyDatos">
         <h3>Editar Empresa</h3>
@@ -142,6 +142,7 @@ const EditProduct = () => {
                 />
             </div>
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
+
             <button type='submit' className='btn btn-primary'>Guardar</button>
         </form>
     </div>
