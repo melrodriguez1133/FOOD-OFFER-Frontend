@@ -41,7 +41,6 @@ const ShowRegistrarEmpresas = () => {
                 </tr>
             </thead>
             <tbody>
-                <div>
                 {RegistrarEmpresas.map((RegistrarEmpresas) => (
                     <tr key={RegistrarEmpresas.id}>
                         <td>{RegistrarEmpresas.nombreEmpresa}</td>
@@ -59,7 +58,6 @@ const ShowRegistrarEmpresas = () => {
                         </td>
                     </tr>
                 ))}
-                </div>
             </tbody>
         </table>
     </div>
