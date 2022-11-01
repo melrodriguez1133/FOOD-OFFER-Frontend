@@ -54,6 +54,7 @@ const ShowRegistrarEmpresas = () => {
                         <td>{RegistrarEmpresas.correoEmpresa}</td>
                         <td>
                             <Link to={`/edit/${RegistrarEmpresas.id}`} className='btn btn-warning'>Editar</Link>
+                            <Link to={`/editar/${RegistrarEmpresas.id}`} className='btn btn-warning'>Editar Producto</Link>
                             <button onClick={ ()=>deleteRegistrarEmpresas(RegistrarEmpresas.id) } className='btn btn-danger'>Borrar</button>
                         </td>
                     </tr>

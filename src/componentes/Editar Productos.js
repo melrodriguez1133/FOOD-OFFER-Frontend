@@ -58,10 +58,10 @@ const EditProduct = () => {
                 <img className='imagen' src="\Restaurante.jpeg"/>
         </div>
         <div className="bodyDatos">
-        <h3>Editar Empresa</h3>
+        <h3>Editar Producto</h3>
         <form onSubmit={update}>
             <div className='mb-3'>
-                <label className='form-label'>Nombre de Empresa*</label>
+                <label className='form-label'>Nombre*</label>
                 <input 
                     value={nombreEmpresa}
                     onChange={ (e)=> setnombreEmpresa(e.target.value)}
@@ -70,7 +70,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Tipo de Empresa*</label>
+                <label className='form-label'>Categoria de producto*</label>
                 <input 
                     value={tipoNegocioE}
                     onChange={ (e)=> settipoNegocioE(e.target.value)}
@@ -88,7 +88,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Horarios de Atención*</label>
+                <label className='form-label'>Fecha de Vencimiento*</label>
                 <input 
                     value={horariosAtencion}
                     onChange={ (e)=> sethorariosAtencion(e.target.value)}
@@ -97,7 +97,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Dias de Atención*</label>
+                <label className='form-label'>Fecha de elaboración*</label>
                 <input 
                     value={diasAtencion}
                     onChange={ (e)=> setdiasAtencion(e.target.value)}
@@ -106,7 +106,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Número de Celular*</label>
+                <label className='form-label'>Précio*</label>
                 <input 
                     value={numeroCelular}
                     onChange={ (e)=> setnumeroCelular(e.target.value)}
@@ -115,7 +115,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Número de Teléfono*</label>
+                <label className='form-label'>Cantida disponible*</label>
                 <input 
                     value={numeroTelefono}
                     onChange={ (e)=> setnumeroTelefono(e.target.value)}
@@ -124,7 +124,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Dirección*</label>
+                <label className='form-label'>Imagen*</label>
                 <input 
                     value={direccion}
                     onChange={ (e)=> setdireccion(e.target.value)}
@@ -133,7 +133,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Correo de Empresa*</label>
+                <label className='form-label'>Fecha limite de oferta*</label>
                 <input 
                     value={correoEmpresa}
                     onChange={ (e)=> setcorreoEmpresa(e.target.value)}
@@ -143,7 +143,7 @@ const EditProduct = () => {
             </div>
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
 
-            <button type='submit' className='btn btn-primary'>Guardar</button>
+            <button type='submit' className='btn btn-primary'>Confirmar</button>
         </form>
     </div>
     </body>

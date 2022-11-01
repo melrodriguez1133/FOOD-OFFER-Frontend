@@ -14,6 +14,7 @@ function App() {
           <Route path='/' element={ <ShowRegistrarEmpresas/>}/>
           <Route path='/create' element={ <CreateRegistrarEmpresa/>}/>
           <Route path='/edit/:id' element={ <EditRegistrarEmpresa/>}/>
+          <Route path='/editar/:id' element={ <EditRegistrarEmpresa/>}/>
         </Routes>
       </BrowserRouter>
     </div>

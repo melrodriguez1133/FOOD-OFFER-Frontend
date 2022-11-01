@@ -43,7 +43,7 @@ const CreateProduct = () => {
             <h3>Registrar Empresa</h3>
             <form onSubmit={store}>
             <div className='mb-3'>
-                    <label className='form-label'>Nombre de Empresa</label>
+                    <label className='form-label'>Nombre de Empresa*</label>
                     <input 
                         value={nombreEmpresa}
                         onChange={ (e)=> setnombreEmpresa(e.target.value)}
@@ -52,7 +52,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Tipo de Empresa</label>
+                    <label className='form-label'>Tipo de Empresa*</label>
                     <input 
                         value={tipoNegocioE}
                         onChange={ (e)=> settipoNegocioE(e.target.value)}
@@ -61,7 +61,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Descripción</label>
+                    <label className='form-label'>Descripción*</label>
                     <input 
                         value={descripcion}
                         onChange={ (e)=> setdescripcion(e.target.value)}
@@ -70,7 +70,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Horarios de Atención</label>
+                    <label className='form-label'>Horarios de Atención*</label>
                     <input 
                         value={horariosAtencion}
                         onChange={ (e)=> sethorariosAtencion(e.target.value)}
@@ -79,7 +79,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Dias de Atención</label>
+                    <label className='form-label'>Dias de Atención*</label>
                     <input 
                         value={diasAtencion}
                         onChange={ (e)=> setdiasAtencion(e.target.value)}
@@ -88,7 +88,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Número de Celular</label>
+                    <label className='form-label'>Número de Celular*</label>
                     <input 
                         value={numeroCelular}
                         onChange={ (e)=> setnumeroCelular(e.target.value)}
@@ -97,7 +97,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Número de Teléfono</label>
+                    <label className='form-label'>Número de Teléfono*</label>
                     <input 
                         value={numeroTelefono}
                         onChange={ (e)=> setnumeroTelefono(e.target.value)}
@@ -106,7 +106,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Dirección</label>
+                    <label className='form-label'>Dirección*</label>
                     <input 
                         value={direccion}
                         onChange={ (e)=> setdireccion(e.target.value)}
@@ -115,7 +115,7 @@ const CreateProduct = () => {
                     />
                 </div>
                 <div className='mb-3'>
-                    <label className='form-label'>Correo de Empresa</label>
+                    <label className='form-label'>Correo de Empresa*</label>
                     <input 
                         value={correoEmpresa}
                         onChange={ (e)=> setcorreoEmpresa(e.target.value)}
