@@ -1,10 +1,32 @@
-
+import './App.css';
 import './customcss/style.css';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Overview';
+import ShowRegistrarEmpresas from './componentesEmpresa/ShowRegistrarEmpresas';
+import VistaProductos from './pages/VistaProductos';
+import VistaProductosEmpresa from './pages/VistaProductosEmpresa';
+
+function App() {
+  return (
+    <Router>
+      <Sidebar />
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
+        <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
+        <Route path='/usuarios/productos' element={<VistaProductos />} />
+      </Routes>
+    </Router>
+  );
+}        
+export default App;
+/*import './customcss/style.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import ShowRegistrarEmpresas from './componentes/ShowRegistrarEmpresas';
-import CreateRegistrarEmpresa from './componentes/CreateRegistrarEmpresa';
-import EditRegistrarEmpresa from './componentes/EditRegistrarEmpresa';
+import ShowRegistrarEmpresas from './componentesEmpresa/ShowRegistrarEmpresas';
+import CreateRegistrarEmpresa from './componentesEmpresa/CreateRegistrarEmpresa';
+import EditRegistrarEmpresa from './componentesEmpresa/EditRegistrarEmpresa';
 
 function App() {
   return (
@@ -20,4 +42,4 @@ function App() {
   );
 }
 //<button className='btn btn-primary'>Crear</button>
-export default App;
+export default App;*/

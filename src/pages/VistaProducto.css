@@ -1,0 +1,60 @@
+
+.title{
+	font-size: 2rem;
+	padding: 1rem 2rem;
+	color: #08a05c;
+}
+.productos{
+	padding: 1rem 2rem;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+	gap: 3rem 2rem;
+	box-sizing: border-box;
+}
+.producto{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, .2);
+	border: 0.5% solid transparent;
+	border-radius: 5px;
+}
+.nombrep{
+	font-size: xx-large;
+	color: blue;
+	margin-left: 2%;
+	margin-top: 1%;
+}
+.producto:hover{
+	border: 6px solid #08a05c55;
+}
+.imagen{
+	align-items: center;
+	margin-left: 35%;
+}
+.producto_img img{
+	width: 30%;
+	height: auto;
+}
+.producto_footer{
+	margin-left: 2%;
+	padding: 1rem;
+}
+.producto_footer h1{
+	font-weight:600;
+	font-size: 1.5rem;
+	color: #1a202c;
+	font-family: Helvetica, sans-serif;
+}
+.producto_footer p{
+	font-weight: 700;
+	color: rgba(0, 0, 0, .555);
+	text-transform: uppercase;
+	font-size: 18px;
+
+}
+.producto_footer .price{
+	font-size: 2rem;
+	color: 1a202c;
+}

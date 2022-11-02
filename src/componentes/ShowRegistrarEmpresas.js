@@ -66,4 +66,4 @@ const ShowRegistrarEmpresas = () => {
   )
 }
 
-export default ShowRegistrarEmpresas
+export default ShowRegistrarEmpresas;
