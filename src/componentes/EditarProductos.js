@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
 import './EditRegistrarEmpresa.css';
 
-const endpoint = 'http://localhost:8000/api/producto/'
+const endpoint = 'http://localhost:8000/api/Producto/'
 
 const EditProduct = () => {
     const [nombreProducto, setnombreProducto] = useState('')
@@ -15,6 +15,7 @@ const EditProduct = () => {
     const [fechaOferta, setfechaOferta] = useState()
     const [stock, setstock] = useState()
     const [imagen, setimagen] = useState('')
+    const [id_categoria, setid_categoria] = useState('')
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -29,6 +30,7 @@ const EditProduct = () => {
             fechaOferta: fechaOferta,
             stock: stock,
             imagen: imagen,
+            id_categoria: id_categoria,
         })
         navigate('/')
     }
@@ -44,6 +46,7 @@ const EditProduct = () => {
             setfechaOferta(response.data.fechaOferta)
             setstock(response.data.stock)
             setimagen(response.data.imagen)
+            setid_categoria(response.data.id_categoria)
             }
         getProductById()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,7 +70,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Categoria de producto*</label>
+                <label className='form-label'>Descripción*</label>
                 <input 
                     value={descripcion}
                     onChange={ (e)=> setdescripcion(e.target.value)}
@@ -76,7 +79,7 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Descripción*</label>
+                <label className='form-label'>Précio*</label>
                 <input 
                     value={precio}
                     onChange={ (e)=> setprecio(e.target.value)}
@@ -103,11 +106,11 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Précio*</label>
+                <label className='form-label'>fecha de Oferta*</label>
                 <input 
                     value={fechaOferta}
                     onChange={ (e)=> setfechaOferta(e.target.value)}
-                    type='number'
+                    type='text'
                     className='form-control'
                 />
             </div>
@@ -129,12 +132,13 @@ const EditProduct = () => {
                     className='form-control'
                 />
             </div>
+            
             <div className='mb-3'>
-                <label className='form-label'>Fecha limite de oferta*</label>
+                <label className='form-label'>Categoria de producto*</label>
                 <input 
-                    value={correoEmpresa}
-                    onChange={ (e)=> setcorreoEmpresa(e.target.value)}
-                    type='email'
+                    value={id_categoria}
+                    onChange={ (e)=> setid_categoria(e.target.value)}
+                    type='number'
                     className='form-control'
                 />
             </div>
