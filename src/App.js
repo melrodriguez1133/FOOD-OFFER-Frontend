@@ -8,20 +8,20 @@ const App = () => {
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
 	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
-	const [password, cambiarPassword] = useState({campo: '', valido: null});
-	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
-	const [correo, cambiarCorreo] = useState({campo: '', valido: null});
+	const [fechaElaboracion, cambiarFechaElaboracion] = useState({campo: '', valido: null});
+	const [precio, cambiarPrecio] = useState({campo: '', valido: null});
 	const [cantidadDisponible, cambiarCantidadDisponible] = useState({campo: '', valido: null});
-	const [telefono, cambiarTelefono] = useState({campo: '', valido: null});
+	const [fechaLimite, cambiarFechaLimite] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
 
 	const expresiones = {
-		nombre: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
-		descripcion: /^[a-zA-ZÀ-ÿ\s]{25,250}$/, // Letras y espacios, pueden llevar acentos.
-		fechaVencimiento:/^\d{1,2}\/\d{1,2}\/\d{2,4}$/,// 7 a 14 numeros.
-		password: /^.{4,12}$/, // 4 a 12 digitos.
-		correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-		cantidadDisponible: /^\d{7,14}$/ // 7 a 14 numeros.
+		nombre: /^[a-zA-ZÀ-ÿ0-9\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
+		descripcion: /^[a-zA-ZÀ-ÿ0-9\s]{25,250}$/, // Letras y espacios, pueden llevar acentos.
+		//fechaVencimiento:/^\d{1,2}\/\d{1,2}\/\d{2,4}$/,// 7 a 14 numeros.
+		//fechaElaboracion: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,// 7 a 14 numeros.
+		precio: /^[0-9Bs\s]{3,20}$/, // 4 a 12 digitos.
+		cantidadDisponible: /^[0-9]{1,3}$/, // 7 a 14 numeros.
+		//fechaLimite:/^\d{1,2}\/\d{1,2}\/\d{2,4}$/,// 7 a 14 numeros.
 	}
 
 
@@ -32,19 +32,19 @@ const App = () => {
 			nombre.valido === 'true' &&
 			descripcion.valido === 'true' &&
 			fechaVencimiento.valido === 'true' &&
-			password.valido === 'true' &&
-			password2.valido === 'true' &&
-			correo.valido === 'true' &&
-			cantidadDisponible.valido === 'true' 
+			fechaElaboracion.valido === 'true' &&
+			precio.valido === 'true' &&
+			cantidadDisponible.valido === 'true' &&
+			fechaLimite.valido === 'true' 
 		){
 			cambiarFormularioValido(true);
 			cambiarNombre({campo: '', valido: null});
 			cambiarDescripcion({campo: '', valido: null});
 			cambiarFechaVencimento({campo: '', valido: null});
-			cambiarPassword({campo: '', valido: null});
-			cambiarPassword2({campo: '', valido: 'null'});
-			cambiarCorreo({campo: '', valido: null});
+			cambiarFechaElaboracion({campo: '', valido: null});
+			cambiarPrecio({campo: '', valido: null});
 			cambiarCantidadDisponible({campo: '', valido: null});
+			cambiarFechaLimite({campo: '', valido: null});
 
 			// ... 
 		} else {
@@ -62,7 +62,7 @@ const App = () => {
 					label="Nombre*"
 					placeholder="John Doe"
 					name="usuario"
-					leyendaError="El nombre solo puede contener letras y espacios."
+					leyendaError="El nombre solo puede contener datos alfanumericos y espacios"
 					expresionRegular={expresiones.nombre}
 				/>
 				<Input
@@ -72,7 +72,7 @@ const App = () => {
 					label="Descripcion*"
 					placeholder="inserte una descripcion"
 					name="descripcion"
-					leyendaError="El nombre solo puede contener letras y espacios."
+					leyendaError="La descripcion solo puede contener datos alfanumericos y espacios"
 					expresionRegular={expresiones.descripcion}
 				/>
 				<Input
@@ -81,28 +81,27 @@ const App = () => {
 					tipo="date"
 					label="Fecha de Vencimiento*"
 					name="fechaVencimiento"
-					leyendaError="solo debe ingresar una fecha"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa"
 					expresionRegular={expresiones.fechaVencimiento}
 				/>
 				<Input
-					estado={nombre}
-					cambiarEstado={cambiarNombre}
+					estado={fechaElaboracion}
+					cambiarEstado={cambiarFechaElaboracion}
 					tipo="date"
 					label="Fecha de Elaboracion*"
-					placeholder="John Doe"
-					name="usuario"
-					leyendaError="El nombre solo puede contener letras y espacios."
-					expresionRegular={expresiones.nombre}
+					name="fechaElaboracion"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa"
+					expresionRegular={expresiones.fechaElaboracion}
 				/>
 				<Input
-					estado={telefono}
-					cambiarEstado={cambiarTelefono}
+					estado={precio}
+					cambiarEstado={cambiarPrecio}
 					tipo="text"
 					label="Precio*"
-					placeholder="4491234567"
-					name="telefono"
-					leyendaError="El telefono solo puede contener numeros y el maximo son 14 dígitos."
-					expresionRegular={expresiones.telefono}
+					placeholder="00.00 Bs"
+					name="precio"
+					leyendaError="Dato no valido solo debe ingresar el precio y Bs "
+					expresionRegular={expresiones.precio}
 				/>
 				<Input
 					estado={cantidadDisponible}
@@ -111,18 +110,17 @@ const App = () => {
 					label="Cantidad disponible*"
 					placeholder="Ingrese la cantidad disponible"
 					name="cantidadDisponible"
-					leyendaError="El telefono solo puede contener numeros y el maximo son 14 dígitos."
+					leyendaError="Dato no valido solo se admiten numeros y no mas de 3 cifras"
 					expresionRegular={expresiones.cantidadDisponible}
 				/>
 				<Input
-					estado={nombre}
-					cambiarEstado={cambiarNombre}
+					estado={fechaLimite}
+					cambiarEstado={cambiarFechaLimite}
 					tipo="date"
 					label="Fecha Limite de Oferta*"
-					placeholder="John Doe"
-					name="usuario"
-					leyendaError="El nombre solo puede contener letras y espacios."
-					expresionRegular={expresiones.nombre}
+					name="fechaLimite"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa"
+					expresionRegular={expresiones.fechaLimite}
 				/>
 				
 
