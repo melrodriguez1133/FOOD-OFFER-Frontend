@@ -11,16 +11,17 @@ const App = () => {
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
 	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [correo, cambiarCorreo] = useState({campo: '', valido: null});
+	const [cantidadDisponible, cambiarCantidadDisponible] = useState({campo: '', valido: null});
 	const [telefono, cambiarTelefono] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
 
 	const expresiones = {
-		nombre: /^[a-zA-ZÀ-ÿ\s]{4,16}$/, // Letras y espacios, pueden llevar acentos.
+		nombre: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
 		descripcion: /^[a-zA-ZÀ-ÿ\s]{25,250}$/, // Letras y espacios, pueden llevar acentos.
-		fechaVencimiento:/([0-2][0-9]|3[0-1])(\/|-)(){25,250}$/,// 7 a 14 numeros.
+		fechaVencimiento:/^\d{1,2}\/\d{1,2}\/\d{2,4}$/,// 7 a 14 numeros.
 		password: /^.{4,12}$/, // 4 a 12 digitos.
 		correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-		telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+		cantidadDisponible: /^\d{7,14}$/ // 7 a 14 numeros.
 	}
 
 
@@ -34,7 +35,7 @@ const App = () => {
 			password.valido === 'true' &&
 			password2.valido === 'true' &&
 			correo.valido === 'true' &&
-			telefono.valido === 'true' 
+			cantidadDisponible.valido === 'true' 
 		){
 			cambiarFormularioValido(true);
 			cambiarNombre({campo: '', valido: null});
@@ -43,7 +44,7 @@ const App = () => {
 			cambiarPassword({campo: '', valido: null});
 			cambiarPassword2({campo: '', valido: 'null'});
 			cambiarCorreo({campo: '', valido: null});
-			cambiarTelefono({campo: '', valido: null});
+			cambiarCantidadDisponible({campo: '', valido: null});
 
 			// ... 
 		} else {
@@ -104,14 +105,14 @@ const App = () => {
 					expresionRegular={expresiones.telefono}
 				/>
 				<Input
-					estado={telefono}
-					cambiarEstado={cambiarTelefono}
+					estado={cantidadDisponible}
+					cambiarEstado={cambiarCantidadDisponible}
 					tipo="text"
 					label="Cantidad disponible*"
-					placeholder="4491234567"
-					name="telefono"
+					placeholder="Ingrese la cantidad disponible"
+					name="cantidadDisponible"
 					leyendaError="El telefono solo puede contener numeros y el maximo son 14 dígitos."
-					expresionRegular={expresiones.telefono}
+					expresionRegular={expresiones.cantidadDisponible}
 				/>
 				<Input
 					estado={nombre}
