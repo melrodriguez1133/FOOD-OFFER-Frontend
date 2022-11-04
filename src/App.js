@@ -2,32 +2,15 @@ import React, {useState} from 'react';
 import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from './elementos/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import Input from './componentes/Input';
+import useFetch from './Hooks/useFetch';
 
-const producto= [    
-{
-	"id": 1,
-	"descripcion": "Comida",
-	"created_at": null,
-	"updated_at": null
-},
-{
-	"id": 2,
-	"descripcion": "Postres",
-	"created_at": null,
-	"updated_at": null
-},
-{
-	"id": 3,
-	"descripcion": "Bebidas",
-	"created_at": null,
-	"updated_at": null
-}
-]
-console.log(producto);
+import Input from './componentes/Input';
 
 const App = () => {
     
+	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
+	console.log(products);
+
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
 	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
@@ -103,18 +86,13 @@ const App = () => {
 					leyendaError="El nombre solo puede contener datos alfanumericos y espacios"
 					expresionRegular={expresiones.nombre}
 				/>
+
 				<select>
-                        {producto && producto.map((d, index) => (
-                          <option key={d.id} value={d.id}>{d.descriptions}</option>
+				{products && products.map((d, index) => (
+                          <option key={d.id} value={d.id}>{d.descripcion}</option>
                         ))}
-                </select>
-				<select id="tipoProducto" name="producto" >
-					
-					{this.state.tipoProductos.map(elemento=>(
-						<option key={elemento.id} value={elemento.id}>{elemento.tipoProductos}</option>
-					)
-					)}
-				</select>
+                          </select>
+				          
 
 				<Input
 					estado={descripcion}
