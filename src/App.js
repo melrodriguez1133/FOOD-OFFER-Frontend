@@ -69,6 +69,7 @@ const App = () => {
 			setProfileImage(reader.result);
 		  }
 		};
+		console.log(e.target.files[0]);
 		reader.readAsDataURL(e.target.files[0]);
 	  };
 
@@ -165,7 +166,7 @@ const App = () => {
             accept="image/*"
             name="image-upload"
             id="input"
-            onChange={imageHandler}
+            onChange={(e)=>imageHandler(e)}
           />
           <div className="label">
             <label id="agregar-imag" className="image-upload" htmlFor="input">
