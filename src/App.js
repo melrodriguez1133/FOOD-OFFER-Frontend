@@ -3,13 +3,31 @@ import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Input from './componentes/Input';
-import axios from 'axios';
 
+const producto= [    
+{
+	"id": 1,
+	"descripcion": "Comida",
+	"created_at": null,
+	"updated_at": null
+},
+{
+	"id": 2,
+	"descripcion": "Postres",
+	"created_at": null,
+	"updated_at": null
+},
+{
+	"id": 3,
+	"descripcion": "Bebidas",
+	"created_at": null,
+	"updated_at": null
+}
+]
+console.log(producto);
 
 const App = () => {
     
-	
-
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
 	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
@@ -57,6 +75,19 @@ const App = () => {
 		}
 	}
 	
+	const [profileImage, setProfileImage] = useState(
+		"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+	  );
+	
+	  const imageHandler = (e) => {
+		const reader = new FileReader();
+		reader.onload = () => {
+		  if (reader.readyState === 2) {
+			setProfileImage(reader.result);
+		  }
+		};
+		reader.readAsDataURL(e.target.files[0]);
+	  };
 
 	return (
 		<main>
@@ -72,6 +103,19 @@ const App = () => {
 					leyendaError="El nombre solo puede contener datos alfanumericos y espacios"
 					expresionRegular={expresiones.nombre}
 				/>
+				<select>
+                        {producto && producto.map((d, index) => (
+                          <option key={d.id} value={d.id}>{d.descriptions}</option>
+                        ))}
+                </select>
+				<select id="tipoProducto" name="producto" >
+					
+					{this.state.tipoProductos.map(elemento=>(
+						<option key={elemento.id} value={elemento.id}>{elemento.tipoProductos}</option>
+					)
+					)}
+				</select>
+
 				<Input
 					estado={descripcion}
 					cambiarEstado={cambiarDescripcion}
@@ -132,8 +176,25 @@ const App = () => {
 					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa o dd-mm-aaaa"
 					expresionRegular={expresiones.fechaLimite}
 				/>
-				
 
+<label>Imagen*</label>
+        
+          <div className="img-holder">
+            <img src={profileImage} alt="" id="img" className="img" />
+          </div>
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={imageHandler}
+          />
+          <div className="label">
+            <label id="agregar-imag" className="image-upload" htmlFor="input">
+              + Agregue la imagen de su Producto
+            </label>
+          </div>
+        
 				<br/>
 				{formularioValido === false && <MensajeError>
 					<p>
