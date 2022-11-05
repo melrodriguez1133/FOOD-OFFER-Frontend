@@ -2,21 +2,62 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
 
-/*const data = [
-  { id: 1, personaje: "Naruto", anime: "Naruto" },
-  { id: 2, personaje: "Goku", anime: "Dragon Ball" },
-  { id: 3, personaje: "Kenshin Himura", anime: "Rurouni Kenshin" },
-  { id: 4, personaje: "Monkey D. Luffy", anime: "One Piece" },
-  { id: 5, personaje: "Edward Elric", anime: "Fullmetal Alchemist: Brotherhood"},
-  { id: 6, personaje: "Seto Kaiba", anime: "Yu-Gi-Oh!" },
-];*/
-
-const data =[
+/*const data =[
   {id: 1, nombre: "Pollo con arroz", descripcion: "Pollo marinado con arroz", precio: 30, stock: 15, estado: "Estado"},
   {id: 2, nombre: "Pollo con arroz", descripcion: "Pollo marinado con arroz", precio: 30, stock: 15, estado: "Estado"},
   {id: 3, nombre: "Pollo con arroz", descripcion: "Pollo marinado con arroz", precio: 30, stock: 15, estado: "Estado"},
-];
+];*/
 
+const data =[
+  {
+    "id": 1,
+    "categoria": "alimento",
+    "nombreProducto": "pollo con arroz",
+    "descripcion": "pollo marinado con arroz",
+    "precio": 12,
+    "fechaElaboracio": "2020-01-01",
+    "fechaVencimiento": "2020-01-01",
+    "fechaOferta": "2020-01-01",
+    "stock": 15,
+    "imagen": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+  },
+  {
+    "id": 2,
+    "categoria": "alimento",
+    "nombreProducto": "pollo con arroz",
+    "descripcion": "pollo marinado con arroz",
+    "precio": 14,
+    "fechaElaboracio": "2020-02-01",
+    "fechaVencimiento": "2020-02-01",
+    "fechaOferta": "2020-02-01",
+    "stock": 15,
+    "imagen": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+  },
+  {
+    "id": 3,
+    "categoria": "alimento",
+    "nombreProducto": "pollo con arroz",
+    "descripcion": "pollo marinado con arroz",
+    "precio": 20,
+    "fechaElaboracio": "2020-03-01",
+    "fechaVencimiento": "2020-03-01",
+    "fechaOferta": "2020-03-01",
+    "stock": 15,
+    "imagen": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+  },
+  {
+    "id": 4,
+    "categoria": "alimento",
+    "nombreProducto": "pollo con arroz",
+    "descripcion": "pollo marinado con arroz",
+    "precio": 25,
+    "fechaElaboracio": "2020-04-01",
+    "fechaVencimiento": "2020-04-01",
+    "fechaOferta": "2020-04-01",
+    "stock": 15,
+    "imagen": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+  }
+];
 
 class VistaProductosEmpresa extends React.Component {
   state = {
@@ -25,11 +66,11 @@ class VistaProductosEmpresa extends React.Component {
     modalInsertar: false,
     form: {
       id: "",
-      nombre : "",
+      nombreProducto : "",
       descipcion: "",
       precio: "",
       stock: "",
-      estado: "",
+      imagen: "",
     },
   };
 
@@ -59,11 +100,11 @@ class VistaProductosEmpresa extends React.Component {
     var arreglo = this.state.data;
     arreglo.map((registro) => {
       if (dato.id == registro.id) {
-        arreglo[contador].nombre = dato.nombre;
+        arreglo[contador].nombreProducto = dato.nombreProducto;
         arreglo[contador].descipcion = dato.descipcion;
         arreglo[contador].precio = dato.precio;
         arreglo[contador].stock = dato.stock;
-        arreglo[contador].estado = dato.estado;
+        arreglo[contador].imagen = dato.imagen;
       }
       contador++;
     });
@@ -71,7 +112,7 @@ class VistaProductosEmpresa extends React.Component {
   };
 
   eliminar = (dato) => {
-    var opcion = window.confirm("Estás Seguro que deseas Eliminar el elemento "+dato.id);
+    var opcion = window.confirm("EstÃ¡s Seguro que deseas Eliminar el elemento "+dato.id);
     if (opcion == true) {
       var contador = 0;
       var arreglo = this.state.data;
@@ -116,11 +157,11 @@ class VistaProductosEmpresa extends React.Component {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nombre</th>
+                <th>nombreProducto</th>
                 <th>Descipcion</th>
                 <th>Precio</th>
                 <th>Stock</th>
-                <th>Estado</th>
+                <th>Imagen</th>
               </tr>
             </thead>
 
@@ -128,11 +169,11 @@ class VistaProductosEmpresa extends React.Component {
               {this.state.data.map((dato) => (
                 <tr key={dato.id}>
                   <td>{dato.id}</td>
-                  <td>{dato.nombre}</td>
+                  <td>{dato.nombreProducto}</td>
                   <td>{dato.descripcion}</td>
                   <td>{dato.precio}</td>
                   <td>{dato.stock}</td>
-                  <td>{dato.estado}</td>
+                  <td>{dato.imagen}</td>
                   <td>
                     <Button
                       color="primary"
@@ -169,14 +210,14 @@ class VistaProductosEmpresa extends React.Component {
             
             <FormGroup>
               <label>
-                Nombre: 
+                NombreProducto: 
               </label>
               <input
                 className="form-control"
-                name="nombre"
+                name="nombreProducto"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.nombre}
+                value={this.state.form.nombreProducto}
               />
             </FormGroup>
             
@@ -221,14 +262,14 @@ class VistaProductosEmpresa extends React.Component {
 
             <FormGroup>
               <label>
-                Estado: 
+                Imagen: 
               </label>
               <input
                 className="form-control"
-                name="estado"
+                name="imagen"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.estado}
+                value={this.state.form.imagen}
               />
             </FormGroup>
           </ModalBody>
@@ -272,11 +313,11 @@ class VistaProductosEmpresa extends React.Component {
             
             <FormGroup>
               <label>
-                Nombre: 
+                NombreProducto: 
               </label>
               <input
                 className="form-control"
-                name="nombre"
+                name="nombreProducto"
                 type="text"
                 onChange={this.handleChange}
               />
@@ -296,7 +337,7 @@ class VistaProductosEmpresa extends React.Component {
 
             <FormGroup>
               <label>
-                DPrecio: 
+                Precio: 
               </label>
               <input
                 className="form-control"
@@ -320,11 +361,11 @@ class VistaProductosEmpresa extends React.Component {
 
             <FormGroup>
               <label>
-                Estado: 
+                Imagen: 
               </label>
               <input
                 className="form-control"
-                name="estado"
+                name="imagen"
                 type="text"
                 onChange={this.handleChange}
               />

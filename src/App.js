@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Overview';
 import ShowRegistrarEmpresas from './componentesEmpresa/ShowRegistrarEmpresas';
+import CreateRegistrarEmpresa from './componentesEmpresa/CreateRegistrarEmpresa';
 import VistaProductos from './pages/VistaProductos';
 import VistaProductosEmpresa from './pages/VistaProductosEmpresa';
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
+        <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
         <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
         <Route path='/usuarios/productos' element={<VistaProductos />} />
       </Routes>

@@ -1,0 +1,52 @@
+{
+    "productos":[{
+        "id" : 1,
+        "categoria" : "alimento",
+        "nombreProducto" : "pollo con arroz",
+        "descripcion": "pollo marinado con arroz",
+        "precio" : 12,
+        "fechaElaboracio" : "2020-01-01",
+        "fechaVencimiento" : "2020-01-01",
+        "fechaOferta" : "2020-01-01",
+        "stock" : 15,
+        "imagen" : "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    },
+    {
+        "id" : 2,
+        "categoria" : "alimento",
+        "nombreProducto" : "pollo con arroz",
+        "descripcion": "pollo marinado con arroz",
+        "precio" : 14,
+        "fechaElaboracio" : "2020-02-01",
+        "fechaVencimiento" : "2020-02-01",
+        "fechaOferta" : "2020-02-01",
+        "stock" : 15,
+        "imagen" : "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+    },
+    {
+        "id" : 3,
+        "categoria" : "alimento",
+        "nombreProducto" : "pollo con arroz",
+        "descripcion": "pollo marinado con arroz",
+        "precio" : 20,
+        "fechaElaboracio" : "2020-03-01",
+        "fechaVencimiento" : "2020-03-01",
+        "fechaOferta" : "2020-03-01",
+        "stock" : 15,
+        "imagen" : "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+    },
+    {
+        "id" : 4,
+        "categoria" : "alimento",
+        "nombreProducto" : "pollo con arroz",
+        "descripcion": "pollo marinado con arroz",
+        "precio" : 25,
+        "fechaElaboracio" : "2020-04-01",
+        "fechaVencimiento" : "2020-04-01",
+        "fechaOferta" : "2020-04-01",
+        "stock" : 15,
+        "imagen" : "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+    }
+    ]
+}
+
