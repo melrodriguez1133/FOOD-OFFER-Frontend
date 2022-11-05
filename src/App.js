@@ -1,207 +1,58 @@
-import React, {useState} from 'react';
-import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from './elementos/Formularios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import useFetch from './Hooks/useFetch';
+import { useState } from 'react'
 
-import Input from './componentes/Input';
+function App() {
+  const [inputs, setInputs] = useState({});
+  const [inputFile, setInputFile] = useState({});
 
-const App = () => {
-    
-	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
-	console.log(products);
+  const inputHandle = (e) => {
+    setInputs((current) => {
+      current[e.target.name] = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
+      return current;
+    });
+  }
 
-	const endpoint = 'http://127.0.0.1:8000/api/Producto';
-
-
-	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
-	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
-	const [tipoProducto, cambiarTipoProducto] = useState({campo: '', valido: null});
-	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
-	const [fechaElaboracion, cambiarFechaElaboracion] = useState({campo: '', valido: null});
-	const [precio, cambiarPrecio] = useState({campo: '', valido: null});
-	const [cantidadDisponible, cambiarCantidadDisponible] = useState({campo: '', valido: null});
-	const [fechaLimite, cambiarFechaLimite] = useState({campo: '', valido: null});
-	const [formularioValido, cambiarFormularioValido] = useState(null);
-
-	const expresiones = {
-		nombre: /^[a-zA-ZÀ-ÿ0-9\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
-		descripcion: /^[a-zA-ZÀ-ÿ0-9\s]{25,250}$/, // Letras y espacios, pueden llevar acentos.
-		fechaVencimiento: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
-		fechaElaboracion: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
-		precio: /^[0-9Bs\s]{3,20}$/, // 4 a 12 digitos.
-		cantidadDisponible: /^[0-9]{1,3}$/, // 7 a 14 numeros.
-		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
-	}
+  const fileHandle = (e) => {
+    setInputFile({
+      'file': e.target.files[0],
+      'name': e.target.files[0].name
+    });
+  }
 
 
-	const onSubmit = (e) => {
-		e.preventDefault();
+  const actionForm = (e) => {
+    e.preventDefault();
 
-		if(
-			nombre.valido === 'true' &&
-			tipoProducto.valido === 'true' &&
-			descripcion.valido === 'true' &&
-			fechaVencimiento.valido === 'true' &&
-			fechaElaboracion.valido === 'true' &&
-			precio.valido === 'true' &&
-			cantidadDisponible.valido === 'true' &&
-			fechaLimite.valido === 'true' 
-		){
-			cambiarFormularioValido(true);
-			cambiarNombre({campo: '', valido: null});
-			cambiarTipoProducto({campo: '', valido: null});
-			cambiarDescripcion({campo: '', valido: null});
-			cambiarFechaVencimento({campo: '', valido: null});
-			cambiarFechaElaboracion({campo: '', valido: null});
-			cambiarPrecio({campo: '', valido: null});
-			cambiarCantidadDisponible({campo: '', valido: null});
-			cambiarFechaLimite({campo: '', valido: null});
+    const data = new FormData();
 
-			// ... 
-		} else {
-			cambiarFormularioValido(false);
-		}
-	}
-	
-	const [profileImage, setProfileImage] = useState(
-		"https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-file-upload-icon-image_1344464.jpg"
-	  );
-	
-	  const imageHandler = (e) => {
-		const reader = new FileReader();
-		reader.onload = () => {
-		  if (reader.readyState === 2) {
-			setProfileImage(reader.result);
-		  }
-		};
-		console.log(imageHandler);
-		reader.readAsDataURL(e.target.files[0]);
-	  };
+    data.append('file', inputFile.file, inputFile.name);
+    data.append('product', JSON.stringify(inputs));
 
-	return (
-		<main>
-			<h1>Registrar Productos</h1>
-			<Formulario action="" onSubmit={onSubmit}>
-				<Input
-					estado={nombre}
-					cambiarEstado={cambiarNombre}
-					tipo="text"
-					label="Nombre*"
-					placeholder="Ingrese el nombre del producto"
-					name="usuario"
-					leyendaError="El nombre solo puede contener datos alfanumericos y espacios"
-					expresionRegular={expresiones.nombre}
-				/>
+    fetch('http://localhost:7200/FOOD-OFFER-Backend/backend/public/api/Producto', {
+      method: "POST",
+      body: data
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }
 
-                <label>Categoria de Productos*</label>
-
-				<select id="producto"
-				estado={tipoProducto}
-				cambiarEstado={cambiarTipoProducto}
-				placeholder="Seleccione un tipo de producto"
-				name="tipoProducto"
-				leyendaError="Seleccione un tipo de Producto"
-				>
-				{products && products.map((d, index) => (
-                          <option key={d.id} value={d.id}>{d.descripcion}</option>
-                        ))}
-                          </select>
-				          
-
-				<Input
-					estado={descripcion}
-					cambiarEstado={cambiarDescripcion}
-					tipo="text"
-					label="Descripcion*"
-					placeholder="inserte una descripcion"
-					name="descripcion"
-					leyendaError="La descripcion solo puede contener datos alfanumericos y espacios"
-					expresionRegular={expresiones.descripcion}
-				/>
-				<Input
-					estado={fechaVencimiento}
-					cambiarEstado={cambiarFechaVencimento}
-					tipo="text"
-					label="Fecha de Vencimiento*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
-					name="fechaVencimiento"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa dd-mm-aaaa"
-					expresionRegular={expresiones.fechaVencimiento}
-				/>
-				<Input
-					estado={fechaElaboracion}
-					cambiarEstado={cambiarFechaElaboracion}
-					tipo="text"
-					label="Fecha de Elaboracion*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
-					name="fechaElaboracion"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa o dd-mm-aaaa"
-					expresionRegular={expresiones.fechaElaboracion}
-				/>
-				<Input
-					estado={precio}
-					cambiarEstado={cambiarPrecio}
-					tipo="text"
-					label="Precio*"
-					placeholder="00.00 Bs"
-					name="precio"
-					leyendaError="Dato no valido solo debe ingresar el precio y Bs "
-					expresionRegular={expresiones.precio}
-				/>
-				<Input
-					estado={cantidadDisponible}
-					cambiarEstado={cambiarCantidadDisponible}
-					tipo="text"
-					label="Cantidad disponible*"
-					placeholder="Ingrese la cantidad disponible"
-					name="cantidadDisponible"
-					leyendaError="Dato no valido solo se admiten numeros y no mas de 3 cifras"
-					expresionRegular={expresiones.cantidadDisponible}
-				/>
-				<Input
-					estado={fechaLimite}
-					cambiarEstado={cambiarFechaLimite}
-					tipo="text"
-					label="Fecha Limite de Oferta*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
-					name="fechaLimite"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa o dd-mm-aaaa"
-					expresionRegular={expresiones.fechaLimite}
-				/>
-
-          <label>Imagen*</label>
-        
-          <div className="img-holder">
-            <img src={profileImage} alt="" id="img" className="img" />
-          </div>
-          <input
-            type="file"
-            accept="image/*"
-            name="image-upload"
-            id="input"
-            onChange={(e)=>imageHandler(e)}
-          />
-          <div className="label">
-            <label id="agregar-imag" className="image-upload" htmlFor="input">
-              + Agregue la imagen de su Producto
-            </label>
-          </div>
-        
-				<br/>
-				{formularioValido === false && <MensajeError>
-					<p>
-						<FontAwesomeIcon icon={faExclamationTriangle}/>
-						<b>Error:</b> Por favor rellena el formulario correctamente.
-					</p>
-				</MensajeError>}
-				<ContenedorBotonCentrado>
-					<Boton type="submit">Enviar</Boton>
-					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito>}
-				</ContenedorBotonCentrado>
-			</Formulario>
-		</main>
-	);
+  return (
+    <div className='contenedor'>
+      <h2 className='titulo'>Formulario de ejemplo</h2>
+      <form className='formulario' onSubmit={actionForm}>
+        <input type="text" name='nombreProducto' placeholder='Nombre del producto' onChange={inputHandle} />
+        <textarea onChange={inputHandle} name='descripcion' placeholder='Descripcion'></textarea>
+        <input type="number" name='precio' placeholder='Precio' onChange={inputHandle} />
+        <input type="text" name='fechaElaboracion' placeholder='fecha de elaboracion' onChange={inputHandle} />
+        <input type="text" name='fechaVencimiento' placeholder='fecha de vencimiento' onChange={inputHandle} />
+        <input type="text" name='fechaOferta' placeholder='fecha de oferta' onChange={inputHandle} />
+        <input type="number" name='stock' placeholder='stock' onChange={inputHandle} />
+        <input type="file" name='imagen' onChange={fileHandle} />
+        <input type="number" name='id_categoria' placeholder='id categoria' onChange={inputHandle} />
+        <input type="submit" value="Enviar" />
+      </form>
+    </div>
+  )
 }
- 
-export default App;
+
+export default App
+
