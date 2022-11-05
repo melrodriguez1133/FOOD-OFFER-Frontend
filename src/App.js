@@ -11,8 +11,12 @@ const App = () => {
 	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
 	console.log(products);
 
+	const endpoint = 'http://127.0.0.1:8000/api/Producto';
+
+
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
+	const [tipoProducto, cambiarTipoProducto] = useState({campo: '', valido: null});
 	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
 	const [fechaElaboracion, cambiarFechaElaboracion] = useState({campo: '', valido: null});
 	const [precio, cambiarPrecio] = useState({campo: '', valido: null});
@@ -36,6 +40,7 @@ const App = () => {
 
 		if(
 			nombre.valido === 'true' &&
+			tipoProducto.valido === 'true' &&
 			descripcion.valido === 'true' &&
 			fechaVencimiento.valido === 'true' &&
 			fechaElaboracion.valido === 'true' &&
@@ -45,6 +50,7 @@ const App = () => {
 		){
 			cambiarFormularioValido(true);
 			cambiarNombre({campo: '', valido: null});
+			cambiarTipoProducto({campo: '', valido: null});
 			cambiarDescripcion({campo: '', valido: null});
 			cambiarFechaVencimento({campo: '', valido: null});
 			cambiarFechaElaboracion({campo: '', valido: null});
@@ -59,7 +65,7 @@ const App = () => {
 	}
 	
 	const [profileImage, setProfileImage] = useState(
-		"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+		"https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-file-upload-icon-image_1344464.jpg"
 	  );
 	
 	  const imageHandler = (e) => {
@@ -69,7 +75,7 @@ const App = () => {
 			setProfileImage(reader.result);
 		  }
 		};
-		console.log(e.target.files[0]);
+		console.log(imageHandler);
 		reader.readAsDataURL(e.target.files[0]);
 	  };
 
@@ -88,7 +94,15 @@ const App = () => {
 					expresionRegular={expresiones.nombre}
 				/>
 
-				<select>
+                <label>Categoria de Productos*</label>
+
+				<select id="producto"
+				estado={tipoProducto}
+				cambiarEstado={cambiarTipoProducto}
+				placeholder="Seleccione un tipo de producto"
+				name="tipoProducto"
+				leyendaError="Seleccione un tipo de Producto"
+				>
 				{products && products.map((d, index) => (
                           <option key={d.id} value={d.id}>{d.descripcion}</option>
                         ))}
@@ -156,7 +170,7 @@ const App = () => {
 					expresionRegular={expresiones.fechaLimite}
 				/>
 
-<label>Imagen*</label>
+          <label>Imagen*</label>
         
           <div className="img-holder">
             <img src={profileImage} alt="" id="img" className="img" />
