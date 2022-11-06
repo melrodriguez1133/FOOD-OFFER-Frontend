@@ -45,7 +45,7 @@ class VistaProductosEmpresa extends React.Component {
               {this.state.producto.map((dato) => (
                 <tr key={dato.id}>
                   <td>{dato.id}</td>
-                  <td>{dato.nombre}</td>
+                  <td>{dato.nombreProducto}</td>
                   <td>{dato.descripcion}</td>
                   <td>{dato.precio}</td>
                   <td>{dato.stock}</td>
@@ -80,7 +80,7 @@ class VistaProductosEmpresa extends React.Component {
                 className="form-control"
                 readOnly
                 type="text"
-                value={this.state.form.id}
+                value={this.state.form?.id}
               />
             </FormGroup>
             
@@ -93,7 +93,7 @@ class VistaProductosEmpresa extends React.Component {
                 name="nombre"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.nombre}
+                value={this.state.form?.nombre}
               />
             </FormGroup>
             
@@ -106,7 +106,7 @@ class VistaProductosEmpresa extends React.Component {
                 name="descripcion"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.descipcion}
+                value={this.state.form?.descipcion}
               />
             </FormGroup>
             
@@ -119,7 +119,7 @@ class VistaProductosEmpresa extends React.Component {
                 name="precio"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.precio}
+                value={this.state.form?.precio}
               />
             </FormGroup>
 
@@ -132,7 +132,7 @@ class VistaProductosEmpresa extends React.Component {
                 name="stock"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.stock}
+                value={this.state.form?.stock}
               />
             </FormGroup>
 
@@ -145,7 +145,7 @@ class VistaProductosEmpresa extends React.Component {
                 name="estado"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.estado}
+                value={this.state.form?.estado}
               />
             </FormGroup>
           </ModalBody>
@@ -183,7 +183,7 @@ class VistaProductosEmpresa extends React.Component {
                 className="form-control"
                 readOnly
                 type="text"
-                value={this.state.data.length+1}
+                value={this.state.data?.length+1}
               />
             </FormGroup>
             
