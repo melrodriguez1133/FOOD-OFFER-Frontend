@@ -126,7 +126,8 @@ const Boton = styled.button`
 `;
 
 const MensajeExito = styled.p`
-	font-size: 14px;
+padding-left:30%
+	font-size: 20px;
 	color: ${colores.exito};
 `;
 

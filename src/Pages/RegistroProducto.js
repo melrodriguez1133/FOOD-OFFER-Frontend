@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import Input from '../Componentes/Input';
 
 const RegistroProducto = () => {
@@ -26,12 +26,12 @@ const RegistroProducto = () => {
 
 	const expresiones = {
 		nombre: /^[a-zA-ZÀ-ÿ0-9\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
-		descripcion: /^[a-zA-ZÀ-ÿ0-9\s]{25,250}$/, // Letras y espacios, pueden llevar acentos.
-		fechaVencimiento: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
-		fechaElaboracion: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
-		precio: /^[0-9]{3,20}$/, // 4 a 12 digitos.
+		descripcion: /^[a-zA-ZÀ-ÿ0-9\s,]{25,250}$/, // Letras y espacios, pueden llevar acentos.
+		fechaVencimiento: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
+		fechaElaboracion: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
+		precio: /^[0-9]{1,20}$/, // 4 a 12 digitos.
 		cantidadDisponible: /^[0-9]{1,3}$/, // 7 a 14 numeros.
-		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
+		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 	}
 
 
@@ -55,6 +55,7 @@ const RegistroProducto = () => {
 			cambiarPrecio({campo: '', valido: null});
 			cambiarCantidadDisponible({campo: '', valido: null});
 			cambiarFechaLimite({campo: '', valido: null});
+
 
 			const data = new FormData();
 
@@ -80,7 +81,7 @@ const RegistroProducto = () => {
 			.then(data => console.log(data)); 
 		    } else {
 			cambiarFormularioValido(false);
-			
+			Navigate('/empresa/productos-empresa')			
 		}
 		
 	}
@@ -150,9 +151,9 @@ const RegistroProducto = () => {
 					cambiarEstado={cambiarFechaVencimento}
 					tipo="text"
 					label="Fecha de Vencimiento*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
+					placeholder="ingrese dd/mm/aaaa"
 					name="fechaVencimiento"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa dd-mm-aaaa"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa "
 					expresionRegular={expresiones.fechaVencimiento}
 				/>
 				<Input
@@ -160,9 +161,9 @@ const RegistroProducto = () => {
 					cambiarEstado={cambiarFechaElaboracion}
 					tipo="text"
 					label="Fecha de Elaboracion*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
+					placeholder="ingrese dd/mm/aaaa "
 					name="fechaElaboracion"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa o dd-mm-aaaa"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa "
 					expresionRegular={expresiones.fechaElaboracion}
 				/>
 				<Input
@@ -190,9 +191,9 @@ const RegistroProducto = () => {
 					cambiarEstado={cambiarFechaLimite}
 					tipo="text"
 					label="Fecha Limite de Oferta*"
-					placeholder="ingrese dd/mm/aaaa o dd-mm-aaaa"
+					placeholder="ingrese dd/mm/aaaa "
 					name="fechaLimite"
-					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa o dd-mm-aaaa"
+					leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa "
 					expresionRegular={expresiones.fechaLimite}
 				/>
 
@@ -225,6 +226,7 @@ const RegistroProducto = () => {
 				<ContenedorBotonCentrado>
 				<Link to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white'>Registrar</Boton>
+				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
 			</Formulario>
