@@ -6,16 +6,17 @@ import './EditRegistrarEmpresa.css';
 
 const endpoint = 'http://localhost:8000/api/Producto/'
 
+
 const EditProduct = () => {
     const [nombreProducto, setnombreProducto] = useState('')
     const [descripcion, setdescripcion] = useState('')
+    const [id_categoria, setid_categoria] = useState('')
     const [precio, setprecio] = useState('')
     const [fechaElaboracion, setfechaElaboracion] = useState('')
     const [fechaVencimiento, setfechaVencimiento] = useState('')
     const [fechaOferta, setfechaOferta] = useState()
     const [stock, setstock] = useState()
     const [imagen, setimagen] = useState('')
-    const [id_categoria, setid_categoria] = useState('')
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -24,13 +25,13 @@ const EditProduct = () => {
         await axios.put(`${endpoint}${id}`, {
             nombreProducto: nombreProducto,
             descripcion: descripcion,
+            id_categoria: id_categoria,
             precio: precio,
             fechaElaboracion: fechaElaboracion,
             fechaVencimiento:fechaVencimiento,
             fechaOferta: fechaOferta,
             stock: stock,
             imagen: imagen,
-            id_categoria: id_categoria,
         })
         navigate('/')
     }
@@ -38,15 +39,16 @@ const EditProduct = () => {
     useEffect( () =>{
         const getProductById = async () => {
             const response = await axios.get(`${endpoint}${id}`)
+            console.log(response)
             setnombreProducto(response.data.nombreProducto)
             setdescripcion(response.data.descripcion)
+            setid_categoria(response.data.id_categoria)
             setprecio(response.data.precio)
             setfechaElaboracion(response.data.fechaElaboracion)
             setfechaVencimiento(response.data.fechaVencimiento)
             setfechaOferta(response.data.fechaOferta)
             setstock(response.data.stock)
             setimagen(response.data.imagen)
-            setid_categoria(response.data.id_categoria)
             }
         getProductById()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,6 +76,15 @@ const EditProduct = () => {
                 <input 
                     value={descripcion}
                     onChange={ (e)=> setdescripcion(e.target.value)}
+                    type='text'
+                    className='form-control'
+                />
+            </div>
+            <div className='mb-3'>
+                <label className='form-label'>Categoria de producto*</label>
+                <input 
+                    value={id_categoria}
+                    onChange={ (e)=> setid_categoria(e.target.value)}
                     type='text'
                     className='form-control'
                 />
@@ -133,15 +144,7 @@ const EditProduct = () => {
                 />
             </div>
             
-            <div className='mb-3'>
-                <label className='form-label'>Categoria de producto*</label>
-                <input 
-                    value={id_categoria}
-                    onChange={ (e)=> setid_categoria(e.target.value)}
-                    type='number'
-                    className='form-control'
-                />
-            </div>
+            
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
 
             <button type='submit' className='btn btn-primary'>Confirmar</button>
