@@ -1,52 +1,103 @@
 {
-    "productos":[{
-        "id" : 1,
-        "categoria" : "alimento",
-        "nombreProducto" : "pollo con arroz",
-        "descripcion": "pollo marinado con arroz",
-        "precio" : 12,
-        "fechaElaboracio" : "2020-01-01",
-        "fechaVencimiento" : "2020-01-01",
-        "fechaOferta" : "2020-01-01",
-        "stock" : 15,
-        "imagen" : "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-    },
-    {
-        "id" : 2,
-        "categoria" : "alimento",
-        "nombreProducto" : "pollo con arroz",
-        "descripcion": "pollo marinado con arroz",
-        "precio" : 14,
-        "fechaElaboracio" : "2020-02-01",
-        "fechaVencimiento" : "2020-02-01",
-        "fechaOferta" : "2020-02-01",
-        "stock" : 15,
-        "imagen" : "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-    },
-    {
-        "id" : 3,
-        "categoria" : "alimento",
-        "nombreProducto" : "pollo con arroz",
-        "descripcion": "pollo marinado con arroz",
-        "precio" : 20,
-        "fechaElaboracio" : "2020-03-01",
-        "fechaVencimiento" : "2020-03-01",
-        "fechaOferta" : "2020-03-01",
-        "stock" : 15,
-        "imagen" : "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-    },
-    {
-        "id" : 4,
-        "categoria" : "alimento",
-        "nombreProducto" : "pollo con arroz",
-        "descripcion": "pollo marinado con arroz",
-        "precio" : 25,
-        "fechaElaboracio" : "2020-04-01",
-        "fechaVencimiento" : "2020-04-01",
-        "fechaOferta" : "2020-04-01",
-        "stock" : 15,
-        "imagen" : "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-    }
+    "productos":[
+        {
+            "id": 1,
+            "nombreProducto": "Leche",
+            "descripcion": "leche ultra pasteurisada xd",
+            "precio": 2622,
+            "fechaElaboracion": "2022-10-02",
+            "fechaVencimiento": "2022-10-02",
+            "fechaOferta": "2022-10-02",
+            "stock": 14,
+            "imagen": "Comida",
+            "id_categoria": 1,
+            "created_at": null,
+            "updated_at": null
+        },
+        {
+            "id": 2,
+            "nombreProducto": "yogurt",
+            "descripcion": "yogurt con leche ultra pasteurisada xd",
+            "precio": 772,
+            "fechaElaboracion": "2022-10-02",
+            "fechaVencimiento": "2022-11-02",
+            "fechaOferta": "2022-10-02",
+            "stock": 14,
+            "imagen": "Comida",
+            "id_categoria": 1,
+            "created_at": null,
+            "updated_at": null
+        },
+        {
+            "id": 3,
+            "nombreProducto": "Pollito",
+            "descripcion": "pollito al spiedo re chicken xdddddddddd",
+            "precio": 267,
+            "fechaElaboracion": "2022-10-02",
+            "fechaVencimiento": "2022-12-02",
+            "fechaOferta": "2022-11-02",
+            "stock": 14,
+            "imagen": "Comida",
+            "id_categoria": 2,
+            "created_at": null,
+            "updated_at": null
+        },
+        {
+            "id": 4,
+            "nombreProducto": "chocolate",
+            "descripcion": "chocolatito blanquito xxdddddd",
+            "precio": 622,
+            "fechaElaboracion": "2022-10-02",
+            "fechaVencimiento": "2022-12-02",
+            "fechaOferta": "2022-11-02",
+            "stock": 19,
+            "imagen": "Comida",
+            "id_categoria": 2,
+            "created_at": null,
+            "updated_at": null
+        },
+        {
+            "id": 5,
+            "nombreProducto": "ddddd",
+            "descripcion": "ddddddddddddddddddd",
+            "precio": 333333,
+            "fechaElaboracion": "3333",
+            "fechaVencimiento": "20/11/2022",
+            "fechaOferta": "333",
+            "stock": 333,
+            "imagen": "products/U6Q8nsKuXyt97M7nkhfxpzEwCTNjrf3AGM5DdB5Q.jpg",
+            "id_categoria": 3,
+            "created_at": "2022-11-06T00:52:27.000000Z",
+            "updated_at": "2022-11-06T00:52:27.000000Z"
+        },
+        {
+            "id": 6,
+            "nombreProducto": "ddddd",
+            "descripcion": "dddddddddddddddddddddddddddddddddddddd",
+            "precio": 333333,
+            "fechaElaboracion": "3333",
+            "fechaVencimiento": "20/11/2022",
+            "fechaOferta": "333",
+            "stock": 333,
+            "imagen": "products/CXWE8rpOrgN7iEww7D88DHSIU8kI2j0lSJ7l1kYM.jpg",
+            "id_categoria": 3,
+            "created_at": "2022-11-06T00:52:28.000000Z",
+            "updated_at": "2022-11-06T00:52:28.000000Z"
+        },
+        {
+            "id": 7,
+            "nombreProducto": "ljsafjlfhljds",
+            "descripcion": "gffghfghv jfhffttttttttttttttttttttttttttttttttttttttttttttttttttt",
+            "precio": 980,
+            "fechaElaboracion": "18/11/2022",
+            "fechaVencimiento": "20/11/2022",
+            "fechaOferta": "19/11/2022",
+            "stock": 879,
+            "imagen": "products/Uv8aOxwLf41BFiKLRv7iciwHt84XxzkeBMbQZG0b.jpg",
+            "id_categoria": 3,
+            "created_at": "2022-11-06T01:53:09.000000Z",
+            "updated_at": "2022-11-06T01:53:09.000000Z"
+        }
     ]
 }
 
