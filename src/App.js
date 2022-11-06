@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './Screem/Sidebar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Overview';
+import ShowRegistrarEmpresas from './Pages/ShowRegistrarEmpresas';
+import CreateRegistrarEmpresa from './Pages/CreateRegistrarEmpresa';
+import VistaProductos from './Pages/VistaProductos';
+import VistaProductosEmpresa from './Pages/VistaProductosEmpresa';
+import RegistroProducto from './Pages/RegistroProducto';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Sidebar />
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
+        <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
+        <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
+        <Route path='/usuarios/productos' element={<VistaProductos />} />
+        <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
+      </Routes>
+    </Router>
+    
   );
-}
-
+}        
 export default App;
