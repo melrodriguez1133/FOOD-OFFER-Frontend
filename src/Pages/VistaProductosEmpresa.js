@@ -20,11 +20,11 @@ const VistaProductosEmpresa = () => {
   return (
     <div>
         <Container className="table-responsive">
-                <br />
-                <h1>Productos</h1>
-                <Link to="/empresa/productos-empresa/RegistroProducto" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Registrar Producto</Link>
-                <br />
-                <br />
+            <br />
+             <h1>Productos</h1>
+                <Link to="/empresa/registrar-empresa/create" className='btn btn-success'>Registrar Producto</Link>
+            <br />
+            <br />
             <Table >
                 <thead>
                 <tr>
