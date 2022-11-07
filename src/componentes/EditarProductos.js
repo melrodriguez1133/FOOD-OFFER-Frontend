@@ -57,6 +57,10 @@ const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] )
 
+
+    
+
+      
     return (
         <body className='body'>
         <div className='imagenEmpresa'>
@@ -147,13 +151,16 @@ const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
             </div>
             <div className='mb-3'>
                 <label className='form-label'>Imagen</label>
-                
-                
+                <input 
+                    value={imagen}
+                    onChange={ (e)=> setimagen(e.target.value)}
+                    type='text'
+                    className='form-control'
+                />
             </div>
             <div>
              <img src={imagen}/>
-             
-            </div>
+          </div>
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
 
             <button type='submit' className='btn btn-primary'>Confirmar</button>
