@@ -1,54 +1,47 @@
-import React from 'react'
-import IMG from "./pollo.jpg";
-import './VistaProducto.css';
+import {useEffect, useState} from 'react';
+import './VistaProductos.css';
+import axios from 'axios';
 
-export class VistaProductos extends React.Component  {
-    render(){
-	return(
-	<>
-		<h1 className = "title">PRODUCTOS</h1>
-		<div className = "productos">
-			<div className = "producto">
-                <h1 className="nombrep"> Nombre del producto </h1>
-                <a href = "#">
-                    <div className = "producto_img">
-                        <img className ="imagen" src={IMG} alt=""/>
+import { todosProductos } from '../funciones/funciones'
+
+function VistaProductos() {
+    const [Productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        todosProductos(setProductos)
+    },[])
+
+    console.log({Productos});
+
+    return (
+        <div className='container mt-3'>
+            <div className='row row-cols-lg-3 row-cols-md-2 row-cols-xs-1'>
+                {Productos.map((Productos) =>  (
+                    <div className='producto'>
+                        <div className='container pr-1 pl-1 border'>
+                        <div className = 'container mt-3'>
+                        <h1 className='nombrep'> {Productos.nombreProducto} </h1>
+                        <a href = '#'>
+                            <div className = 'producto_img'>
+                                <img className='imagen' src={Productos.imagen.default} alt={Productos.nombreProducto}/>
+                            </div>
+                        </a>
+                        <div className = 'producto_footer'>
+                            <h1 className='descrip'>{Productos.descripcion}</h1>
+                            <p>Fecha Elaboracion: {Productos.fechaElaboracion}</p>
+                            <p>Fecha Vencimiento: {Productos.fechaVencimiento}</p>
+                            <p>Stock: {Productos.stock}</p>
+                            <p>Precio: {Productos.precio}</p>
+                        </div>
                     </div>
-                </a>
-                <div className = "producto_footer">
-                    <h1>Title</h1>
-                    <p>Categoria</p>
-                    <p className= "price"> $320 </p>
-                </div>
-			</div>
-            <div className = "producto">
-                <h1 className="nombrep"> Nombre del producto </h1>
-                <a href = "#">
-                    <div className = "producto_img">
-                        <img className ="imagen" src={IMG} alt=""/>
                     </div>
-                </a>
-                <div className = "producto_footer">
-                    <h1>Title</h1>
-                    <p>Categoria</p>
-                    <p className= "price"> $320 </p>
-                </div>
-			</div>
-            <div className = "producto">
-                <h1 className="nombrep"> Nombre del producto </h1>
-                <a href = "#">
-                    <div className = "producto_img">
-                        <img className ="imagen" src={IMG} alt=""/>
                     </div>
-                </a>
-                <div className = "producto_footer">
-                    <h1>Title</h1>
-                    <p>Categoria</p>
-                    <p className= "price"> $320 </p>
-                </div>
-			</div>
+                ))}
+            </div>
         </div>
-	</>
-);
-}}
+    );
+}
+
+            
+
 export default VistaProductos;

@@ -8,16 +8,21 @@ import CreateRegistrarEmpresa from './componentesEmpresa/CreateRegistrarEmpresa'
 import VistaProductos from './pages/VistaProductos';
 import VistaProductosEmpresa from './pages/VistaProductosEmpresa';
 
+
+/*import Vista from './pages/Vista';*/
+import RegistrarProducto from './componentesEmpresa/RegistrarProducto';
+
+
 function App() {
   return (
     <Router>
       <Sidebar />
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<RegistrarProducto />} />
         <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
         <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
-        <Route path='/usuarios/productos' element={<VistaProductos />} />
+        <Route path='/usuarios/productos' element={<VistaProductos/>} />
       </Routes>
     </Router>
   );

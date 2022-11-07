@@ -1,5 +1,5 @@
 {
-    "productos":[
+    "Productos":[
         {
             "id": 1,
             "nombreProducto": "Leche",
@@ -9,7 +9,7 @@
             "fechaVencimiento": "2022-10-02",
             "fechaOferta": "2022-10-02",
             "stock": 14,
-            "imagen": "Comida",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 1,
             "created_at": null,
             "updated_at": null
@@ -23,7 +23,7 @@
             "fechaVencimiento": "2022-11-02",
             "fechaOferta": "2022-10-02",
             "stock": 14,
-            "imagen": "Comida",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 1,
             "created_at": null,
             "updated_at": null
@@ -37,7 +37,7 @@
             "fechaVencimiento": "2022-12-02",
             "fechaOferta": "2022-11-02",
             "stock": 14,
-            "imagen": "Comida",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 2,
             "created_at": null,
             "updated_at": null
@@ -51,7 +51,7 @@
             "fechaVencimiento": "2022-12-02",
             "fechaOferta": "2022-11-02",
             "stock": 19,
-            "imagen": "Comida",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 2,
             "created_at": null,
             "updated_at": null
@@ -65,7 +65,7 @@
             "fechaVencimiento": "20/11/2022",
             "fechaOferta": "333",
             "stock": 333,
-            "imagen": "products/U6Q8nsKuXyt97M7nkhfxpzEwCTNjrf3AGM5DdB5Q.jpg",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 3,
             "created_at": "2022-11-06T00:52:27.000000Z",
             "updated_at": "2022-11-06T00:52:27.000000Z"
@@ -79,7 +79,7 @@
             "fechaVencimiento": "20/11/2022",
             "fechaOferta": "333",
             "stock": 333,
-            "imagen": "products/CXWE8rpOrgN7iEww7D88DHSIU8kI2j0lSJ7l1kYM.jpg",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 3,
             "created_at": "2022-11-06T00:52:28.000000Z",
             "updated_at": "2022-11-06T00:52:28.000000Z"
@@ -93,7 +93,7 @@
             "fechaVencimiento": "20/11/2022",
             "fechaOferta": "19/11/2022",
             "stock": 879,
-            "imagen": "products/Uv8aOxwLf41BFiKLRv7iciwHt84XxzkeBMbQZG0b.jpg",
+            "imagen": "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
             "id_categoria": 3,
             "created_at": "2022-11-06T01:53:09.000000Z",
             "updated_at": "2022-11-06T01:53:09.000000Z"

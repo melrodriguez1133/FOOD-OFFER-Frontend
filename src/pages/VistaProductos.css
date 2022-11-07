@@ -1,30 +1,30 @@
 
-.title{
-	font-size: 2rem;
-	padding: 1rem 2rem;
-	color: #08a05c;
+.producto .container{
+    background-color: #547983;
+	border-radius: 25px;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
 .productos{
-	padding: 1rem 2rem;
-	margin: 0 auto;
+	/*margin: 10%;*/
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
 	gap: 3rem 2rem;
 	box-sizing: border-box;
 }
-.producto{
+/*.producto{
 	display: flex;
 	width: 100%;
 	flex-direction: column;
 	box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, .2);
 	border: 0.5% solid transparent;
-	border-radius: 5px;
-}
+	border-radius: 45px;
+}*/
 .nombrep{
-	font-size: xx-large;
-	color: blue;
+	text-transform: uppercase;
+	font-size: 2rem;
+	color: #F0EDE8;
 	margin-left: 2%;
-	margin-top: 1%;
 }
 .producto:hover{
 	border: 6px solid #08a05c55;
@@ -38,23 +38,27 @@
 	height: auto;
 }
 .producto_footer{
-	margin-left: 2%;
+	/*margin-left: 2%;*/
 	padding: 1rem;
+	
+	border-color: rgb(163, 24, 133);
+	
 }
 .producto_footer h1{
 	font-weight:600;
 	font-size: 1.5rem;
 	color: #1a202c;
 	font-family: Helvetica, sans-serif;
+	overflow: hidden;
 }
 .producto_footer p{
-	font-weight: 700;
-	color: rgba(0, 0, 0, .555);
-	text-transform: uppercase;
-	font-size: 18px;
+	color: #F0EDE8;
+	font-size: 1rem;
 
 }
-.producto_footer .price{
-	font-size: 2rem;
-	color: 1a202c;
+
+.producto_footer h1{
+	text-align: center;
+	font-size: 1rem;
+	color: #F0EDE8;
 }
