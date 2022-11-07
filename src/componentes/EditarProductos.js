@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
+
 import './EditRegistrarEmpresa.css';
 
 const endpoint = 'http://localhost:8000/api/Producto/'
@@ -82,12 +83,16 @@ const EditProduct = () => {
             </div>
             <div className='mb-3'>
                 <label className='form-label'>Categoria de producto*</label>
-                <input 
+                <select 
                     value={id_categoria}
                     onChange={ (e)=> setid_categoria(e.target.value)}
                     type='text'
-                    className='form-control'
-                />
+                    className='form-control'                   
+                >
+                    <option defaultValue={true}>
+                        {id_categoria}
+                    </option>
+                </select>
             </div>
             <div className='mb-3'>
                 <label className='form-label'>Précio*</label>
@@ -135,16 +140,13 @@ const EditProduct = () => {
                 />
             </div>
             <div className='mb-3'>
-                <label className='form-label'>Imagen*</label>
-                <input 
-                    value={imagen}
-                    onChange={ (e)=> setimagen(e.target.value)}
-                    type='text'
-                    className='form-control'
-                />
+                <label className='form-label'>Imagen</label>
+                
+                
             </div>
-            
-            
+            <div>
+             <img src={imagen}/>
+            </div>
             <Link to={`/`} className='btn btn-warning'>Cancelar</Link>
 
             <button type='submit' className='btn btn-primary'>Confirmar</button>
