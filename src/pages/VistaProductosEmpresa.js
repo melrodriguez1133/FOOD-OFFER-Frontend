@@ -6,8 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 /*import './VistaProductoEmpresa.css';*/
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
 
-
-
 const VistaProductosEmpresa = () => {
     
     const [Productos, setProductos] = useState([]);
@@ -16,6 +14,11 @@ const VistaProductosEmpresa = () => {
         todosProductos(setProductos)
     },[])
 
+    const deleteRegistrarEmpresas = async (id) =>{
+        await axios.delete(`http://localhost:3004/Productos/${id}`)
+        todosProductos()
+    }
+    
 
   return (
     <div>
@@ -33,7 +36,6 @@ const VistaProductosEmpresa = () => {
                     <th>Descipcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
-                    <th>Imagen</th>
                 </tr>
                 </thead>
 
@@ -45,11 +47,10 @@ const VistaProductosEmpresa = () => {
                     <td>{Productos.descripcion}</td>
                     <td>{Productos.precio}</td>
                     <td>{Productos.stock}</td>
-                    <td><img src={Productos.imagen.default}alt={Productos.nombreProducto}/></td>
                     <td>
                         <Button color="primary" >
                         Editar</Button>{" "}
-                        <Button color="danger" >Eliminar</Button>
+                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>Borrar</Button>
                     </td>
                     </tr>
                 ))}
