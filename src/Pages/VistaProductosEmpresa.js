@@ -3,10 +3,7 @@ import axios from 'axios'
 import {Link} from "react-router-dom"
 import { todosProductos } from '../Funciones/funciones'
 import "bootstrap/dist/css/bootstrap.min.css";
-/*import './VistaProductoEmpresa.css';*/
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
-
-
 
 const VistaProductosEmpresa = () => {
     
@@ -16,40 +13,42 @@ const VistaProductosEmpresa = () => {
         todosProductos(setProductos)
     },[])
 
+    const deleteRegistrarEmpresas = async (id) =>{
+        var opcion = window.confirm("EstÃ¡s Seguro que deseas Eliminar el elemento "+ Productos.id);
+        if (opcion == true) {
+            await axios.delete(`http://127.0.0.1:8000/api/Producto/${id}`)
+            todosProductos()
+        }
+      };
 
   return (
     <div>
         <Container className="table-responsive">
             <br />
              <h1>Productos</h1>
-                <Link to="/empresa/registrar-empresa/create" className='btn btn-success'>Registrar Producto</Link>
+                <Link to="/empresa/productos-empresa/RegistroProducto" className='btn btn-success'>Registrar Producto</Link>
             <br />
             <br />
             <Table >
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Nombre del Producto</th>
                     <th>Descipcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
-                    <th>Imagen</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 {Productos.map((Productos) => (
                     <tr key={Productos.id}>
-                    <td>{Productos.id}</td>
                     <td>{Productos.nombreProducto}</td>
                     <td>{Productos.descripcion}</td>
                     <td>{Productos.precio}</td>
                     <td>{Productos.stock}</td>
-                    <td><img src={Productos.imagen.default}alt={Productos.nombreProducto}/></td>
                     <td>
-                        <Button color="primary" >
-                        Editar</Button>{" "}
-                        <Button color="danger" >Eliminar</Button>
+                    <Link to={`/empresa/productos-empresa/EditarProducto/${Productos.id}`} className='btn btn-success'>Editar</Link>
+                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>Borrar</Button>
                     </td>
                     </tr>
                 ))}

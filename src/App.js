@@ -6,6 +6,7 @@ import CreateRegistrarEmpresa from './Pages/CreateRegistrarEmpresa';
 import VistaProductos from './Pages/VistaProductos';
 import VistaProductosEmpresa from './Pages/VistaProductosEmpresa';
 import RegistroProducto from './Pages/RegistroProducto';
+import EditarProductos from './Pages/EditarProductos';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
         <Route path='/usuarios/productos' element={<VistaProductos />} />
         <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
+        <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
       </Routes>
     </Router>
     

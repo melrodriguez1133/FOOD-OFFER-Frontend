@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
-import { Navigate } from 'react-router-dom'
+import { useNavigate,redirect } from 'react-router-dom';
 import Input from '../Componentes/Input';
 
 const RegistroProducto = () => {
@@ -81,9 +81,9 @@ const RegistroProducto = () => {
 			.then(data => console.log(data)); 
 		    } else {
 			cambiarFormularioValido(false);
-			Navigate('/empresa/productos-empresa')			
+					
 		}
-		
+		//return redirect('/empresa/productos-empresa')	
 	}
 	
 	const [profileImage, setProfileImage] = useState(

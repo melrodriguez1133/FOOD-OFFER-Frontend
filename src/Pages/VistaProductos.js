@@ -23,7 +23,7 @@ function VistaProductos() {
                         <h1 className='nombrep'> {Productos.nombreProducto} </h1>
                         <a href = '#'>
                             <div className = 'producto_img'>
-                                <img className='imagen' src={Productos.imagen.default} alt={Productos.nombreProducto}/>
+                                <img className='imagen' src={Productos.imagen} alt={Productos.nombreProducto}/>
                             </div>
                         </a>
                         <div className = 'producto_footer'>
