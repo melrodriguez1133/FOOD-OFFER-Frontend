@@ -22,7 +22,7 @@ function App() {
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
       </Routes>
     </Router>
-    
+   
   );
 }        
 export default App;
