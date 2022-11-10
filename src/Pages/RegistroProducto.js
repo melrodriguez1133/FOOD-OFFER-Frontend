@@ -226,7 +226,7 @@ const RegistroProducto = () => {
 				
 				<ContenedorBotonCentrado>
 				<Link to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
-				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' onClick={window.location.reload()}>Registrar</Boton>
+				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' onClick = {window.location.reload()}>Registrar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
