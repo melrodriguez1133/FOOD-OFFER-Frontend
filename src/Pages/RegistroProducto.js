@@ -34,7 +34,7 @@ const RegistroProducto = () => {
 		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 	}
 
-
+	const navigate = useNavigate()
 	const onSubmit = (e) => {
 		e.preventDefault();
 
@@ -68,8 +68,9 @@ const RegistroProducto = () => {
 				precio:Number(precio.campo),
 				stock:Number(cantidadDisponible.campo),
 				fechaOferta:fechaLimite.campo
+				
 			}
-
+			navigate('/empresa/productos-empresa')	
 			data.append('file',Imag.file, Imag.name);
 			data.append('product', JSON.stringify(inputsT));
 
@@ -83,7 +84,7 @@ const RegistroProducto = () => {
 			cambiarFormularioValido(false);
 					
 		}
-		//return redirect('/empresa/productos-empresa')	
+		
 	}
 	
 	const [profileImage, setProfileImage] = useState(

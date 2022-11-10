@@ -22,6 +22,7 @@ function App() {
         <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
         <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
+        <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
         <Route path='/usuarios/productos' element={<VistaProductos />} />
       </Routes>
     </Router>

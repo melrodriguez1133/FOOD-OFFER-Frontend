@@ -14,13 +14,19 @@ export const SidebarData = [
 
   },
   {
-    title: 'Empresa',
+    title: 'Empresas',
     path: '/empresa',
     icon: <IoIcons.IoIosBusiness />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
     subNav: [
+      {
+        title: 'Registrar Empresa',
+        path: '/empresa/empresa/RegistrarEmpresa',
+        icon: <IoIcons.IoIosAddCircle />,
+        cName: 'sub-nav'
+      },
       {
         title: 'Empresa',
         path: '/empresa/empresa',

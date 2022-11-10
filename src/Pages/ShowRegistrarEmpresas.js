@@ -24,9 +24,7 @@ const ShowRegistrarEmpresas = () => {
     }
   return (
     <div id="tabla">
-        <div className='d-grid gap-2'>
-            <Link to="/empresa/empresa/RegistrarEmpresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Crear</Link>
-        </div>
+       <h1>Empresas</h1>
         <table className='table table-striped'>
             <thead className='bg-primary text-white'>
                 <tr>
