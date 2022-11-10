@@ -20,7 +20,7 @@ const ShowRegistrarEmpresas = () => {
 
     const deleteRegistrarEmpresas = async (id) =>{
         var opcion = window.confirm("¿Estás Seguro que deseas Eliminar?");
-        if (opcion == true) {
+        if (opcion === true) {
             await axios.delete(`${endpoint}/registrarEmpresas/${id}`)
             getAllRegistrarEmpresas()
             window.location.reload();

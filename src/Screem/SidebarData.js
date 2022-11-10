@@ -30,7 +30,7 @@ export const SidebarData = [
       {
         title: 'Empresa',
         path: '/empresa/empresa',
-        icon: <IoIcons.IoIosAddCircle />,
+        icon: <IoIcons.IoIosBusiness />,
         cName: 'sub-nav'
       },
       {
