@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link} from "react-router-dom"
 import { todosProductos } from '../Funciones/funciones'
 import "bootstrap/dist/css/bootstrap.min.css";
-import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
+import {  Table,  Button,  Container} from "reactstrap";
 
 const VistaProductosEmpresa = () => {
     
@@ -15,9 +15,10 @@ const VistaProductosEmpresa = () => {
 
     const deleteRegistrarEmpresas = async (id) =>{
         var opcion = window.confirm("EstÃ¡s Seguro que deseas Eliminar el elemento "+ Productos.id);
-        if (opcion == true) {
+        if (opcion === true) {
             await axios.delete(`http://127.0.0.1:8000/api/Producto/${id}`)
             todosProductos()
+            window.location.reload();
         }
       };
 
