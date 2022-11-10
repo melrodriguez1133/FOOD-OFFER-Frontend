@@ -7,6 +7,7 @@ import VistaProductos from './Pages/VistaProductos';
 import VistaProductosEmpresa from './Pages/VistaProductosEmpresa';
 import RegistroProducto from './Pages/RegistroProducto';
 import EditarProductos from './Pages/EditarProductos';
+import EditRegistrarEmpresa from './Pages/EditRegistrarEmpresa'
 
 function App() {
   return (
@@ -14,12 +15,14 @@ function App() {
       <Sidebar />
       <Routes>
         <Route path='/home' element={<Home />} />
-        <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
-        <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
+        <Route path='/empresa/empresa' element={<ShowRegistrarEmpresas />} />
+        <Route path='/empresa/empresa/RegistrarEmpresa' element={ <CreateRegistrarEmpresa/>}/>
+        <Route path='/empresa/empresa/EditarEmpresa' element={ <EditRegistrarEmpresa/>}/>
+        <Route path='/empresa/empresa/EditarEmpresa/:id' element={ <EditRegistrarEmpresa/>}/>
         <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
-        <Route path='/usuarios/productos' element={<VistaProductos />} />
         <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
+        <Route path='/usuarios/productos' element={<VistaProductos />} />
       </Routes>
     </Router>
    

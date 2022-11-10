@@ -22,8 +22,8 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'Registrar Empresa',
-        path: '/empresa/registrar-empresa',
+        title: 'Empresa',
+        path: '/empresa/empresa',
         icon: <IoIcons.IoIosAddCircle />,
         cName: 'sub-nav'
       },
