@@ -12,11 +12,11 @@ const SidebarLink = styled(Link)`
   height: 60px;
   text-decoration: none;
   font-size: 18px;
-  &:hover {
+ */ &:hover {
     background:  #91BCC2 ;
     border-left: 4px solid #632ce4;
     cursor: pointer;
-  }
+  }*/
 `;
 
 const SidebarLabel = styled.span`

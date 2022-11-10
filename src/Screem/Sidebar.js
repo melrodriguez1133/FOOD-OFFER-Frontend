@@ -61,6 +61,7 @@ const Sidebar = () => {
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
           <h1 className='hh'>Food Offer</h1>
+          <button><icon className="AiOutlineUser"></icon></button>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>

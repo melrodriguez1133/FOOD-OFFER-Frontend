@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../Funciones/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 import useFetch from '../Hooks/useFetch';
 import { useNavigate,redirect } from 'react-router-dom';
 import Input from '../Componentes/Input';

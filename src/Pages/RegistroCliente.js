@@ -3,7 +3,7 @@ import React from 'react';
 const RegistrarEmpresa = () => {
   return (
     <div className='home'>
-      empresa
+      cliente
     </div>
   );
 };
