@@ -18,6 +18,7 @@ const VistaProductosEmpresa = () => {
         if (opcion == true) {
             await axios.delete(`http://127.0.0.1:8000/api/Producto/${id}`)
             todosProductos()
+            window.location.reload();
         }
       };
 
