@@ -6,7 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
-import red from 'material-ui/colors/red';
+/*import red from 'material-ui/colors/red';*/
 
 const Nav = styled.div`
   background: #E57603;
@@ -27,7 +27,7 @@ const NavIcon = styled(Link)`
   align-items: center;
 `;
 
-const h1 = styled.nav`color: red`;
+const h1 = styled.nav`color: #red`;
 
 const SidebarNav = styled.nav`
   background: #2A5865;
