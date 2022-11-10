@@ -23,13 +23,14 @@ const ShowRegistrarEmpresas = () => {
         if (opcion == true) {
             await axios.delete(`${endpoint}/registrarEmpresas/${id}`)
             getAllRegistrarEmpresas()
+            window.location.reload();
         }
     }
 
   return (
-    <div id="tabla">
+    <div className='table-responsive'>
        <h1>Empresas</h1>
-        <table className='table table-striped'>
+        <table className='table'>
             <thead className='bg-primary text-white'>
                 <tr>
                     <th>Nombre de Empresa</th>
