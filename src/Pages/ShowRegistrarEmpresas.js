@@ -19,9 +19,13 @@ const ShowRegistrarEmpresas = () => {
     }
 
     const deleteRegistrarEmpresas = async (id) =>{
-        await axios.delete(`${endpoint}/registrarEmpresas/${id}`)
-        getAllRegistrarEmpresas()
+        var opcion = window.confirm("¿Estás Seguro que deseas Eliminar?");
+        if (opcion == true) {
+            await axios.delete(`${endpoint}/registrarEmpresas/${id}`)
+            getAllRegistrarEmpresas()
+        }
     }
+
   return (
     <div id="tabla">
        <h1>Empresas</h1>
