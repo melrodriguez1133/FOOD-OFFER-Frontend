@@ -3,6 +3,8 @@ import axios from 'axios'
 import {Link} from "react-router-dom"
 import { todosProductos } from '../funciones/funciones'
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 /*import './VistaProductoEmpresa.css';*/
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
 
@@ -49,8 +51,11 @@ const VistaProductosEmpresa = () => {
                     <td>{Productos.stock}</td>
                     <td>
                         <Button color="primary" >
-                        Editar</Button>{" "}
-                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>Borrar</Button>
+                        <FontAwesomeIcon icon={faEdit}/>
+                        </Button>{" "}
+                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>
+                        <FontAwesomeIcon icon={faTrashAlt}/>
+                        </Button>
                     </td>
                     </tr>
                 ))}
