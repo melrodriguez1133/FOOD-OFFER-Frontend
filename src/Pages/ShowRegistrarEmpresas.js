@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from "react-router-dom"
+import {  Table,  Button,  Container} from "reactstrap";
 import  './ShowRegistrarEmpresas.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const endpoint = 'http://localhost:8000/api'
 
@@ -28,23 +31,27 @@ const ShowRegistrarEmpresas = () => {
     }
 
   return (
-    <div className='table-responsive'>
-       <h1>Empresas</h1>
-        <table className='table'>
-            <thead className='bg-primary text-white'>
-                <tr>
-                    <th>Nombre de Empresa</th>
-                    <th>Tipo de Negocio</th>
-                    <th>Descripción</th>
-                    <th>Horarios de atención</th>
-                    <th>Dias de atención</th>
-                    <th>Número de celular</th>
-                    <th>Número de telefono</th>
-                    <th>Dirección</th>
-                    <th>Correo de la empresa</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div>
+            <Container className="table-responsive">
+                <br />
+                <h1>Empresa</h1>
+                <br />
+                <Table >
+                    <thead>
+                    <tr>
+                        <th>Nombre de Empresa</th>
+                        <th>Tipo de Negocio</th>
+                        <th>Descripción</th>
+                        <th>Horarios de atención</th>
+                        <th>Dias de atención</th>
+                        <th>Número de celular</th>
+                        <th>Número de telefono</th>
+                        <th>Dirección</th>
+                        <th>Correo de la empresa</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
                 {RegistrarEmpresas.map((RegistrarEmpresas) => (
                     <tr key={RegistrarEmpresas.id}>
                         <td>{RegistrarEmpresas.nombreEmpresa}</td>
@@ -57,14 +64,19 @@ const ShowRegistrarEmpresas = () => {
                         <td>{RegistrarEmpresas.direccion}</td>
                         <td>{RegistrarEmpresas.correoEmpresa}</td>
                         <td>
-                            <Link to={`/empresa/empresa/EditarEmpresa/${RegistrarEmpresas.id}`} className='btn btn-warning'>Editar</Link>
-                            <button onClick={ ()=>deleteRegistrarEmpresas(RegistrarEmpresas.id) } className='btn btn-danger'>Borrar</button>
+                            <Link to={`/empresa/empresa/EditarEmpresa/${RegistrarEmpresas.id}`} className='btn btn-warning'>
+                                <FontAwesomeIcon icon={faEdit}/>
+                            </Link>
+                            <button onClick={ ()=>deleteRegistrarEmpresas(RegistrarEmpresas.id) } className='btn btn-danger'>
+                                <FontAwesomeIcon icon={faTrashAlt}/>
+                            </button>
                         </td>
                     </tr>
                 ))}
             </tbody>
-        </table>
-    </div>
+                </Table>
+            </Container>
+        </div>
   )
 }
 
