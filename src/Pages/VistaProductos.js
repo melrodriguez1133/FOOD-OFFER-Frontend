@@ -31,7 +31,8 @@ function VistaProductos() {
                             <p>Fecha Elaboracion: {Productos.fechaElaboracion}</p>
                             <p>Fecha Vencimiento: {Productos.fechaVencimiento}</p>
                             <p>Stock: {Productos.stock}</p>
-                            <p>Precio: {Productos.precio} Bs.</p>
+                            <p className='precioa'>Precio: </p>
+                            <p className='preciob'> {Productos.precio} Bs.</p>
                         </div>
                     </div>
                     </div>
