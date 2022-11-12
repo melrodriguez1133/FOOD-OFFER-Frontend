@@ -7,7 +7,7 @@ import * as RiIcons from 'react-icons/ri';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/home',
+    path: '/',
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -38,22 +38,6 @@ export const SidebarData = [
         path: '/empresa/productos-empresa',
         icon: <IoIcons.IoIosBasket/>,
         cName: 'sub-nav'
-      }
-    ]
-  },
-  {
-    title: 'Usuarios',
-    path: '/usuarios',
-    icon: <FaIcons.FaUsers />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Productos',
-        path: '/usuarios/productos',
-        icon: <IoIcons.IoIosBasket />
       }
     ]
   }
