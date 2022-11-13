@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import {Link} from "react-router-dom"
-import { todosProductos } from '../Funciones/funciones'
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import {Link} from "react-router-dom";
+import { todosProductos } from '../Funciones/funciones';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {  Table,  Button,  Container} from "reactstrap";
 
 const VistaProductosEmpresa = () => {
@@ -14,7 +16,7 @@ const VistaProductosEmpresa = () => {
     },[])
 
     const deleteRegistrarEmpresas = async (id) =>{
-        var opcion = window.confirm("EstÃ¡s Seguro que deseas Eliminar el elemento "+ Productos.id);
+        var opcion = window.confirm("¿Estás Seguro que deseas Eliminar este producto?");
         if (opcion === true) {
             await axios.delete(`http://127.0.0.1:8000/api/Producto/${id}`)
             todosProductos()
@@ -48,8 +50,12 @@ const VistaProductosEmpresa = () => {
                     <td>{Productos.precio}</td>
                     <td>{Productos.stock}</td>
                     <td>
-                    <Link to={`/empresa/productos-empresa/EditarProducto/${Productos.id}`} className='btn btn-success'>Editar</Link>
-                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>Borrar</Button>
+                        <Link to={`/empresa/productos-empresa/EditarProducto/${Productos.id}`} className='btn btn-success'>
+                            <FontAwesomeIcon icon={faEdit}/>
+                        </Link>
+                        <Button onClick={ ()=>deleteRegistrarEmpresas(Productos.id) } className='btn btn-danger'>
+                            <FontAwesomeIcon icon={faTrashAlt}/>
+                        </Button>
                     </td>
                     </tr>
                 ))}

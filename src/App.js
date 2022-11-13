@@ -14,7 +14,6 @@ function App() {
     <Router>
       <Sidebar />
       <Routes>
-        <Route path='/home' element={<Home />} />
         <Route path='/empresa/empresa' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/empresa/RegistrarEmpresa' element={ <CreateRegistrarEmpresa/>}/>
         <Route path='/empresa/empresa/EditarEmpresa' element={ <EditRegistrarEmpresa/>}/>
@@ -23,7 +22,7 @@ function App() {
         <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
-        <Route path='/usuarios/productos' element={<VistaProductos />} />
+        <Route path='/' element={<VistaProductos />} />
       </Routes>
     </Router>
    

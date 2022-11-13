@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
-import { useNavigate } from 'react-router-dom';
 import Input from '../Componentes/Input';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
+import * as RiIcons from 'react-icons/ri';
+import { IconName } from "react-icons/io5";
 
 const RegistroProducto = () => {
     
@@ -34,7 +38,6 @@ const RegistroProducto = () => {
 		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 	}
 
-	const navigate = useNavigate()
 	const onSubmit = (e) => {
 		e.preventDefault();
 
@@ -70,7 +73,6 @@ const RegistroProducto = () => {
 				fechaOferta:fechaLimite.campo
 				
 			}
-			navigate('/empresa/productos-empresa')	
 			data.append('file',Imag.file, Imag.name);
 			data.append('product', JSON.stringify(inputsT));
 
@@ -220,7 +222,7 @@ const RegistroProducto = () => {
 				{formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>
-						<b>Error:</b> Por favor rellena el formulario correctamente.
+						<b>Error:</b> todos los campos son obligatorios ,se debe rellena el formulario correctamente.
 					</p>
 				</MensajeError>}
 				
@@ -230,6 +232,7 @@ const RegistroProducto = () => {
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
+				<Link id="return" to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'><AiIcons.AiFillHome/></Link>
 			</Formulario>
 		</main>
 	);
