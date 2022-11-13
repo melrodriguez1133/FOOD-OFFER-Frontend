@@ -20,7 +20,7 @@ const ComponenteInput = ({estado, cambiarEstado, tipo, label, placeholder, name,
 			funcion();
 		}
 	}
-
+	//console.log(estado)
 	return (
 		<div>
 			<Label htmlFor={name} valido={estado.valido}>{label}</Label>
