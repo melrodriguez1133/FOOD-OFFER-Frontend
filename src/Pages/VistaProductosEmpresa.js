@@ -18,7 +18,7 @@ const VistaProductosEmpresa = () => {
     const deleteRegistrarEmpresas = async (id) =>{
         var opcion = window.confirm("¿Estás Seguro que deseas Eliminar este producto?");
         if (opcion === true) {
-            await axios.delete(`http://127.0.0.1:8000/api/Producto/${id}`)
+            await axios.delete(`https://isbackend-production.up.railway.app/api/Producto/${id}`)
             todosProductos()
             window.location.reload();
         }

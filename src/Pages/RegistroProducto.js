@@ -13,7 +13,7 @@ import { IconName } from "react-icons/io5";
 
 const RegistroProducto = () => {
     
-	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
+	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
 
 

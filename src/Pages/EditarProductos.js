@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
 import './EditRegistrarEmpresa.css';
 
-const endpoint = 'http://localhost:8000/api/producto/'
+const endpoint = 'https://isbackend-production.up.railway.app/api/producto/'
 
 const EditProduct = () => {
     const [nombreProducto, setnombreProducto] = useState('')
