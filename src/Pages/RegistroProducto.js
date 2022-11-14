@@ -232,7 +232,6 @@ const RegistroProducto = () => {
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
-				<Link id="return" to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'><AiIcons.AiFillHome/></Link>
 			</Formulario>
 		</main>
 	);
