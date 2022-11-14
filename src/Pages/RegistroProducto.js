@@ -229,7 +229,8 @@ const RegistroProducto = () => {
 				<ContenedorBotonCentrado>
 				<Link to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' >Registrar</Boton>
-				<br></br>
+				<br/>
+				<Link id="return" to="/" className='btn btn-success btn-lg mt-2 mb-2 text-white'><AiIcons.AiFillHome/></Link>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
 			</Formulario>
