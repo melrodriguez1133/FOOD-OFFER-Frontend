@@ -1,32 +1,19 @@
-import Sidebar from './Screem/Sidebar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Overview';
-import ShowRegistrarEmpresas from './Pages/ShowRegistrarEmpresas';
-import CreateRegistrarEmpresa from './Pages/CreateRegistrarEmpresa';
-import VistaProductos from './Pages/VistaProductos';
-import VistaProductosEmpresa from './Pages/VistaProductosEmpresa';
-import RegistroProducto from './Pages/RegistroProducto';
-import EditarProductos from './Pages/EditarProductos';
-import EditRegistrarEmpresa from './Pages/EditRegistrarEmpresa'
-
 import React, { useState } from 'react'
 import { Grid, Container, Paper, Avatar, Typography, TextField, Button, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import fondo from './assets/images/fondo.png'
-import { LockOutlined as LockOutlinedIcon } from '@material-ui/icons';
+import { LockOutlined as AccountCircleIcon} from '@material-ui/icons'
+//import home from './Screem/home'
 
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		backgroundImage: `url(${fondo})`,
-		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		height: '100vh'
 	},
 	container: {
 		opacity: '0.8',
-		height: '60%',
+		height: '70%',
 		marginTop: theme.spacing(10),
 		[theme.breakpoints.down(400 + theme.spacing(2) + 2)]: {
 			marginTop: 0,
@@ -75,9 +62,9 @@ const App = () => {
 			<Container component={Paper} elevation={5} maxWidth='xs' className={classes.container}>
 				<div className={classes.div}>
 					<Avatar className={classes.avatar}>
-						<LockOutlinedIcon />
+						<AccountCircleIcon/>
 					</Avatar>
-					<Typography component='h1' variant='h5'>Sign In</Typography>
+					<Typography component='h1' variant='h5'>¡Bienvenido a Food-Offer!</Typography>
 					<form className={classes.form}>
 						<TextField
 							fullWidth
@@ -85,7 +72,7 @@ const App = () => {
 							color='primary'
 							margin='normal'
 							variant='outlined'
-							label='Nickname'
+							label='Correo Electronico'
 							name='nickname'
 							value={body.nickname}
 							onChange={handleChange}
@@ -96,7 +83,7 @@ const App = () => {
 							color='primary'
 							margin='normal'
 							variant='outlined'
-							label='Password'
+							label='Contraseña'
 							name='password'
 							value={body.password}
 							onChange={handleChange}
@@ -104,33 +91,17 @@ const App = () => {
 						<Button
 							fullWidth
 							variant='contained'
-							color='secondary'
+							color='primary'
 							className={classes.button}
 							onClick={() => onSubmit()}
 						>
-							Sign In
+							Ingresar
 						</Button>
 					</form>
 				</div>
 			</Container>
 		</Grid>
-	
+	)
+}
 
-    /*<Router>
-      <Sidebar />
-      <Routes>
-        <Route path='/empresa/empresa' element={<ShowRegistrarEmpresas />} />
-        <Route path='/empresa/empresa/RegistrarEmpresa' element={ <CreateRegistrarEmpresa/>}/>
-        <Route path='/empresa/empresa/EditarEmpresa' element={ <EditRegistrarEmpresa/>}/>
-        <Route path='/empresa/empresa/EditarEmpresa/:id' element={ <EditRegistrarEmpresa/>}/>
-        <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
-        <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
-        <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
-        <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
-        <Route path='/' element={<VistaProductos />} />
-      </Routes>
-    </Router>**/
-   
-  );
-}        
-export default App;
+export default App
