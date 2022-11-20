@@ -105,7 +105,7 @@ const RegistroEmpresa = () => {
 					label="Nombre de la Empresa*"
 					placeholder="Ingrese el nombre de su Empresa"
 					name="empresa"
-					leyendaError="El campo solo puede contener datos alfabeticos y espacios"
+					leyendaError="El campo solo puede contener entre 4 a 20 letras, datos alfabeticos, espacios y comas"
 					expresionRegular={expresiones.nombreEmpresa}
 				/>
                 <Input
