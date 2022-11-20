@@ -17,9 +17,9 @@ import { IconName } from "react-icons/io5";
 
 const EditProduct = () => {
    
-	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
+	const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
-    const endpoint = 'http://localhost:8000/api/producto/'
+    const endpoint = 'http://localhost:8000/api/Producto/'
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
@@ -27,8 +27,8 @@ const EditProduct = () => {
 	const [fechaVencimiento, cambiarFechaVencimento] = useState({campo: '', valido: null});
 	const [fechaElaboracion, cambiarFechaElaboracion] = useState({campo: '', valido: null});
 	const [precio, cambiarPrecio] = useState({campo: '', valido: null});
-	const [cantidadDisponible, cambiarCantidadDisponible] = useState({campo: '', valido: null});
-	const [fechaLimite, cambiarFechaLimite] = useState({campo: '', valido: null});
+	const [stock, cambiarStock] = useState({campo: '', valido: null});
+	const [fechaOferta, cambiarFechaOferta] = useState({campo: '', valido: null});
 	const [Imag, cambiarImag] = useState({});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
     const navigate = useNavigate()
@@ -40,8 +40,8 @@ const EditProduct = () => {
 		fechaVencimiento: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 		fechaElaboracion: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 		precio: /^[0-9]{1,20}$/, // 4 a 12 digitos.
-		cantidadDisponible: /^[0-9]{1,3}$/, // 7 a 14 numeros.
-		fechaLimite: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
+		stock: /^[0-9]{1,3}$/, // 7 a 14 numeros.
+		fechaOferta: /^([0-2][0-9]|3[0-1])(\/|)(0[1-9]|1[0-2])\2(\d{4})$/,//dd/mm/aaaa
 	}
     
 	const update = async (e) => {
@@ -53,10 +53,10 @@ const EditProduct = () => {
             fechaVencimiento:fechaVencimiento.campo,
             fechaElaboracion: fechaElaboracion.campo,
             precio: precio.campo,
-            cantidadDisponible: cantidadDisponible.campo,
-            fechaLimite: fechaLimite.campo,
+            stock: stock.campo,
+            fechaOferta: fechaOferta.campo,
         })
-       // navigate('/empresa/empresa')
+       navigate('/empresa/empresa')
 
         if(
 			nombre.valido === 'true' &&
@@ -64,8 +64,8 @@ const EditProduct = () => {
 			fechaVencimiento.valido === 'true' &&
 			fechaElaboracion.valido === 'true' &&
 			precio.valido === 'true' &&
-			cantidadDisponible.valido === 'true' &&
-			fechaLimite.valido === 'true'
+			stock.valido === 'true' &&
+			fechaOferta.valido === 'true'
 		){
 			cambiarFormularioValido(true);
 			cambiarNombre({campo: '', valido: null});
@@ -73,8 +73,8 @@ const EditProduct = () => {
 			cambiarFechaVencimento({campo: '', valido: null});
 			cambiarFechaElaboracion({campo: '', valido: null});
 			cambiarPrecio({campo: '', valido: null});
-			cambiarCantidadDisponible({campo: '', valido: null});
-			cambiarFechaLimite({campo: '', valido: null});
+			cambiarStock({campo: '', valido: null});
+			cambiarFechaOferta({campo: '', valido: null});
 
 
 			const data = new FormData();
@@ -86,34 +86,42 @@ const EditProduct = () => {
 				fechaVencimiento:fechaVencimiento.campo,
 				fechaElaboracion:fechaElaboracion.campo,
 				precio:Number(precio.campo),
-				stock:Number(cantidadDisponible.campo),
-				fechaOferta:fechaLimite.campo
+				stock:Number(stock.campo),
+				fechaOferta:fechaOferta.campo
 				
 			}
     console.log(inputsT);
-    //data.append('file',Imag.file, Imag.name);
-	//data.append('product', JSON.stringify(inputsT));
+    data.append('file',Imag.file, Imag.name);
+	data.append('product', JSON.stringify(inputsT));
+    
+    fetch('http://127.0.0.1:8000/api/Producto', {
+				method: "POST",
+				body: data
+			})
+			.then(res => res.json())
+			.then(data => console.log(data)); 
+		    } else {
+			cambiarFormularioValido(false);
+            }		
+}
+const [profileImage, setProfileImage] = useState(
+    "https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-file-upload-icon-image_1344464.jpg"
+  );
 
-    /*const [profileImage, setProfileImage] = useState(
-		"https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-file-upload-icon-image_1344464.jpg"
-	  );
-
-      const imageHandler = (e) => {
-		cambiarImag({
-			file:e.target.files[0],
-			name:e.target.files[0].name
-		})
-		const reader = new FileReader();
-		reader.onload = () => {
-		  if (reader.readyState === 2) {
-			setProfileImage(reader.result);
-		  }
-		};
-		//console.log(Imag);
-		reader.readAsDataURL(e.target.files[0]);
-	  };*/
-      
-}}
+  const imageHandler = (e) => {
+    cambiarImag({
+        file:e.target.files[0],
+        name:e.target.files[0].name
+    })
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setProfileImage(reader.result);
+      }
+    };
+    //console.log(Imag);
+    reader.readAsDataURL(e.target.files[0]);
+  };
     useEffect( () =>{
         const getProductById = async () => {
             const response = await axios.get(`${endpoint}${id}`)
@@ -123,8 +131,9 @@ const EditProduct = () => {
             cambiarFechaVencimento((obj)=>({...obj, campo:response.data.fechaVencimiento}))
             cambiarFechaElaboracion((obj)=>({...obj, campo:response.data.fechaElaboracion}))
             cambiarPrecio((obj)=>({...obj, campo:response.data.precio}))
-            cambiarCantidadDisponible((obj)=>({...obj, campo:response.data.cantidadDisponible}))
-            cambiarFechaLimite((obj)=>({...obj, campo:response.data.fechaLimite}))
+            cambiarStock((obj)=>({...obj, campo:response.data.stock}))
+            cambiarFechaOferta((obj)=>({...obj, campo:response.data.fechaOferta}))
+            cambiarImag((obj)=>({...obj, campo:response.data.Imag}))
         }
         getProductById()
     }, [] )
@@ -143,6 +152,16 @@ const EditProduct = () => {
 					leyendaError="El nombre solo puede contener datos alfanumericos y espacios"
 					expresionRegular={expresiones.nombre}
 				/>
+                <label>Categoria de Productos*</label>
+
+                <select id="producto" onChange={(e)=>{
+                cambiarId_categoria(e.target.value);
+                }}>
+                <option value="" disabled selected>Seleccione un tipo de producto...</option>
+                {products && products.map((d, index) => (
+                <option key={d.id} value={d.id}>{d.descripcion}</option>
+                ))}
+                </select>
                 <Input
                     estado={descripcion}
                     cambiarEstado={cambiarDescripcion}
@@ -184,25 +203,43 @@ const EditProduct = () => {
                     expresionRegular={expresiones.precio}
                 />
                 <Input
-                    estado={cantidadDisponible}
-                    cambiarEstado={cambiarCantidadDisponible}
+                    estado={stock}
+                    cambiarEstado={cambiarStock}
                     tipo="text"
                     label="Cantidad disponible*"
                     placeholder="Ingrese la cantidad disponible"
-                    name="cantidadDisponible"
+                    name="stock"
                     leyendaError="Dato no valido solo se admiten numeros y no mas de 3 cifras"
-                    expresionRegular={expresiones.cantidadDisponible}
+                    expresionRegular={expresiones.stock}
                 />
                 <Input
-                    estado={fechaLimite}
-                    cambiarEstado={cambiarFechaLimite}
+                    estado={fechaOferta}
+                    cambiarEstado={cambiarFechaOferta}
                     tipo="text"
                     label="Fecha Limite de Oferta*"
                     placeholder="ingrese dd/mm/aaaa "
-                    name="fechaLimite"
+                    name="fechaOferta"
                     leyendaError="solo es valido un dato tipo fecha dd/mm/aaaa "
-                    expresionRegular={expresiones.fechaLimite}
+                    expresionRegular={expresiones.fechaOferta}
                 />
+                <label>Imagen*</label>
+
+                <div className="img-holder">
+                <img src={profileImage} alt="" id="img" className="img" />
+                </div>
+                <input
+                type="file"
+                accept="image/*"
+                name="image-upload"
+                id="input"
+                onChange={(e)=>imageHandler(e)}
+                />
+                <div className="label">
+                <label id="agregar-imag" className="image-upload" htmlFor="input">
+                + Agregue la imagen de su Producto
+                </label>
+                </div>
+                
                 <br/>
                 {formularioValido === false && <MensajeError>
                     <p>
@@ -224,37 +261,6 @@ const EditProduct = () => {
  
 export default EditProduct; 
 /*
-{...obj, campo:response.data.nombre}
-
-<label>Categoria de Productos*</label>
-
-                <select id="producto" onChange={(e)=>{
-                cambiarId_categoria(e.target.value);
-                }}>
-                <option value="" disabled selected>Seleccione un tipo de producto...</option>
-                {products && products.map((d, index) => (
-                <option key={d.id} value={d.id}>{d.descripcion}</option>
-                ))}
-                </select>
-
-<label>Imagen*</label>
-
-                <div className="img-holder">
-                <img src={profileImage} alt="" id="img" className="img" />
-                </div>
-                <input
-                type="file"
-                accept="image/*"
-                name="image-upload"
-                id="input"
-                onChange={(e)=>imageHandler(e)}
-                />
-                <div className="label">
-                <label id="agregar-imag" className="image-upload" htmlFor="input">
-                + Agregue la imagen de su Producto
-                </label>
-                </div>
-                
 
 
 
@@ -311,24 +317,24 @@ export default EditProduct;
 					expresionRegular={expresiones.precio}
 				/>
 				<Input
-					estado={cantidadDisponible}
-					cambiarEstado={cambiarCantidadDisponible}
+					estado={stock}
+					cambiarEstado={cambiarStock}
 					tipo="text"
 					label="Direccion*"
-					placeholder="Ingrese la cantidadDisponible de su empresa"
-					name="cantidadDisponible"
+					placeholder="Ingrese la stock de su empresa"
+					name="stock"
 					leyendaError="Dato no valido, solo se admiten datos alfanumericos"
-					expresionRegular={expresiones.cantidadDisponible}
+					expresionRegular={expresiones.stock}
 				/>
 				<Input
-					estado={fechaLimite}
-					cambiarEstado={cambiarFechaLimite }
+					estado={fechaOferta}
+					cambiarEstado={cambiarFechaOferta }
 					tipo="text"
 					label="Correo Electronico*"
 					placeholder="ejemplo@gmail.com"
 					name="correo"
 					leyendaError="Solo es valido un dato tipo correo: ejemplo@gmail.com "
-					expresionRegular={expresiones.fechaLimite}
+					expresionRegular={expresiones.fechaOferta}
 				/>
 				{formularioValido === false && <MensajeError>
 					<p>
