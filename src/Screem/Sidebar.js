@@ -39,7 +39,7 @@ const SidebarNav = styled.nav`
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
-  z-index: 10;
+  z-index: 1000;
   
 `;
 
