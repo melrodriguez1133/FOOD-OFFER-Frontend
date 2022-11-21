@@ -19,7 +19,7 @@ const EditProduct = () => {
 
 	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
-    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto'
+    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto/'
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
@@ -94,7 +94,7 @@ const EditProduct = () => {
     data.append('file',Imag.file, Imag.name);
 	data.append('product', JSON.stringify(inputsT));
     
-    fetch('https://isbackend-production.up.railway.app/api/Producto', {
+    fetch('https://isbackend-production.up.railway.app/api/Producto/', {
 
 				method: "POST",
 				body: data
