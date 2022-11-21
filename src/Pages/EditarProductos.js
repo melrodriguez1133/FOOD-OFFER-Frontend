@@ -17,9 +17,9 @@ import { IconName } from "react-icons/io5";
 
 const EditProduct = () => {
    
-	const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
+	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
-    const endpoint = 'http://localhost:8000/api/Producto/'
+    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto'
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
