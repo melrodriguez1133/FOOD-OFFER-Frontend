@@ -164,7 +164,7 @@ const EditRegistroEmpresa = () => {
     
 	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
-    const endpoint = 'http://localhost:8000/api/registrarEmpresas/'
+    const endpoint = 'https://isbackend-production.up.railway.app/api/registrarEmpresas/'
 
 	const [nombreEmpresa, cambiarNombreEmpresa] = useState({campo: '', valido: null});
     const [tipoNegocioE, cambiarTipoNegocioE] = useState({campo: '', valido: null});

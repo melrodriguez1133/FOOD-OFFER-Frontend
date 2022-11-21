@@ -14,7 +14,7 @@ import { IconName } from "react-icons/io5";
 
 const RegistroProducto = () => {
     
-	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
+	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
 
 
@@ -77,7 +77,7 @@ const RegistroProducto = () => {
 			data.append('file',Imag.file, Imag.name);
 			data.append('product', JSON.stringify(inputsT));
 
-			fetch('http://127.0.0.1:8000/api/Producto', {
+			fetch('https://isbackend-production.up.railway.app/api/Producto', {
 				method: "POST",
 				body: data
 			})

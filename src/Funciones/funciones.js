@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const todosProductos  =  async (state)  => {
-	const peticion = await axios.get('http://127.0.0.1:8000/api/Producto')
+	const peticion = await axios.get('https://isbackend-production.up.railway.app/api/Producto')
 	state(peticion.data)
 }
 
