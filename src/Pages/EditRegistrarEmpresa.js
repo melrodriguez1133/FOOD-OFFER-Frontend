@@ -182,7 +182,7 @@ const EditRegistroEmpresa = () => {
     const expresiones = {
 		nombreEmpresa: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
         tipoNegocioE: /^[a-zA-ZÀ-ÿ\s]{7,20}$/, // Letras y espacios, pueden llevar acentos.
-		descripcion: /^[a-zA-ZÀ-ÿ0-9\s,.]{15,250}$/, // Letras,numeros y espacios, pueden llevar acentos, puntos y comas.
+		descripcion: /^[a-zA-ZÀ-ÿ0-9\s,.]{25,250}$/, // Letras,numeros y espacios, pueden llevar acentos, puntos y comas.
 		horariosAtencion: /^([0-2][0-9]:[0-5][0-9])(-)([0-2][0-9]:[0-5][0-9])$/,//hh:mm - hh:mm manejo 24h
         diasAtencion:/^[a-zA-Z\s-]{5,50}$/,//solo admite letras y guion
         numeroCelular:/^[0-9]{8}$/,//Solo admite telefono deben empezar con 6 o 7
@@ -328,9 +328,9 @@ const EditRegistroEmpresa = () => {
 					cambiarEstado={cambiarNumeroTelefono}
 					tipo="text"
 					label="Numero de Telefono*"
-					placeholder="00000000"
+					placeholder="0000000"
 					name="telefono"
-					leyendaError="Dato no valido, solo debe ingresar el numero de telefono de 8 digitos"
+					leyendaError="Dato no valido, solo debe ingresar el numero de telefono de 7 digitos"
 					expresionRegular={expresiones.numeroTelefono}
 				/>
 				<Input
