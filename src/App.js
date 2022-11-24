@@ -29,13 +29,14 @@ const useStyles = makeStyles(theme => ({
 	},
 	avatar: {
 		margin: theme.spacing(1),
-		backgroundColor: theme.palette.primary.main
+		backgroundColor:'#E57603'
 	},
 	form: {
 		width: '100%',
 		marginTop: theme.spacing(1)
 	},
 	button: {
+		backgroundColor:'#E57603',
 		margin: theme.spacing(3, 0, 2)
 	}
 }))
@@ -73,6 +74,7 @@ const App = () => {
 							margin='normal'
 							variant='outlined'
 							label='Correo Electronico'
+							type='email'
 							name='nickname'
 							value={body.nickname}
 							onChange={handleChange}
@@ -91,7 +93,6 @@ const App = () => {
 						<Button
 							fullWidth
 							variant='contained'
-							color='primary'
 							className={classes.button}
 							onClick={() => onSubmit()}
 						>
