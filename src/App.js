@@ -6,13 +6,15 @@ import VistaProductos from './Pages/VistaProductos';
 import VistaProductosEmpresa from './Pages/VistaProductosEmpresa';
 import RegistroProducto from './Pages/RegistroProducto';
 import EditarProductos from './Pages/EditarProductos';
-import EditRegistrarEmpresa from './Pages/EditRegistrarEmpresa'
+import EditRegistrarEmpresa from './Pages/EditRegistrarEmpresa';
+import  Login from './Screem/login';
 
 function App() {
   return (
     <Router>
       <Sidebar />
       <Routes>
+      <Route path='/login' element={<Login/>} />
         <Route path='/empresa/empresa' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/empresa/RegistrarEmpresa' element={ <CreateRegistrarEmpresa/>}/>
         <Route path='/empresa/empresa/EditarEmpresa' element={ <EditRegistrarEmpresa/>}/>
