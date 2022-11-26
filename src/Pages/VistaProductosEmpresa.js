@@ -36,7 +36,7 @@ const VistaProductosEmpresa = () => {
                 <thead>
                 <tr>
                     <th>Nombre del Producto</th>
-                    <th>Descipcion</th>
+                    <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
                 </tr>
