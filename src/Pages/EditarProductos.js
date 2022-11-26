@@ -16,12 +16,12 @@ import { IconName } from "react-icons/io5";*/
 
 
 const EditProduct = () => {
-    const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
+    //const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
-    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto'
-	//const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
+    //const endpoint = 'https://isbackend-production.up.railway.app/api/Producto'
+	const [products]=useFetch("http://127.0.0.1:8000/api/Categoria");
 	//console.log(products);
-    //const endpoint = 'http://localhost:8000/api/Producto/'
+    const endpoint = "http://localhost:8000/api/Producto/"
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
@@ -95,8 +95,8 @@ const EditProduct = () => {
     console.log(inputsT);
     data.append('file',Imag.file, Imag.name);
 	data.append('product', JSON.stringify(inputsT));
-    
-    fetch('https://isbackend-production.up.railway.app/api/Producto', {
+    //fetch('https://isbackend-production.up.railway.app/api/Producto', {
+    fetch('http://localhost:8000/api/Producto/', {
 				method: "POST",
 				body: data
 			})

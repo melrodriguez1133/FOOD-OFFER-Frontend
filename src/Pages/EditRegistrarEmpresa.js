@@ -328,9 +328,9 @@ const EditRegistroEmpresa = () => {
 					cambiarEstado={cambiarNumeroTelefono}
 					tipo="text"
 					label="Numero de Telefono*"
-					placeholder="00000000"
+					placeholder="0000000"
 					name="telefono"
-					leyendaError="Dato no valido, solo debe ingresar el numero de telefono de 8 digitos"
+					leyendaError="Dato no valido, solo debe ingresar el numero de telefono de 7 digitos"
 					expresionRegular={expresiones.numeroTelefono}
 				/>
 				<Input
