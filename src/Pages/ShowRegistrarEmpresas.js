@@ -6,7 +6,7 @@ import  './ShowRegistrarEmpresas.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
-const endpoint = 'http://localhost:8000/api'
+const endpoint = 'https://isbackend-production.up.railway.app/api'
 
 const ShowRegistrarEmpresas = () => {
     const [RegistrarEmpresas, setnombreEmpresa] = useState( [] )

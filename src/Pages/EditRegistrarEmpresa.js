@@ -164,7 +164,7 @@ const EditRegistroEmpresa = () => {
     
 	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
-    const endpoint = 'http://localhost:8000/api/registrarEmpresas/'
+    const endpoint = 'https://isbackend-production.up.railway.app/api/registrarEmpresas/'
 
 	const [nombreEmpresa, cambiarNombreEmpresa] = useState({campo: '', valido: null});
     const [tipoNegocioE, cambiarTipoNegocioE] = useState({campo: '', valido: null});
@@ -182,7 +182,7 @@ const EditRegistroEmpresa = () => {
     const expresiones = {
 		nombreEmpresa: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
         tipoNegocioE: /^[a-zA-ZÀ-ÿ\s]{7,20}$/, // Letras y espacios, pueden llevar acentos.
-		descripcion: /^[a-zA-ZÀ-ÿ0-9\s,.]{15,250}$/, // Letras,numeros y espacios, pueden llevar acentos, puntos y comas.
+		descripcion: /^[a-zA-ZÀ-ÿ0-9\s,.]{25,250}$/, // Letras,numeros y espacios, pueden llevar acentos, puntos y comas.
 		horariosAtencion: /^([0-2][0-9]:[0-5][0-9])(-)([0-2][0-9]:[0-5][0-9])$/,//hh:mm - hh:mm manejo 24h
         diasAtencion:/^[a-zA-Z\s-]{5,50}$/,//solo admite letras y guion
         numeroCelular:/^[0-9]{8}$/,//Solo admite telefono deben empezar con 6 o 7
