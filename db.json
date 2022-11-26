@@ -1,7 +1,41 @@
 {
   "Clientes": [
     {
-      "id": 2,
+      "nombre": "Vivian",
+      "apellido": "Espindola",
+      "edad": 20,
+      "direccion": "Enrique Arce calle #8",
+      "celular": 73760951,
+      "genero": "mujer",
+      "ci": 8709906,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "123456"
+    },
+    {
+      "nombre": "Melani",
+      "apellido": "Rodriguez",
+      "edad": 19,
+      "direccion": "Zona Aeropuerto av. Villazon",
+      "celular": 65273834,
+      "genero": "mujer",
+      "ci": 8729934,
+      "expedido": "Cbba",
+      "email": "melro12@gmail.com",
+      "contraseña": "mel12ro12"
+    },{
+      "nombre": "Vivian",
+      "apellido": "Espindola",
+      "edad": 20,
+      "direccion": "Enrique Arce calle #8",
+      "celular": 73760951,
+      "genero": "mujer",
+      "ci": 8709906,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "123456"
+    },
+    {
       "nombre": "Melani",
       "apellido": "Rodriguez",
       "edad": 19,

@@ -1,14 +1,25 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {Link} from "react-router-dom"
-import { todosClientes} from '../funciones/funciones'
+import { todosClientes} from '../funciones/FuncionesClienteAdmin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt , faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 /*import './VistaProductoEmpresa.css';*/
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
 
 const VistaClientesAdmin = () => {
+
+    const [shown, setShown] = React.useState(false);
+    const [password, setPassword] = React.useState('');
+    const switchShown = () => setShown(!shown);
+    const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
+
+    const styleRow = {
+        "overflow": "hidden",
+        "width": "70px"
+    }
+    
     
     const [Clientes, setClientes] = useState([]);
 
@@ -51,19 +62,23 @@ const VistaClientesAdmin = () => {
                     <td>{Clientes.nombre}</td>
                     <td>{Clientes.apellido}</td>
                     <td>{Clientes.edad}</td>
-                    <td>{Clientes.direccion}</td>
+                    <td style={styleRow}>{Clientes.direccion}</td>
                     <td>{Clientes.celular}</td>
                     <td>{Clientes.genero}</td>
                     <td>{Clientes.ci}</td>
                     <td>{Clientes.expedido}</td>
-                    <td>{Clientes.email}</td>
-                    <td>{Clientes.contraseña}</td>
+                    <td style={styleRow}>{Clientes.email}</td>
+                    <td>{Clientes.contraseña}
+                    </td>
                     <td>
+                        <Button onClick={switchShown}>
+                            {shown ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
+                        </Button>{" "}
                         <Button color="primary" >
-                        <FontAwesomeIcon icon={faEdit}/>
+                            <FontAwesomeIcon icon={faEdit}/>
                         </Button>{" "}
                         <Button onClick={ ()=>deleteRegistrarClientes(Clientes.id) } className='btn btn-danger'>
-                        <FontAwesomeIcon icon={faTrashAlt}/>
+                            <FontAwesomeIcon icon={faTrashAlt}/>
                         </Button>
                     </td>
                     </tr>
@@ -72,6 +87,7 @@ const VistaClientesAdmin = () => {
             </Table>
         </Container>
     </div>
+    
   )
 }
 
