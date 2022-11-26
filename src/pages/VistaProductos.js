@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+/*import {useEffect, useState} from 'react';
 import './VistaProductos.css';
 import axios from 'axios';
 
@@ -45,4 +45,4 @@ function VistaProductos() {
 
             
 
-export default VistaProductos;
+export default VistaProductos;*/

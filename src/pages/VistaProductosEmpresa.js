@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+/*/*import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from "react-router-dom"
 import { todosProductos } from '../funciones/funciones'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-/*import './VistaProductoEmpresa.css';*/
+/*import './VistaProductoEmpresa.css';
 import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
 
 const VistaProductosEmpresa = () => {
@@ -68,3 +68,5 @@ const VistaProductosEmpresa = () => {
 
 
 export default VistaProductosEmpresa;
+
+*/
