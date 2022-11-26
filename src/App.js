@@ -1,6 +1,5 @@
 import Sidebar from './Screem/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Overview';
 import ShowRegistrarEmpresas from './Pages/ShowRegistrarEmpresas';
 import CreateRegistrarEmpresa from './Pages/CreateRegistrarEmpresa';
 import VistaProductos from './Pages/VistaProductos';
