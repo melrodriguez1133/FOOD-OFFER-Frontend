@@ -26,6 +26,8 @@ const RegistroEmpresa = () => {
 	const [numeroTelefono, cambiarNumeroTelefono] = useState({campo: '', valido: null});
 	const [direccion, cambiarDireccion] = useState({campo: '', valido: null});
     const [correoEmpresa, cambiarCorreoEmpresa] = useState({campo: '', valido: null});
+	const [password, cambiarPassword] = useState({campo: '', valido: null});
+	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
 
 	const expresiones = {
@@ -38,6 +40,21 @@ const RegistroEmpresa = () => {
         numeroTelefono:/^[0-9]{7}$/,//Solo admite telefono deben empezar con 4
         direccion:/^[a-zA-Z0-9\s#.,]{12,100}$/,//solo admite numeros,letras y espacio #.,
         correoEmpresa: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
+		password: /^.{4,12}$/, // 4 a 12 digitos.
+	}
+
+	const validarPassword2 = () => {
+		if(password.campo.length > 0){
+			if(password.campo !== password2.campo){
+				cambiarPassword2((prevState) => {
+					return {...prevState, valido: 'false'}
+				});
+			} else {
+				cambiarPassword2((prevState) => {
+					return {...prevState, valido: 'true'}
+				});
+			}
+		}
 	}
 
 	const onSubmit = (e) => {
@@ -52,7 +69,9 @@ const RegistroEmpresa = () => {
 			numeroCelular.valido === 'true' &&
 			numeroTelefono.valido === 'true' &&
 			direccion.valido === 'true' &&
-            correoEmpresa.valido === 'true'
+            correoEmpresa.valido === 'true' &&
+			password.valido === 'true' &&
+			password2.valido === 'true' 
 		){
 			cambiarFormularioValido(true);
 			cambiarNombreEmpresa({campo: '', valido: null});
@@ -64,6 +83,8 @@ const RegistroEmpresa = () => {
 			cambiarNumeroTelefono({campo: '', valido: null});
 			cambiarDireccion({campo: '', valido: null});
             cambiarCorreoEmpresa({campo: '', valido: null});
+			cambiarPassword({campo: '', valido: null});
+			cambiarPassword2({campo: '', valido: 'null'});
 
             const inputsT ={
 				nombreEmpresa:nombreEmpresa.campo,
@@ -74,8 +95,8 @@ const RegistroEmpresa = () => {
 				numeroCelular:Number(numeroCelular.campo),
 			    numeroTelefono:Number(numeroTelefono.campo),
 				direccion:direccion.campo,
-                correoEmpresa:correoEmpresa.campo
-				
+                correoEmpresa:correoEmpresa.campo,
+				password:password.campo
 			}
 	
 			console.log(inputsT);
@@ -188,6 +209,26 @@ const RegistroEmpresa = () => {
 					name="correo"
 					leyendaError="solo es valido un dato tipo correo ejemplo@gmail.com "
 					expresionRegular={expresiones.correoEmpresa}
+				/>
+				<Input
+					estado={password}
+					cambiarEstado={cambiarPassword}
+					placeholder="Ingrese una contraseña"
+					tipo="password"
+					label="Contraseña*"
+					name="password1"
+					leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
+					expresionRegular={expresiones.password}
+				/>
+				<Input
+					estado={password2}
+					cambiarEstado={cambiarPassword2}
+					placeholder="Repita la contraseña"
+					tipo="password"
+					label="Repetir Contraseña*"
+					name="password2"
+					leyendaError="Ambas contraseñas deben ser iguales."
+					funcion={validarPassword2}
 				/>
 				{formularioValido === false && <MensajeError>
 					<p>
