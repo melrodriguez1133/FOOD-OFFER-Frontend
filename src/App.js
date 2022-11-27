@@ -8,7 +8,8 @@ import RegistroProducto from './Pages/RegistroProducto';
 import EditarProductos from './Pages/EditarProductos';
 import EditRegistrarEmpresa from './Pages/EditRegistrarEmpresa';
 import  Login from './Screem/login';
-import RegistrarCliente from './Pages/RegistrarCliente'
+import RegistrarCliente from './Pages/RegistrarCliente';
+import VistaClientesAdmin from './Pages/VistaClienteAdmin';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
         <Route path='/cliente/RegistrarCliente' element={ <RegistrarCliente/>}/>
         <Route path='/cliente/Ofertas' element={<VistaProductos />} />
+        <Route path='/clientes' element={<VistaClientesAdmin />} />
       </Routes>
     </Router>
    
