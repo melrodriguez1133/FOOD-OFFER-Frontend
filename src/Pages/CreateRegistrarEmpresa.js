@@ -100,7 +100,7 @@ const RegistroEmpresa = () => {
 			}
 	
 			console.log(inputsT);
-			fetch('https://isbackend-production.up.railway.app/api/registrarEmpresas', {
+			fetch('http://127.0.0.1:8000/api/registrarEmpresas', {
 				method: "POST",
 				headers:{
 					"Content-Type":"application/json"

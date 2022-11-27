@@ -16,16 +16,16 @@ function App() {
       <Sidebar />
       <Routes>
       <Route path='/' element={<Login/>} />
-        <Route path='/empresa/empresa' element={<ShowRegistrarEmpresas />} />
+        <Route path='/empresas' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/empresa/RegistrarEmpresa' element={ <CreateRegistrarEmpresa/>}/>
         <Route path='/empresa/empresa/EditarEmpresa' element={ <EditRegistrarEmpresa/>}/>
         <Route path='/empresa/empresa/EditarEmpresa/:id' element={ <EditRegistrarEmpresa/>}/>
-        <Route path='/empresa/productos-empresa' element={<VistaProductosEmpresa />} />
+        <Route path='/productos' element={<VistaProductosEmpresa />} />
         <Route path='/empresa/productos-empresa/RegistroProducto' element={ <RegistroProducto/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
         <Route path='/cliente/RegistrarCliente' element={ <RegistrarCliente/>}/>
-        <Route path='/home' element={<VistaProductos />} />
+        <Route path='/cliente/Ofertas' element={<VistaProductos />} />
       </Routes>
     </Router>
    

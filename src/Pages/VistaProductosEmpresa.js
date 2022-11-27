@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import { todosProductos } from '../Funciones/funciones';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt ,faEye} from '@fortawesome/free-solid-svg-icons';
 import {  Table,  Button,  Container} from "reactstrap";
 
 const VistaProductosEmpresa = () => {
@@ -50,6 +50,7 @@ const VistaProductosEmpresa = () => {
                     <td>{Productos.precio}</td>
                     <td>{Productos.stock}</td>
                     <td>
+            
                         <Link to={`/empresa/productos-empresa/EditarProducto/${Productos.id}`} className='btn btn-success'>
                             <FontAwesomeIcon icon={faEdit}/>
                         </Link>

@@ -4,9 +4,10 @@ import {Link} from "react-router-dom"
 import {  Table,  Button,  Container} from "reactstrap";
 import  './ShowRegistrarEmpresas.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt,faEye} from '@fortawesome/free-solid-svg-icons';
 
-const endpoint = 'https://isbackend-production.up.railway.app/api'
+const endpoint = 'http://127.0.0.1:8000/api'
+//'https://isbackend-production.up.railway.app/api'
 
 const ShowRegistrarEmpresas = () => {
     const [RegistrarEmpresas, setnombreEmpresa] = useState( [] )
@@ -35,6 +36,7 @@ const ShowRegistrarEmpresas = () => {
             <Container className="table-responsive">
                 <br />
                 <h1>Empresa</h1>
+                <Link to="/empresa/empresa/RegistrarEmpresa" className='btn btn-success'>Registrar Empresa</Link>
                 <br />
                 <Table >
                     <thead>
@@ -64,6 +66,9 @@ const ShowRegistrarEmpresas = () => {
                         <td>{RegistrarEmpresas.direccion}</td>
                         <td>{RegistrarEmpresas.correoEmpresa}</td>
                         <td>
+                        <Link to={`/empresa/productos-empresa/EditarProducto/${RegistrarEmpresas.id}`} className='btn btn-success'>
+                            <FontAwesomeIcon icon={faEye}/>
+                        </Link>
                             <Link to={`/empresa/empresa/EditarEmpresa/${RegistrarEmpresas.id}`} className='btn btn-warning'>
                                 <FontAwesomeIcon icon={faEdit}/>
                             </Link>
