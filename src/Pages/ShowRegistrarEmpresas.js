@@ -66,7 +66,7 @@ const ShowRegistrarEmpresas = () => {
                         <td>{RegistrarEmpresas.direccion}</td>
                         <td>{RegistrarEmpresas.correoEmpresa}</td>
                         <td>
-                        <Link to={`/empresa/productos-empresa/EditarProducto/${RegistrarEmpresas.id}`} className='btn btn-success'>
+                        <Link to={`/empresa/empresa/VisualizarEmpresa/${RegistrarEmpresas.id}`} className='btn btn-success'>
                             <FontAwesomeIcon icon={faEye}/>
                         </Link>
                             <Link to={`/empresa/empresa/EditarEmpresa/${RegistrarEmpresas.id}`} className='btn btn-warning'>
