@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom"
-import { todosClientes} from '../funciones/FuncionesClienteAdmin'
+import { todosClientes} from '../Funciones/FuncionesClienteAdmin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt , faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
