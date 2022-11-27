@@ -230,26 +230,6 @@ const EditRegistroEmpresa = () => {
 					leyendaError="Solo es valido un dato tipo correo: ejemplo@gmail.com "
 					expresionRegular={expresiones.correoEmpresa}
 				/>
-				<Input
-					estado={password}
-					cambiarEstado={cambiarPassword}
-					placeholder="Ingrese una contraseña"
-					tipo="password"
-					label="Contraseña*"
-					name="password1"
-					leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
-					expresionRegular={expresiones.password}
-				/>
-				<Input
-					estado={password2}
-					cambiarEstado={cambiarPassword2}
-					placeholder="Repita la contraseña"
-					tipo="password"
-					label="Repetir Contraseña*"
-					name="password2"
-					leyendaError="Ambas contraseñas deben ser iguales."
-					funcion={validarPassword2}
-				/>
 				{formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>

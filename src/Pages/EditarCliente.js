@@ -27,6 +27,7 @@ const EditRegistroEmpresa = () => {
     const [expedido, cambiarExpedido] = useState({campo: '', valido: null});
     const [email, cambiarEmail] = useState({campo: '', valido: null});
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
+    const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
     const navigate = useNavigate()
     const {id} = useParams()
@@ -40,6 +41,19 @@ const EditRegistroEmpresa = () => {
         ci:/^[0-9]{6,10}$/,//Solo admite telefono deben empezar con 4
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
 		password: /^.{4,12}$/, // 4 a 12 digitos.
+	}
+    const validarPassword2 = () => {
+		if(password.campo.length > 0){
+			if(password.campo !== password2.campo){
+				cambiarPassword2((prevState) => {
+					return {...prevState, valido: 'false'}
+				});
+			} else {
+				cambiarPassword2((prevState) => {
+					return {...prevState, valido: 'true'}
+				});
+			}
+		}
 	}
 
 	const update = async (e) => {
@@ -68,7 +82,8 @@ const EditRegistroEmpresa = () => {
 			expedido.valido === 'true' &&
 			direccion.valido === 'true' &&
             email.valido === 'true' &&
-			password.valido === 'true' 
+			password.valido === 'true' &&
+			password2.valido === 'true'
 		){
 			cambiarFormularioValido(true);
 			cambiarNombres({campo: '', valido: null});
@@ -81,7 +96,7 @@ const EditRegistroEmpresa = () => {
 			cambiarExpedido({campo: '', valido: null});
             cambiarEmail({campo: '', valido: null});
 			cambiarPassword({campo: '', valido: null});
-
+            cambiarPassword2({campo: '', valido: 'null'});
 
             const inputsT ={
 				nombre:nombre.campo,
@@ -110,6 +125,7 @@ const EditRegistroEmpresa = () => {
             cambiarExpedido((obj)=>({...obj, campo:response.data.email}))
 			cambiarEmail((obj)=>({...obj, campo:response.data.password}))
 			cambiarPassword((obj)=>({...obj, campo:response.data.password}))
+            cambiarPassword2((obj)=>({...obj, campo:response.data.password}))
         }
         getProductById()
     }, [] )
@@ -221,7 +237,16 @@ const EditRegistroEmpresa = () => {
 					leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
 					expresionRegular={expresiones.password}
 				/>
-				
+                <Input
+					estado={password2}
+					cambiarEstado={cambiarPassword2}
+					placeholder="Repita la contraseña"
+					tipo="password"
+					label="Repetir Contraseña*"
+					name="password2"
+					leyendaError="Ambas contraseñas deben ser iguales."
+					funcion={validarPassword2}
+				/>
 				{formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>
