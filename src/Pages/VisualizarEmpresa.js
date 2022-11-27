@@ -141,7 +141,7 @@ const EditRegistroEmpresa = () => {
 			<Input
                     
 					estado={nombreEmpresa}
-					cambiarEstado={cambiarNombreEmpresa}
+
 					tipo="text"
 					label="Nombre de la Empresa*"
 					placeholder="Ingrese el nombre de su Empresa"

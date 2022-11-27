@@ -34,9 +34,11 @@ const RegistroEmpresa = () => {
 		nombres: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
         apellidos: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
         edad:/^[0-9]{2}$/,//solo admite edades de 2 digitos
+		genero: /^[a-zA-Z]{1,10}$/,
         direccion:/^[a-zA-Z0-9\s#.,]{15,50}$/,//solo admite numeros,letras y espacio #.,
         numeroCelular:/^[0-9]{8}$/,//Solo admite telefono deben empezar con 6 o 7
         ci:/^[0-9]{6,10}$/,//Solo admite telefono deben empezar con 4
+		expedido:/^[a-zA-Z]{3,15}$/,
         correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
 		password: /^.{4,12}$/, // 4 a 12 digitos.
 	}
@@ -64,8 +66,9 @@ const RegistroEmpresa = () => {
 			edad.valido === 'true' &&
 			direccion.valido === 'true' &&
 			numeroCelular.valido === 'true' &&
+			genero.valido === 'true' &&
 			ci.valido === 'true' &&
-           // expedido.valido === 'true' &&
+            expedido.valido === 'true' &&
             correo.valido === 'true' &&
 			password.valido === 'true' &&
 			password2.valido === 'true' 
@@ -76,6 +79,7 @@ const RegistroEmpresa = () => {
 			cambiarEdad({campo: '', valido: null});
             cambiarDireccion({campo: '', valido: null});
 			cambiarNumeroCelular({campo: '', valido: null});
+			cambiarGenero({campo: '', valido: null});
 			cambiarCi({campo: '', valido: null});
 			cambiarExpedido({campo: '', valido: null});
             cambiarCorreo({campo: '', valido: null});
@@ -166,7 +170,16 @@ const RegistroEmpresa = () => {
 					leyendaError="Dato no valido solo debe ingresar el numero de celular de 8 de tamaño "
 					expresionRegular={expresiones.numeroCelular}
 				/>
-                
+                <Input
+					estado={genero}
+					cambiarEstado={cambiarGenero}
+					tipo="text"
+					label="Genero*"
+					placeholder="Femenino o Masculino"
+					name="genero"
+					leyendaError="solo se admiten datos alfabeticos "
+					expresionRegular={expresiones.genero}
+				/>
 				<Input
 					estado={ci}
 					cambiarEstado={cambiarCi}
@@ -177,7 +190,16 @@ const RegistroEmpresa = () => {
 					leyendaError="solo es valido datos numericos "
 					expresionRegular={expresiones.ci}
 				/>
-				
+				<Input
+					estado={expedido}
+					cambiarEstado={cambiarExpedido}
+					tipo="text"
+					label="Expedido*"
+					placeholder="ingrese donde fue expedido su ci"
+					name="expedido"
+					leyendaError="solo se admiten datos alfabeticos"
+					expresionRegular={expresiones.expedido}
+				/>
 				<Input
 					estado={correo}
 					cambiarEstado={cambiarCorreo}
