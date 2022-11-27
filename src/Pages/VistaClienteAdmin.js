@@ -28,7 +28,7 @@ const VistaClientesAdmin = () => {
     },[])
 
     const deleteRegistrarClientes = async (id) =>{
-        await axios.delete(`http://localhost:3004/Clientes/${id}`)
+        await axios.delete(`http://127.0.0.1:8000/api/Usuario/${id}`)
         todosClientes()
     }
     
@@ -71,15 +71,15 @@ const VistaClientesAdmin = () => {
                     <td>{Clientes.contraseña}
                     </td>
                     <td>
-                        <Button onClick={switchShown}>
-                            {shown ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
-                        </Button>{" "}
-                        <Button color="primary" >
-                            <FontAwesomeIcon icon={faEdit}/>
-                        </Button>{" "}
-                        <Button onClick={ ()=>deleteRegistrarClientes(Clientes.id) } className='btn btn-danger'>
-                            <FontAwesomeIcon icon={faTrashAlt}/>
-                        </Button>
+                    <Link to={`/cliente/cliente/VisualizarCliente/${Clientes.id}`} className='btn btn-success'>
+                            <FontAwesomeIcon icon={faEye}/>
+                        </Link>
+                            <Link to={`/cliente/cliente/EditarCliente/${Clientes.id}`} className='btn btn-warning'>
+                                <FontAwesomeIcon icon={faEdit}/>
+                            </Link>
+                            <button onClick={ ()=>deleteRegistrarClientes(Clientes.id) } className='btn btn-danger'>
+                                <FontAwesomeIcon icon={faTrashAlt}/>
+                            </button>
                     </td>
                     </tr>
                 ))}
