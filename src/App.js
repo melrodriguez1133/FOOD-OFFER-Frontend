@@ -11,6 +11,7 @@ import VistaClientesAdmin from './pages/VistaClientesAdmin';
 
 /*import Vista from './pages/Vista';*/
 import RegistrarProducto from './componentesEmpresa/RegistrarProducto';
+import FormValidation from './pages/FormValidation'
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         
         <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
-        <Route path='/home' element={<VistaClientesAdmin/>} />
+        <Route path='/home' element={<FormValidation/>} />
+
       </Routes>
     </Router>
   );
