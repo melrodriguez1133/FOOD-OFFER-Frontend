@@ -31,10 +31,10 @@ function App() {
         <Route path='/empresa/productos-empresa/EditarProducto' element={ <EditarProductos/>}/>
         <Route path='/empresa/productos-empresa/EditarProducto/:id' element={ <EditarProductos/>}/>
         <Route path='/cliente/RegistrarCliente' element={ <RegistrarCliente/>}/>
-        <Route path='/empresa/empresa/EditarCliente' element={ <EditarCliente/>}/>
-        <Route path='/empresa/empresa/EditarCliente/:id' element={ <EditarCliente/>}/>
-        <Route path='/empresa/empresa/VisualizarCliente' element={ <VisualizarCliente/>}/>
-        <Route path='/empresa/empresa/VisualizarCliente/:id' element={ <VisualizarCliente/>}/>
+        <Route path='/cliente/cliente/EditarCliente' element={ <EditarCliente/>}/>
+        <Route path='/cliente/cliente/EditarCliente/:id' element={ <EditarCliente/>}/>
+        <Route path='/cliente/cliente/VisualizarCliente' element={ <VisualizarCliente/>}/>
+        <Route path='/cliente/cliente/VisualizarCliente/:id' element={ <VisualizarCliente/>}/>
         <Route path='/cliente/Ofertas' element={<VistaProductos />} />
         <Route path='/clientes' element={<VistaClientesAdmin />} />
       </Routes>
