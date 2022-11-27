@@ -6,11 +6,11 @@ import { ContenedorBotonCentrado} from '../Funciones/Formularios';
 import {Link} from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
-	root: {
+	/*root: {
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		height: '100vh'
-	},
+	},*/
 	container: {
 		opacity: '0.8',
 		height: '70%',
@@ -26,20 +26,19 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center'
 	},
 	avatar: {
-		margin: theme.spacing(1),
 		backgroundColor:'#E57603'
 	},
 	form: {
 		width: '100%',
 		marginTop: theme.spacing(1)
 	},
-    Link:{
-        backgroundColor:'#E57603',
-		margin: theme.spacing(3, 0, 2)
-    },
+
 	button: {
 		backgroundColor:'#E57603',
-		margin: theme.spacing(3, 0, 2)
+		margin: theme.spacing(2, 0, 1)
+	},
+	p: {
+		flexDirection:'row'
 	}
 }))
 
@@ -101,6 +100,9 @@ const App = () => {
 							Ingresar
 						</Button>
 					</form>
+					
+				</div>
+					<p>
                     <ContenedorBotonCentrado>
                     <Button
 							variant='contained'
@@ -117,7 +119,7 @@ const App = () => {
 							Registrar Cliente
 						</Button>
                         </ContenedorBotonCentrado>
-				</div>
+				   </p>
 			</Container>
 		</Grid>
 	)

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../Funciones/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
@@ -29,6 +30,7 @@ const RegistroEmpresa = () => {
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
 	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
+	const navigate = useNavigate();
 
 	const expresiones = {
 		nombreEmpresa: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
@@ -99,6 +101,7 @@ const RegistroEmpresa = () => {
 				password:password.campo
 			}
 	
+
 			console.log(inputsT);
 			fetch('http://127.0.0.1:8000/api/registrarEmpresas', {
 				method: "POST",
@@ -113,6 +116,7 @@ const RegistroEmpresa = () => {
 			cambiarFormularioValido(false);
 					
 		}
+		//navigate('/')
 	}
 
 	return (
