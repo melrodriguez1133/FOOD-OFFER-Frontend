@@ -11,7 +11,7 @@ import  Login from './Screem/login';
 import RegistrarCliente from './Pages/RegistrarCliente';
 import VistaClientesAdmin from './Pages/VistaClienteAdmin';
 import VisualizarEmpresa from './Pages/VisualizarEmpresa';
-import VisualizarCliente from './Pages/VisualizarCliente';
+import VistaClientesProfileAdmin from './Pages/VistaClientesProfileAdmin';
 import EditarCliente from './Pages/EditarCliente';
 
 function App() {
@@ -33,8 +33,7 @@ function App() {
         <Route path='/cliente/RegistrarCliente' element={ <RegistrarCliente/>}/>
         <Route path='/cliente/cliente/EditarCliente' element={ <EditarCliente/>}/>
         <Route path='/cliente/cliente/EditarCliente/:id' element={ <EditarCliente/>}/>
-        <Route path='/cliente/cliente/VisualizarCliente' element={ <VisualizarCliente/>}/>
-        <Route path='/cliente/cliente/VisualizarCliente/:id' element={ <VisualizarCliente/>}/>
+        <Route path='/cliente/cliente/VistaClientesProfileAdmin/:id' element={ <VistaClientesProfileAdmin/>}/>
         <Route path='/cliente/Ofertas' element={<VistaProductos />} />
         <Route path='/clientes' element={<VistaClientesAdmin />} />
       </Routes>
