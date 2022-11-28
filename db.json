@@ -1,6 +1,7 @@
 {
   "Clientes": [
     {
+      "id": 1,
       "nombre": "Vivian",
       "apellido": "Espindola",
       "edad": 20,
@@ -13,17 +14,7 @@
       "contraseña": "123456"
     },
     {
-      "nombre": "Melani",
-      "apellido": "Rodriguez",
-      "edad": 19,
-      "direccion": "Zona Aeropuerto av. Villazon",
-      "celular": 65273834,
-      "genero": "mujer",
-      "ci": 8729934,
-      "expedido": "Cbba",
-      "email": "melro12@gmail.com",
-      "contraseña": "mel12ro12"
-    },{
+      "id": 3,
       "nombre": "Vivian",
       "apellido": "Espindola",
       "edad": 20,
@@ -36,6 +27,7 @@
       "contraseña": "123456"
     },
     {
+      "id": 4,
       "nombre": "Melani",
       "apellido": "Rodriguez",
       "edad": 19,

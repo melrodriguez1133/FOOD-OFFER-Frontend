@@ -6,6 +6,7 @@ import Home from './pages/Overview';
 import ShowRegistrarEmpresas from './componentesEmpresa/ShowRegistrarEmpresas';
 import CreateRegistrarEmpresa from './componentesEmpresa/CreateRegistrarEmpresa';
 import VistaProductos from './pages/VistaProductos';
+import VistaClientesAdmin from './pages/VistaClientesAdmin';
 import VistaClientesProfileAdmin from './pages/VistaClientesProfileAdmin';
 
 
@@ -22,7 +23,10 @@ function App() {
         
         <Route path='/empresa/registrar-empresa' element={<ShowRegistrarEmpresas />} />
         <Route path='/empresa/registrar-empresa/create' element={ <CreateRegistrarEmpresa/>}/>
-        <Route path='/home' element={<VistaClientesProfileAdmin/>} />
+        
+        <Route path='/home' element={<VistaClientesAdmin/>} />
+        <Route path='/users/:id' element={<VistaClientesProfileAdmin/>}/>
+
 
       </Routes>
     </Router>
@@ -50,4 +54,7 @@ function App() {
   );
 }
 //<button className='btn btn-primary'>Crear</button>
-export default App;*/
+export default App;
+
+
+<Route path='/home' element={<VistaClientesAdmin/>} />*/

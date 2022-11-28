@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 import { todosClientes} from '../funciones/FuncionesClienteAdmin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,7 +24,7 @@ const VistaClientesAdmin = () => {
     const [Clientes, setClientes] = useState([]);
 
     useEffect(() => {
-        todosClientes(setClientes)
+        todosClientes(setClientes);
     },[])
 
     const deleteRegistrarClientes = async (id) =>{
@@ -72,7 +72,9 @@ const VistaClientesAdmin = () => {
                     </td>
                     <td>
                         <Button onClick={switchShown}>
-                            {shown ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
+                            <Link to={`/users/${Clientes.id}`} className="bg-teal-600 text-white px-6 py-2 rounded-lg">
+                                <FontAwesomeIcon icon={faEye}/>
+                            </Link>
                         </Button>{" "}
                         <Button color="primary" >
                             <FontAwesomeIcon icon={faEdit}/>
