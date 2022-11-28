@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './VistaClientesProfileAdmin.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import imagenUser from './userImage.jpg';
 
 const VistaClientesProfileAdmin = () => {
 
@@ -20,7 +21,7 @@ const VistaClientesProfileAdmin = () => {
         <div className='col-md-7'>
             <div className='card p-3 py-4'>
                 <div className='text-center'>
-                    <img src='userImage.jpg' width="100" class="rounded-circle"/>
+                    <img src={imagenUser} className="rounded-circle"/>
                 </div>
                 <div className='text-center mt-3'>
                     <span className='bg-secondary p-1 px-4 rounded text-white'>Usuario</span>
