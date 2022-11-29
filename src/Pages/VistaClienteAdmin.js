@@ -76,7 +76,7 @@ const VistaClientesAdmin = () => {
                     <td>{Clientes.contraseña}
                     </td>
                     <td>
-                    <Link to={`/cliente/cliente/VisualizarCliente/${Clientes.id}`} className='btn btn-success'>
+                    <Link to={`/cliente/cliente/VistaClientesProfileAdmin/${Clientes.id}`} className='btn btn-success'>
                             <FontAwesomeIcon icon={faEye}/>
                         </Link>
                             <Link to={`/cliente/cliente/EditarCliente/${Clientes.id}`} className='btn btn-warning'>

@@ -10,7 +10,6 @@ import imagenUser from '../userImage.jpg';
 const VistaClientesProfileAdmin = () => {
 
     const { id } = useParams();
-
     const [Clientes, setClientes] = useState([]);
     
     useEffect(() => {
@@ -29,18 +28,19 @@ const VistaClientesProfileAdmin = () => {
                 <div className='text-center'>
                     <img src={imagenUser} className="rounded-circle"/>
                 </div>
+                
                 <div className='text-center mt-3'>
                     <span className='bg-secondary p-1 px-4 rounded text-white'>Usuario</span>
-                    <h5 class="mt-2">{Clientes.nombre} {""} {Clientes.apellido} </h5>
+                    <h5 class="mt-2">{Clientes.nombre} {""} {Clientes.apellido} </h5>              
                         <div className='card-block'>
-                          <h6 className='m-b-20 p-b-5 b-b-default f-w-600'>InformaciÃ³n</h6>
+                          <h6 className='m-b-20 p-b-5 b-b-default f-w-600'>Información</h6>
                           <div className='row'>
                               <div className='col-sm-6'>
                                   <p className='m-b-10 f-w-600'>Edad</p>
                                   <h6 className='text-muted f-w-400'>{Clientes.edad}</h6>
                               </div>
                               <div className='col-sm-6'>
-                                  <p className='m-b-10 f-w-600'>DirecciÃ³n</p>
+                                  <p className='m-b-10 f-w-600'>Dirección</p>
                                   <h6 className='text-muted f-w-400'>{Clientes.direccion}</h6>
                               </div>
                               <div className='col-sm-6'>
