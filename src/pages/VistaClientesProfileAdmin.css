@@ -23,6 +23,7 @@
 
 .text-center{
     background-color: #BDD6DA;
+    
 }
 .px-4{
     background-color: #BDD6DA;
@@ -71,23 +72,27 @@
     padding:10px;
     color:#2A5865 ;
     font-size:19px;
+
 }
 /*Otro*/
 .card-block {
     padding: 1.25rem;
-    border-radius: 8px;
-} 
+    border-radius: 8px; 
+    background-origin: border-box;
+    background-color: #F0EDE8;
+}
+.card-block .row{
+    background-color: #F0EDE8;
+}
+.col-sm-6{
+    background-color: #F0EDE8;
+}
+
 h6 {
     font-size: 14px;
 }
 .card .card-block p {
-    line-height: 25px;
-}
-.card-block {
-    padding: 1.25rem;
-}
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0;
+    line-height: 25px;   
 }
 .m-b-20 {
     margin-bottom: 20px;

@@ -35,9 +35,10 @@ const VistaClientesProfileAdmin = () => {
                 </div>
                 <div className='text-center mt-3'>
                     <span className='bg-secondary p-1 px-4 rounded text-white'>Usuario</span>
-                    <h5 class="mt-2">{Clientes.nombre} {""} {Clientes.apellido} </h5>
+                    <h5 class='mt-2'>{Clientes.nombre} {""} {Clientes.apellido} </h5>
                         <div className='card-block'>
-                          <h6 className='m-b-20 p-b-5 b-b-default f-w-600'>Información</h6>
+                          <div className='card-blockFi'>
+                          <h6 className='m-b-20 p-b-5 b-b-default f-w-600'>Informción</h6>
                           <div className='row'>
                               <div className='col-sm-6'>
                                   <p className='m-b-10 f-w-600'>Edad</p>
@@ -67,6 +68,7 @@ const VistaClientesProfileAdmin = () => {
                                   <p className='m-b-10 f-w-600'>Email</p>
                                   <h6 className='text-muted f-w-400'>{Clientes.email}</h6>
                               </div>
+                          </div>
                           </div>
                         </div>
 

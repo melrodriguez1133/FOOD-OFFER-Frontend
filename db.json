@@ -1,45 +1,54 @@
 {
-  "Empresas": [
+  "Clientes": [
     {
       "id": 1,
-      "nombreEmpresa": "Vivian",
-      "tipoNegocioE": "Espindola",
-      "horariosAtencion": "08:00 - 12:00",
-      "diasAtencion": "Lunes a Viernes",
-      "numeroCelular": 73760951,
-      "numeroTelefono": 4471903,
+      "nombre": "Vivian",
+      "apellido":"Espindola",
+      "edad":20,
       "direccion": "Enrique Arce calle #8",
-      "correoEmpresa": "vivianespindola29@gmail.com"
+      "celular": 73760951,
+      "genero": "Femenino",
+      "ci": 4471903,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "jsjsj"
     },{
       "id": 2,
-      "nombreEmpresa": "Melani",
-      "tipoNegocioE": "Espinjjdola",
-      "horariosAtencion": "08:00 - 12:00",
-      "diasAtencion": "Lunes a Viernes",
-      "numeroCelular": 73760951,
-      "numeroTelefono": 4471903,
+      "nombre": "Vivian",
+      "apellido":"Espindola",
+      "edad":20,
       "direccion": "Enrique Arce calle #8",
-      "correoEmpresa": "vivianespindola29@gmail.com"
+      "celular": 73760951,
+      "genero": "Femenino",
+      "ci": 4471903,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "jsjsj"
     },{
       "id": 3,
-      "nombreEmpresa": "Mayte Mejia COOo",
-      "tipoNegocioE": "Espindola",
-      "horariosAtencion": "08:00 - 12:00",
-      "diasAtencion": "Lunes a Viernes",
-      "numeroCelular": 73760951,
-      "numeroTelefono": 4471903,
+      "nombre": "Vivian",
+      "apellido":"Espindola",
+      "edad":20,
       "direccion": "Enrique Arce calle #8",
-      "correoEmpresa": "vivianespindola29@gmail.com"
+      "celular": 73760951,
+      "genero": "Femenino",
+      "ci": 4471903,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "jsjsj"
     },{
       "id": 4,
-      "nombreEmpresa": "Christian Gym",
-      "tipoNegocioE": "Espindola",
-      "horariosAtencion": "08:00 - 12:00",
-      "diasAtencion": "Lunes a Viernes",
-      "numeroCelular": 73760951,
-      "numeroTelefono": 4471903,
+      "nombre": "Vivian",
+      "apellido":"Espindola",
+      "edad":20,
       "direccion": "Enrique Arce calle #8",
-      "correoEmpresa": "vivianesnhndola29@gmail.com"
+      "celular": 73760951,
+      "genero": "Femenino",
+      "ci": 4471903,
+      "expedido": "Cbba",
+      "email": "vivianespindola29@gmail.com",
+      "contraseña": "jsjsj"
     }
   ]
 }
+
