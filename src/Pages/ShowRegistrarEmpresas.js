@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from "react-router-dom"
-import {  Table,  Button,  Container} from "reactstrap";
+import {  Table,  Container} from "reactstrap";
 import  './ShowRegistrarEmpresas.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt,faEye} from '@fortawesome/free-solid-svg-icons';
