@@ -235,7 +235,7 @@ const RegistroEmpresa = () => {
 				</MensajeError>}
 				
 				<ContenedorBotonCentrado>
-				<Link to="/cliente" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
+				<Link to="/clientes" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' >Registrar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

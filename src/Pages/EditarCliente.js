@@ -70,7 +70,7 @@ const EditRegistroEmpresa = () => {
             email: email.campo,
 			password:password.campo
         })
-        navigate('/cliente')
+        navigate('/clientes')
 
         if(
 			nombre.valido === 'true' &&
@@ -254,7 +254,7 @@ const EditRegistroEmpresa = () => {
 					</p>
 				</MensajeError>}
 				<ContenedorBotonCentrado>
-				<Link to={`/cliente`} className='btn btn-warning'>Cancelar</Link>
+				<Link to={`/clientes`} className='btn btn-warning'>Cancelar</Link>
                 <Boton type='submit' className='btn btn-primary'>Guardar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
