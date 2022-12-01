@@ -10,6 +10,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import { IconName } from "react-icons/io5";
+import { useNavigate, useParams } from "react-router-dom";
 
 const RegistroEmpresa = () => {
     
@@ -29,6 +30,7 @@ const RegistroEmpresa = () => {
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
 	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
+    const navigate = useNavigate()
 
 	const expresiones = {
 		nombres: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
@@ -59,7 +61,7 @@ const RegistroEmpresa = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-
+        navigate('/cliente')
 		if(
 			nombres.valido === 'true' &&
             apellidos.valido === 'true' &&
@@ -100,7 +102,7 @@ const RegistroEmpresa = () => {
 			}
 	
 			console.log(inputsT);
-			fetch('http://127.0.0.1:8000/api/Usuario', {
+			fetch('https://food-offer-backend-production.up.railway.app/api/Usuario', {
 				method: "POST",
 				headers:{
 					"Content-Type":"application/json"
@@ -238,7 +240,7 @@ const RegistroEmpresa = () => {
 				</MensajeError>}
 				
 				<ContenedorBotonCentrado>
-				<Link to="/" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
+				<Link to="/cliente" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' >Registrar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

@@ -14,7 +14,7 @@ const EditRegistroEmpresa = () => {
     
 	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
-    const endpoint = 'http://127.0.0.1:8000/api/Usuario/'
+    const endpoint = 'https://food-offer-backend-production.up.railway.app/api/Usuario/'
 	//'https://isbackend-production.up.railway.app/api/registrarEmpresas/'
 
 	const [nombre, cambiarNombres] = useState({campo: '', valido: null});
@@ -70,7 +70,7 @@ const EditRegistroEmpresa = () => {
             email: email.campo,
 			password:password.campo
         })
-        navigate('/empresa/empresa')
+        navigate('/cliente')
 
         if(
 			nombre.valido === 'true' &&
@@ -254,7 +254,7 @@ const EditRegistroEmpresa = () => {
 					</p>
 				</MensajeError>}
 				<ContenedorBotonCentrado>
-				<Link to={`/empresa/empresa`} className='btn btn-warning'>Cancelar</Link>
+				<Link to={`/cliente`} className='btn btn-warning'>Cancelar</Link>
                 <Boton type='submit' className='btn btn-primary'>Guardar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

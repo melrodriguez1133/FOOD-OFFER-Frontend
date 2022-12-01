@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useParams } from "react-router-dom";
 import { faEdit, faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import imagenUser from '../userImage.jpg';
+import * as RiIcons from 'react-icons/ri';
 
 const VisualizarEmpresa = () => {
 
@@ -69,8 +70,8 @@ const VisualizarEmpresa = () => {
                               </div>
                           </div>
                         </div>
-
-                     <ul className='social-list'>
+					<Link id="return" to="/empresas" className='btn btn-success btn-lg mt-2 mb-2 text-white'><RiIcons.RiArrowGoBackFill/></Link>
+                    <ul className='social-list'>
                         <li><FontAwesomeIcon icon={faLocationDot}/></li>
                         <li><FontAwesomeIcon icon={faEnvelope}/></li>
                         <li><FontAwesomeIcon icon={faPhone}/></li>

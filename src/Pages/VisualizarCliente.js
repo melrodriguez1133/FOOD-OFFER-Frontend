@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {Link} from "react-router-dom"
 import './EditRegistrarEmpresa.css';    
 
+import * as RiIcons from 'react-icons/ri';
 import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../Funciones/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +15,7 @@ const EditRegistroEmpresa = () => {
     
 	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
-    const endpoint = 'http://127.0.0.1:8000/api/Usuario/'
+    const endpoint = 'https://food-offer-backend-production.up.railway.app/api/Usuario/'
 	//'https://isbackend-production.up.railway.app/api/registrarEmpresas/'
 
 	const [nombre, cambiarNombres] = useState({campo: '', valido: null});
@@ -228,7 +229,7 @@ const EditRegistroEmpresa = () => {
 						<b>Error:</b> todos los campos son obligatorios ,se debe rellena el formulario correctamente.
 					</p>
 				</MensajeError>}
-				
+				<Link id="return" to="/clientes" className='btn btn-success btn-lg mt-2 mb-2 text-white'><RiIcons.RiArrowGoBackFill/></Link>
 				
 			</Formulario>
 		</main>

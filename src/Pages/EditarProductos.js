@@ -56,7 +56,7 @@ const EditProduct = () => {
             stock: stock.campo,
             fechaOferta: fechaOferta.campo,
         })
-       navigate('/empresa/empresa')
+       navigate('/producto')
 
         if(
 			nombre.valido === 'true' &&
@@ -94,7 +94,7 @@ const EditProduct = () => {
     data.append('file',Imag.file, Imag.name);
 	data.append('product', JSON.stringify(inputsT));
     
-    fetch('https://isbackend-production.up.railway.app/api/Producto/', {
+    fetch('https://food-offer-backend-production.up.railway.app/api/Producto/', {
 				method: "POST",
 				body: data
 			})
@@ -249,7 +249,7 @@ const imageHandler = (e) => {
                 </MensajeError>
                 }   
 				<ContenedorBotonCentrado>
-				<Link to={`/empresa/productos-empresa`} className='btn btn-warning'>Cancelar</Link>
+				<Link to={`/producto`} className='btn btn-warning'>Cancelar</Link>
                 <Boton type='submit' className='btn btn-primary'>Confirmar</Boton>
                 <br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
