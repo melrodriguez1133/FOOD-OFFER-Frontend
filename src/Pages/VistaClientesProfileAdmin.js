@@ -13,7 +13,7 @@ const VistaClientesProfileAdmin = () => {
     const [Clientes, setClientes] = useState([]);
     
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/Usuario/${id}`).then((res) => {
+        axios.get(`https://food-offer-backend-production.up.railway.app/api/Usuario/${id}`).then((res) => {
           setClientes(res.data);
         });
       }, []);

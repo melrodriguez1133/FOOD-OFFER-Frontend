@@ -30,7 +30,7 @@ const VistaClientesAdmin = () => {
     const deleteRegistrarClientes = async (id) =>{
         var opcion = window.confirm("¿Estás Seguro que deseas Eliminar a este Usuario?");
         if (opcion === true) {
-            await axios.delete(`http://127.0.0.1:8000/api/Usuario/${id}`)
+            await axios.delete(`https://food-offer-backend-production.up.railway.app/api/Usuario/${id}`)
             todosClientes()
             window.location.reload();
         }
