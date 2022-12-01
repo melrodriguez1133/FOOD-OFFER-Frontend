@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt , faEye} from '@fortawesome/free-solid-svg-icons';
 /*import './VistaProductoEmpresa.css';*/
-import {  Table,  Button,  Container} from "reactstrap";
+import {  Table,  Container} from "reactstrap";
 
 const VistaClientesAdmin = () => {
 

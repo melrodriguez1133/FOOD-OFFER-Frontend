@@ -25,7 +25,7 @@ const RegistroProducto = () => {
 	const [fechaLimite, cambiarFechaLimite] = useState({campo: '', valido: null});
 	const [Imag, cambiarImag] = useState({});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
 
 	const expresiones = {
 		nombre: /^[a-zA-ZÀ-ÿ0-9\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.

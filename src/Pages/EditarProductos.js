@@ -8,11 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as RiIcons from 'react-icons/ri';
-import { IconName } from "react-icons/io5";
 
 
 const EditProduct = () => {
