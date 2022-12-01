@@ -123,7 +123,7 @@ const EditRegistroEmpresa = () => {
             cambiarGenero((obj)=>({...obj, campo:response.data.genero}))
             cambiarCi((obj)=>({...obj, campo:response.data.ci}))
             cambiarExpedido((obj)=>({...obj, campo:response.data.expedido}))
-			cambiarEmail((obj)=>({...obj, campo:response.data.password}))
+			cambiarEmail((obj)=>({...obj, campo:response.data.email}))
 			cambiarPassword((obj)=>({...obj, campo:response.data.password}))
             cambiarPassword2((obj)=>({...obj, campo:response.data.password}))
         }
