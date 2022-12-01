@@ -62,11 +62,11 @@ const EditRegistroEmpresa = () => {
             nombre: nombre.campo,
             apellido: apellido.campo,
             edad: edad.campo,
+			direccion: direccion.campo,
+			celular: celular.campo,
             genero: genero.campo,
             ci:ci.campo,
-            celular: celular.campo,
             expedido: expedido.campo,
-            direccion: direccion.campo,
             email: email.campo,
 			password:password.campo
         })
@@ -76,11 +76,11 @@ const EditRegistroEmpresa = () => {
 			nombre.valido === 'true' &&
             apellido.valido === 'true' &&
 			edad.valido === 'true' &&
+			direccion.valido === 'true' &&
+			celular.valido === 'true' &&
 			genero.valido === 'true' &&
 			ci.valido === 'true' &&
-			celular.valido === 'true' &&
 			expedido.valido === 'true' &&
-			direccion.valido === 'true' &&
             email.valido === 'true' &&
 			password.valido === 'true' &&
 			password2.valido === 'true'
@@ -102,11 +102,11 @@ const EditRegistroEmpresa = () => {
 				nombre:nombre.campo,
                 apellido:apellido.campo,
 				edad:Number(edad.campo),
+				direccion:direccion.campo,
+				celular:Number(celular.campo),
 				genero:genero.campo,
 				ci:Number(ci.campo),
-				celular:Number(celular.campo),
 			    expedido:expedido.campo,
-				direccion:direccion.campo,
                 email:email.campo,
 				password:password.campo
 	}
@@ -118,11 +118,11 @@ const EditRegistroEmpresa = () => {
             cambiarNombres((obj)=>({...obj, campo:response.data.nombre}))
             cambiarApellidos((obj)=>({...obj, campo:response.data.apellido}))
             cambiarEdad((obj)=>({...obj, campo:response.data.edad}))
-            cambiarDireccion((obj)=>({...obj, campo:response.data.genero}))
+            cambiarDireccion((obj)=>({...obj, campo:response.data.direccion}))
             cambiarNumeroCelular((obj)=>({...obj, campo:response.data.celular}))
-            cambiarGenero((obj)=>({...obj, campo:response.data.ci}))
-            cambiarCi((obj)=>({...obj, campo:response.data.expedido}))
-            cambiarExpedido((obj)=>({...obj, campo:response.data.email}))
+            cambiarGenero((obj)=>({...obj, campo:response.data.genero}))
+            cambiarCi((obj)=>({...obj, campo:response.data.ci}))
+            cambiarExpedido((obj)=>({...obj, campo:response.data.expedido}))
 			cambiarEmail((obj)=>({...obj, campo:response.data.password}))
 			cambiarPassword((obj)=>({...obj, campo:response.data.password}))
             cambiarPassword2((obj)=>({...obj, campo:response.data.password}))
@@ -139,19 +139,19 @@ const EditRegistroEmpresa = () => {
 					estado={nombre}
 					cambiarEstado={cambiarNombres}
 					tipo="text"
-					label="Nombre de la Empresa*"
-					placeholder="Ingrese el nombre de su Empresa"
-					name="empresa"
-					leyendaError="El campo solo puede contener datos alfabeticos y espacios"
+					label="Nombres*"
+					placeholder="Ingrese sus nombres"
+					name="nombres"
+					leyendaError="El campo solo puede contener entre 3 a 30 letras y datos alfabeticos"
 					expresionRegular={expresiones.nombre}
 				/>
                 <Input
 					estado={apellido}
 					cambiarEstado={ cambiarApellidos }
 					tipo="text"
-					label="Tipo de Negocio*"
-					placeholder="Ingrese el tipo de negocio"
-					name="tipoNegocio"
+					label="Apellidos*"
+					placeholder="ingrese sus apellidos"
+					name="apellidos"
 					leyendaError="El campo solo puede contener datos alfabeticos y espacios"
 					expresionRegular={expresiones.apellido}
 				/>
@@ -160,20 +160,20 @@ const EditRegistroEmpresa = () => {
 					estado={edad}
 					cambiarEstado={ cambiarEdad }
 					tipo="text"
-					label="Descripcion*"
-					placeholder="Inserte una edad"
+					label="Edad*"
+					placeholder="Inserte su edad"
 					name="edad"
-					leyendaError="La edad solo puede contener datos alfanumericos y espacios,ademas comas y puntos"
+					leyendaError="La descripcion solo puede contener datos numericos"
 					expresionRegular={expresiones.edad}
 				/>
 				<Input
 					estado={direccion}
 					cambiarEstado={cambiarDireccion}
 					tipo="text"
-					label="Horarios de Atencion*"
-					placeholder="Ingrese en el formato HH:MM-HH:MM"
-					name="genero"
-					leyendaError="Solo es valido un dato tipo hora HH:MM-HH:MM"
+					label="Direccion*"
+					placeholder="Ingrese la direccion de su empresa"
+					name="direccion"
+					leyendaError="Dato no valido solo se admiten datos alfanumericos"
 					expresionRegular={expresiones.direccion}
 				/>
                 <Input
@@ -190,10 +190,10 @@ const EditRegistroEmpresa = () => {
 					estado={genero}
 					cambiarEstado={cambiarGenero}
 					tipo="text"
-					label="Dias de Atencion*"
-					placeholder="Ingrese los dias de atencion"
-					name="ci"
-					leyendaError="solo es valido con datos alfabeticos "
+					label="Genero*"
+					placeholder="Femenino o Masculino"
+					name="genero"
+					leyendaError="solo se admiten datos alfabeticos "
 					expresionRegular={expresiones.genero}
 				/>
 				
@@ -201,30 +201,30 @@ const EditRegistroEmpresa = () => {
 					estado={ci}
 					cambiarEstado={cambiarCi}
 					tipo="text"
-					label="Numero de Telefono*"
-					placeholder="0000000"
-					name="telefono"
-					leyendaError="Dato no valido, solo debe ingresar el numero de telefono de 7 digitos"
+					label="Ci*"
+					placeholder="ingrese el nro de su carnet de identidad"
+					name="ci"
+					leyendaError="solo es valido datos numericos "
 					expresionRegular={expresiones.ci}
 				/>
 				<Input
 					estado={expedido}
 					cambiarEstado={cambiarExpedido }
 					tipo="text"
-					label="Correo Electronico*"
-					placeholder="ejemplo@gmail.com"
-					name="correo"
-					leyendaError="Solo es valido un dato tipo correo: ejemplo@gmail.com "
+					label="Expedido*"
+					placeholder="ingrese donde fue expedido su ci"
+					name="expedido"
+					leyendaError="solo se admiten datos alfabeticos"
 					expresionRegular={expresiones.expedido}
 				/>
                 <Input
 					estado={email}
 					cambiarEstado={cambiarEmail}
-					placeholder="Repita la contraseña"
-					tipo="password"
-					label="Repetir Contraseña*"
-					name="password2"
-					leyendaError="Ambas contraseñas deben ser iguales."
+					tipo="text"
+					label="Correo Electronico*"
+					placeholder="ejemplo@gmail.com "
+					name="correo"
+					leyendaError="solo es valido un dato tipo correo ejemplo@gmail.com "
 					funcion={expresiones.email}
 				/>
 				<Input
