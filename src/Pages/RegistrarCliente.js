@@ -102,7 +102,8 @@ const RegistroEmpresa = () => {
 			}
 	
 			console.log(inputsT);
-			fetch('https://food-offer-backend-production.up.railway.app/api/Usuario', {
+
+			fetch('https://food-offer-backend-production.up.railway.app/api/Usuario/', {
 				method: "POST",
 				headers:{
 					"Content-Type":"application/json"
