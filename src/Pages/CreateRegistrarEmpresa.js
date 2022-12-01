@@ -14,7 +14,7 @@ import { IconName } from "react-icons/io5";
 
 const RegistroEmpresa = () => {
     
-	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
+	//const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/registrarEmpresas");
 	//console.log(products);
 
 
@@ -103,7 +103,7 @@ const RegistroEmpresa = () => {
 	
 
 			console.log(inputsT);
-			fetch('http://127.0.0.1:8000/api/registrarEmpresas', {
+			fetch('https://food-offer-backend-production.up.railway.app/api/registrarEmpresas/', {
 				method: "POST",
 				headers:{
 					"Content-Type":"application/json"

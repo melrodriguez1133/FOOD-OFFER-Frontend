@@ -17,9 +17,9 @@ import { IconName } from "react-icons/io5";
 
 const EditProduct = () => {
 
-	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
+	const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/Categoria");
 	//console.log(products);
-    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto/'
+    const endpoint = 'https://food-offer-backend-production.up.railway.app/api/Producto/'
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});

@@ -6,7 +6,7 @@ import  './ShowRegistrarEmpresas.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt,faEye} from '@fortawesome/free-solid-svg-icons';
 
-const endpoint = 'http://127.0.0.1:8000/api'
+const endpoint = 'https://food-offer-backend-production.up.railway.app/api'
 //'https://isbackend-production.up.railway.app/api'
 
 const ShowRegistrarEmpresas = () => {
