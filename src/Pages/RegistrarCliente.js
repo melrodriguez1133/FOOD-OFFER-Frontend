@@ -3,13 +3,7 @@ import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
-import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as RiIcons from 'react-icons/ri';
-import { IconName } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 
 const RegistroEmpresa = () => {
@@ -61,7 +55,7 @@ const RegistroEmpresa = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-        navigate('/cliente')
+        //navigate('/cliente')
 		if(
 			nombres.valido === 'true' &&
             apellidos.valido === 'true' &&

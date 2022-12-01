@@ -56,7 +56,7 @@ const EditProduct = () => {
             stock: stock.campo,
             fechaOferta: fechaOferta.campo,
         })
-       navigate('/producto')
+       navigate('/productos')
 
         if(
 			nombre.valido === 'true' &&
@@ -249,7 +249,7 @@ const imageHandler = (e) => {
                 </MensajeError>
                 }   
 				<ContenedorBotonCentrado>
-				<Link to={`/producto`} className='btn btn-warning'>Cancelar</Link>
+				<Link to={`/productos`} className='btn btn-warning'>Cancelar</Link>
                 <Boton type='submit' className='btn btn-primary'>Confirmar</Boton>
                 <br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

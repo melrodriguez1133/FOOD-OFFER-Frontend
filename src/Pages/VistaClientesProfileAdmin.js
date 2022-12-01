@@ -3,8 +3,8 @@ import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './VistaClientesProfileAdmin.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useParams } from "react-router-dom";
-import { faEdit, faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import {useParams } from "react-router-dom";
+import {faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import imagenUser from '../userImage.jpg';
 
 const VistaClientesProfileAdmin = () => {

@@ -5,17 +5,13 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
-import { IconName } from "react-icons/io5";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 //import { IconName } from "react-icons/ri";
 
 const RegistroProducto = () => {
     
-	const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/Categoria");
+	const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/Categoria/");
 	//console.log(products);
 
 
@@ -43,7 +39,7 @@ const RegistroProducto = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-        navigate('/productos')
+        //navigate('/productos')
 		if(
 			nombre.valido === 'true' &&
 			descripcion.valido === 'true' &&

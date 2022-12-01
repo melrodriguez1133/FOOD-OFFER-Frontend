@@ -4,9 +4,9 @@ import {Link} from "react-router-dom"
 import { todosClientes} from '../Funciones/FuncionesClienteAdmin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt , faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt , faEye} from '@fortawesome/free-solid-svg-icons';
 /*import './VistaProductoEmpresa.css';*/
-import {  Table,  Button,  Container,  Modal,  ModalHeader,  ModalBody,  FormGroup,  ModalFooter,} from "reactstrap";
+import {  Table,  Button,  Container} from "reactstrap";
 
 const VistaClientesAdmin = () => {
 
