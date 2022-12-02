@@ -2,13 +2,18 @@ import React, {useState} from 'react';
 import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} from '../Funciones/Formularios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-//import { useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom"
+import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
+import * as RiIcons from 'react-icons/ri';
+import { IconName } from "react-icons/io5";
 
 const RegistroEmpresa = () => {
     
-	//const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/registrarEmpresas");
+	//const [products]=useFetch("http://127.0.0.1:8000/api/registrarEmpresas");
 	//console.log(products);
 
 
@@ -21,10 +26,7 @@ const RegistroEmpresa = () => {
 	const [numeroTelefono, cambiarNumeroTelefono] = useState({campo: '', valido: null});
 	const [direccion, cambiarDireccion] = useState({campo: '', valido: null});
     const [correoEmpresa, cambiarCorreoEmpresa] = useState({campo: '', valido: null});
-	const [password, cambiarPassword] = useState({campo: '', valido: null});
-	const [password2, cambiarPassword2] = useState({campo: '', valido: null});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
-	//const navigate = useNavigate();
 
 	const expresiones = {
 		nombreEmpresa: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
@@ -36,21 +38,6 @@ const RegistroEmpresa = () => {
         numeroTelefono:/^[0-9]{7}$/,//Solo admite telefono deben empezar con 4
         direccion:/^[a-zA-Z0-9\s#.,]{12,100}$/,//solo admite numeros,letras y espacio #.,
         correoEmpresa: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
-		password: /^.{4,12}$/, // 4 a 12 digitos.
-	}
-
-	const validarPassword2 = () => {
-		if(password.campo.length > 0){
-			if(password.campo !== password2.campo){
-				cambiarPassword2((prevState) => {
-					return {...prevState, valido: 'false'}
-				});
-			} else {
-				cambiarPassword2((prevState) => {
-					return {...prevState, valido: 'true'}
-				});
-			}
-		}
 	}
 
 	const onSubmit = (e) => {
@@ -65,9 +52,7 @@ const RegistroEmpresa = () => {
 			numeroCelular.valido === 'true' &&
 			numeroTelefono.valido === 'true' &&
 			direccion.valido === 'true' &&
-            correoEmpresa.valido === 'true' &&
-			password.valido === 'true' &&
-			password2.valido === 'true' 
+            correoEmpresa.valido === 'true'
 		){
 			cambiarFormularioValido(true);
 			cambiarNombreEmpresa({campo: '', valido: null});
@@ -79,8 +64,6 @@ const RegistroEmpresa = () => {
 			cambiarNumeroTelefono({campo: '', valido: null});
 			cambiarDireccion({campo: '', valido: null});
             cambiarCorreoEmpresa({campo: '', valido: null});
-			cambiarPassword({campo: '', valido: null});
-			cambiarPassword2({campo: '', valido: 'null'});
 
             const inputsT ={
 				nombreEmpresa:nombreEmpresa.campo,
@@ -91,13 +74,12 @@ const RegistroEmpresa = () => {
 				numeroCelular:Number(numeroCelular.campo),
 			    numeroTelefono:Number(numeroTelefono.campo),
 				direccion:direccion.campo,
-                correoEmpresa:correoEmpresa.campo,
-				password:password.campo
+                correoEmpresa:correoEmpresa.campo
+				
 			}
 	
-
 			console.log(inputsT);
-			fetch('https://food-offer-backend-production.up.railway.app/api/registrarEmpresas/', {
+			fetch('https://isbackend-production.up.railway.app/api/registrarEmpresas', {
 				method: "POST",
 				headers:{
 					"Content-Type":"application/json"
@@ -110,7 +92,6 @@ const RegistroEmpresa = () => {
 			cambiarFormularioValido(false);
 					
 		}
-	//	navigate('/empresas')
 	}
 
 	return (
@@ -208,26 +189,6 @@ const RegistroEmpresa = () => {
 					leyendaError="solo es valido un dato tipo correo ejemplo@gmail.com "
 					expresionRegular={expresiones.correoEmpresa}
 				/>
-				<Input
-					estado={password}
-					cambiarEstado={cambiarPassword}
-					placeholder="Ingrese una contraseña"
-					tipo="password"
-					label="Contraseña*"
-					name="password1"
-					leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
-					expresionRegular={expresiones.password}
-				/>
-				<Input
-					estado={password2}
-					cambiarEstado={cambiarPassword2}
-					placeholder="Repita la contraseña"
-					tipo="password"
-					label="Repetir Contraseña*"
-					name="password2"
-					leyendaError="Ambas contraseñas deben ser iguales."
-					funcion={validarPassword2}
-				/>
 				{formularioValido === false && <MensajeError>
 					<p>
 						<FontAwesomeIcon icon={faExclamationTriangle}/>
@@ -236,7 +197,7 @@ const RegistroEmpresa = () => {
 				</MensajeError>}
 				
 				<ContenedorBotonCentrado>
-				<Link to="/empresas" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
+				<Link to="/" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' >Registrar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

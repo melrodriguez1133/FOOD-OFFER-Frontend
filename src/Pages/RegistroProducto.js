@@ -5,13 +5,16 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
-import { useNavigate} from "react-router-dom";
+import { IconName } from "react-icons/io5";
 //import { IconName } from "react-icons/ri";
 
 const RegistroProducto = () => {
     
-	const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/Categoria/");
+	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
 
 
@@ -25,7 +28,6 @@ const RegistroProducto = () => {
 	const [fechaLimite, cambiarFechaLimite] = useState({campo: '', valido: null});
 	const [Imag, cambiarImag] = useState({});
 	const [formularioValido, cambiarFormularioValido] = useState(null);
-    //const navigate = useNavigate()
 
 	const expresiones = {
 		nombre: /^[a-zA-ZÀ-ÿ0-9\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
@@ -39,7 +41,7 @@ const RegistroProducto = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-        //navigate('/productos')
+
 		if(
 			nombre.valido === 'true' &&
 			descripcion.valido === 'true' &&
@@ -75,7 +77,7 @@ const RegistroProducto = () => {
 			data.append('file',Imag.file, Imag.name);
 			data.append('product', JSON.stringify(inputsT));
 
-			fetch('https://food-offer-backend-production.up.railway.app/api/Producto', {
+			fetch('https://isbackend-production.up.railway.app/api/Producto', {
 				method: "POST",
 				body: data
 			})
@@ -226,12 +228,12 @@ const RegistroProducto = () => {
 				</MensajeError>}
 				
 				<ContenedorBotonCentrado>
-				<Link to="/productos" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
+				<Link to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Cancelar</Link>
 				<Boton type='submit' className='btn btn-success btn-lg mt-2 mb-2 text-white' >Registrar</Boton>
 				<br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }
 				</ContenedorBotonCentrado>
-				<Link id="return" to="/productos" className='btn btn-success btn-lg mt-2 mb-2 text-white'><RiIcons.RiArrowGoBackFill/></Link>
+				<Link id="return" to="/empresa/productos-empresa" className='btn btn-success btn-lg mt-2 mb-2 text-white'><RiIcons.RiArrowGoBackFill/></Link>
 			</Formulario>
 		</main>
 	);
