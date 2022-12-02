@@ -33,6 +33,7 @@ const EditRegistroEmpresa = () => {
     const {id} = useParams()
 
     const expresiones = {
+		
 		nombre: /^[a-zA-ZÀ-ÿ\s]{3,30}$/, // Letras y espacios, pueden llevar acentos.
         apellido: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
         edad:/^[0-9]{2}$/,//solo admite edades de 2 digitos
