@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import { todosProductos } from '../Funciones/funciones';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt ,faEye} from '@fortawesome/free-solid-svg-icons';
 import {  Table,  Button,  Container} from "reactstrap";
 
 const VistaProductosEmpresa = () => {
@@ -18,7 +18,7 @@ const VistaProductosEmpresa = () => {
     const deleteRegistrarEmpresas = async (id) =>{
         var opcion = window.confirm("¿Estás Seguro que deseas Eliminar este producto?");
         if (opcion === true) {
-            await axios.delete(`https://isbackend-production.up.railway.app/api/Producto/${id}`)
+            await axios.delete(`https://food-offer-backend-production.up.railway.app/api/Producto/${id}`)
             todosProductos()
             window.location.reload();
         }
@@ -36,7 +36,7 @@ const VistaProductosEmpresa = () => {
                 <thead>
                 <tr>
                     <th>Nombre del Producto</th>
-                    <th>Descipcion</th>
+                    <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
                 </tr>
@@ -50,6 +50,7 @@ const VistaProductosEmpresa = () => {
                     <td>{Productos.precio}</td>
                     <td>{Productos.stock}</td>
                     <td>
+            
                         <Link to={`/empresa/productos-empresa/EditarProducto/${Productos.id}`} className='btn btn-success'>
                             <FontAwesomeIcon icon={faEdit}/>
                         </Link>
