@@ -8,13 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import useFetch from '../Hooks/useFetch';
 import Input from '../Componentes/Input';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
+import * as RiIcons from 'react-icons/ri';
+import { IconName } from "react-icons/io5";
 
 
 const EditProduct = () => {
 
-	const [products]=useFetch("https://food-offer-backend-production.up.railway.app/api/Categoria");
+	const [products]=useFetch("https://isbackend-production.up.railway.app/api/Categoria");
 	//console.log(products);
-    const endpoint = 'https://food-offer-backend-production.up.railway.app/api/Producto/'
+    const endpoint = 'https://isbackend-production.up.railway.app/api/Producto/'
 
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [descripcion, cambiarDescripcion] = useState({campo: '', valido: null});
@@ -51,7 +56,7 @@ const EditProduct = () => {
             stock: stock.campo,
             fechaOferta: fechaOferta.campo,
         })
-       navigate('/productos')
+       navigate('/empresa/empresa')
 
         if(
 			nombre.valido === 'true' &&
@@ -89,7 +94,8 @@ const EditProduct = () => {
     data.append('file',Imag.file, Imag.name);
 	data.append('product', JSON.stringify(inputsT));
     
-    fetch('https://food-offer-backend-production.up.railway.app/api/Producto/', {
+    fetch('https://isbackend-production.up.railway.app/api/Producto/', {
+
 				method: "POST",
 				body: data
 			})
@@ -103,7 +109,7 @@ const [profileImage, setProfileImage] = useState(
     "https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-file-upload-icon-image_1344464.jpg"
   );
 
-const imageHandler = (e) => {
+  const imageHandler = (e) => {
     cambiarImag({
         file:e.target.files[0],
         name:e.target.files[0].name
@@ -244,7 +250,7 @@ const imageHandler = (e) => {
                 </MensajeError>
                 }   
 				<ContenedorBotonCentrado>
-				<Link to={`/productos`} className='btn btn-warning'>Cancelar</Link>
+				<Link to={`/empresa/productos-empresa`} className='btn btn-warning'>Cancelar</Link>
                 <Boton type='submit' className='btn btn-primary'>Confirmar</Boton>
                 <br></br>
 					{formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito> }

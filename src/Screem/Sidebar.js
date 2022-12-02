@@ -16,7 +16,6 @@ const Nav = styled.div`
   align-items: center;
   color: #F0EDE8;
   padding-right: 3%;
-	z-index: 1000;
 `;
 
 const NavIcon = styled(Link)`
@@ -26,7 +25,6 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-	z-index: 1000;
 `;
 
 const h1 = styled.nav`color: #red`;
