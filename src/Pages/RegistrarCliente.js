@@ -35,7 +35,7 @@ const RegistroEmpresa = () => {
         numeroCelular:/^[0-9]{8}$/,//Solo admite telefono deben empezar con 6 o 7
         ci:/^[0-9]{6,10}$/,//Solo admite telefono deben empezar con 4
 		expedido:/^[a-zA-Z]{3,15}$/,
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
+        correo: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
 		password: /^.{4,12}$/, // 4 a 12 digitos.
 	}
 

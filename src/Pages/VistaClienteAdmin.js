@@ -44,6 +44,7 @@ const VistaClientesAdmin = () => {
             <br />
              <h1>Clientes</h1>
             <br />
+            <Link to="/cliente/RegistrarCliente" className='btn btn-success'>Registrar Cliente</Link>
             <br />
             <Table >
                 <thead>

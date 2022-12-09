@@ -39,7 +39,7 @@ const EditRegistroEmpresa = () => {
         direccion:/^[a-zA-Z0-9\s#.,]{15,50}$/,//solo admite numeros,letras y espacio #.,
         celular:/^[0-9]{8}$/,//Solo admite telefono deben empezar con 6 o 7
         ci:/^[0-9]{6,10}$/,//Solo admite telefono deben empezar con 4
-        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
+        email:/^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,//solo admite correo electronico
 		password: /^.{4,12}$/, // 4 a 12 digitos.
 	}
     const validarPassword2 = () => {
